@@ -1,0 +1,4 @@
+#define STEER_BUILD_OS "Linux 5.15.153.1-microsoft-standard-WSL2"
+#define STEER_BUILD_ARCH "x86_64"
+#define STEER_BUILD_MULTI_THREADED_TESTS 0
+#define STEER_ENABLE_CONSOLE_LOGGING 0

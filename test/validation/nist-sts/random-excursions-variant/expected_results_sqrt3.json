@@ -1,0 +1,294 @@
+{
+    "expected results": {
+        "configurations": [
+            {
+                "configuration id": "1",
+                "tests": [
+                    {
+                        "test id": "1",
+                        "calculations": [
+                            {
+                                "name": "probability value",
+                                "data type": "double precision floating point",
+                                "precision": "6",
+                                "value": "0.379094"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "configuration id": "2",
+                "tests": [
+                    {
+                        "test id": "1",
+                        "calculations": [
+                            {
+                                "name": "probability value",
+                                "data type": "double precision floating point",
+                                "precision": "6",
+                                "value": "0.574799"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "configuration id": "3",
+                "tests": [
+                    {
+                        "test id": "1",
+                        "calculations": [
+                            {
+                                "name": "probability value",
+                                "data type": "double precision floating point",
+                                "precision": "6",
+                                "value": "0.616585"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "configuration id": "4",
+                "tests": [
+                    {
+                        "test id": "1",
+                        "calculations": [
+                            {
+                                "name": "probability value",
+                                "data type": "double precision floating point",
+                                "precision": "6",
+                                "value": "0.721501"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "configuration id": "5",
+                "tests": [
+                    {
+                        "test id": "1",
+                        "calculations": [
+                            {
+                                "name": "probability value",
+                                "data type": "double precision floating point",
+                                "precision": "6",
+                                "value": "0.697462"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "configuration id": "6",
+                "tests": [
+                    {
+                        "test id": "1",
+                        "calculations": [
+                            {
+                                "name": "probability value",
+                                "data type": "double precision floating point",
+                                "precision": "6",
+                                "value": "0.269151"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "configuration id": "7",
+                "tests": [
+                    {
+                        "test id": "1",
+                        "calculations": [
+                            {
+                                "name": "probability value",
+                                "data type": "double precision floating point",
+                                "precision": "6",
+                                "value": "0.082536"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "configuration id": "8",
+                "tests": [
+                    {
+                        "test id": "1",
+                        "calculations": [
+                            {
+                                "name": "probability value",
+                                "data type": "double precision floating point",
+                                "precision": "6",
+                                "value": "0.112630"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "configuration id": "9",
+                "tests": [
+                    {
+                        "test id": "1",
+                        "calculations": [
+                            {
+                                "name": "probability value",
+                                "data type": "double precision floating point",
+                                "precision": "6",
+                                "value": "0.155066"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "configuration id": "10",
+                "tests": [
+                    {
+                        "test id": "1",
+                        "calculations": [
+                            {
+                                "name": "probability value",
+                                "data type": "double precision floating point",
+                                "precision": "6",
+                                "value": "0.798247"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "configuration id": "11",
+                "tests": [
+                    {
+                        "test id": "1",
+                        "calculations": [
+                            {
+                                "name": "probability value",
+                                "data type": "double precision floating point",
+                                "precision": "6",
+                                "value": "0.719052"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "configuration id": "12",
+                "tests": [
+                    {
+                        "test id": "1",
+                        "calculations": [
+                            {
+                                "name": "probability value",
+                                "data type": "double precision floating point",
+                                "precision": "6",
+                                "value": "0.375650"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "configuration id": "13",
+                "tests": [
+                    {
+                        "test id": "1",
+                        "calculations": [
+                            {
+                                "name": "probability value",
+                                "data type": "double precision floating point",
+                                "precision": "6",
+                                "value": "0.414970"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "configuration id": "14",
+                "tests": [
+                    {
+                        "test id": "1",
+                        "calculations": [
+                            {
+                                "name": "probability value",
+                                "data type": "double precision floating point",
+                                "precision": "6",
+                                "value": "0.733238"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "configuration id": "15",
+                "tests": [
+                    {
+                        "test id": "1",
+                        "calculations": [
+                            {
+                                "name": "probability value",
+                                "data type": "double precision floating point",
+                                "precision": "6",
+                                "value": "0.791062"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "configuration id": "16",
+                "tests": [
+                    {
+                        "test id": "1",
+                        "calculations": [
+                            {
+                                "name": "probability value",
+                                "data type": "double precision floating point",
+                                "precision": "6",
+                                "value": "0.797183"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "configuration id": "17",
+                "tests": [
+                    {
+                        "test id": "1",
+                        "calculations": [
+                            {
+                                "name": "probability value",
+                                "data type": "double precision floating point",
+                                "precision": "6",
+                                "value": "0.788604"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "configuration id": "18",
+                "tests": [
+                    {
+                        "test id": "1",
+                        "calculations": [
+                            {
+                                "name": "probability value",
+                                "data type": "double precision floating point",
+                                "precision": "6",
+                                "value": "0.756576"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}

@@ -1,0 +1,22 @@
+{
+    "schedule": {
+        "schedule id": "directories test",
+        "test conductor": "Test scheduler",
+        "test notes": "This test exercises the directory form of the scheduler.",
+        "report level": "full",
+        "report progress": false,
+        "tests": [
+            {
+                "program name": "nist_sts_approximate_entropy_test",
+                "profiles": [
+                    {
+                        "profile id": "test",
+                        "inputs directory": "./data/",
+                        "parameters directory": "./test/multiple-bitstreams/nist-sts/approximate-entropy/",
+                        "reports directory": "./results/"
+                    },
+                ]
+            }
+        ]
+    }
+}

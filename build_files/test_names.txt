@@ -1,0 +1,15 @@
+approximate entropy
+block frequency
+cumulative sums
+discrete fourier transform
+frequency
+linear complexity
+longest run of ones
+non overlapping template matching
+overlapping template matching
+random excursions
+random excursions variant
+rank
+runs
+serial
+universal statistical

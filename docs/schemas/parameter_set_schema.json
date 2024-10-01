@@ -1,0 +1,62 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://steer-framework.dev/schemas/parameter-set/0.1.0/parameter_set_schema.json",
+    "title": "Parameter set",
+    "description": "A parameter set for a STEER test",
+    "type": "object",
+    "properties": {
+        "parameter set": {
+            "type": "object",
+            "properties": {
+                "test name": { "type": "string" },
+                "parameter set name": { "type": "string" },
+                "parameters": {
+                    "type": "array",
+                    "items": { "$ref": "#/$defs/valueType" },
+                    "uniqueItems": true
+                }
+            },
+            "additionalProperties": false,
+            "required": [ "test name", "parameter set name", "parameters" ]
+        }
+    },
+  	"additionalProperties": false,
+    "required": [ "parameter set" ],
+    "$defs": {
+        "dataType": {
+            "description": "STEER data types",
+            "type": "string",
+            "enum": [
+                "boolean",
+                "double precision floating point",
+                "extended precision floating point",
+                "signed 8-bit integer",
+                "signed 16-bit integer",
+                "signed 32-bit integer",
+                "signed 64-bit integer",
+                "single precision floating point",
+                "unsigned 8-bit integer",
+                "unsigned 16-bit integer",
+                "unsigned 32-bit integer",
+                "unsigned 64-bit integer",
+                "utf-8 string"
+            ]
+        },
+        "nonNegativeIntegerType": {
+            "type": "string",
+            "pattern": "^\\+?(0|[1-9]\\d*)$"
+        },
+        "valueType": {
+            "type": "object",
+            "properties": {
+                "name": { "type": "string" },
+                "data type": { "$ref": "#/$defs/dataType" },
+                "precision": { "$ref": "#/$defs/nonNegativeIntegerType" },
+                "units": { "type": "string" },
+                "value": { "type": "string" }
+            },
+            "additionalProperties": false,
+            "required": [ "name", "data type", "value" ]
+        }
+    }
+}

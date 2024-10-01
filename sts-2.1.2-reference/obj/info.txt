@@ -1,0 +1,1 @@
+This directory contains the object files for the STS build.

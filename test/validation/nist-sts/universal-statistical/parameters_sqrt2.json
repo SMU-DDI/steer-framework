@@ -1,0 +1,26 @@
+{ 
+    "parameter set": { 
+        "test name": "universal statistical", 
+        "parameter set name": "sqrt2", 
+        "parameters": [
+            {
+                "name": "bitstream count",
+                "data type": "unsigned 64-bit integer", 
+                "units": "bitstreams", 
+                "value": "1" 
+            }, 
+            {
+                "name": "bitstream length", 
+                "data type": "unsigned 64-bit integer", 
+                "units": "bits", 
+                "value": "1000000" 
+            }, 
+            {
+                "name": "significance level (alpha)", 
+                "data type": "double precision floating point", 
+                "precision": "6",
+                "value": "0.01" 
+            }
+        ] 
+    } 
+}

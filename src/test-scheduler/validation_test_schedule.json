@@ -1,0 +1,536 @@
+{
+    "schedule": {
+        "schedule id": "validation",
+        "test conductor": "Test scheduler",
+        "test notes": "This test validates STEER against the NIST Special Publication 800-22 Rev. 1a Appendix B test vectors.",
+        "report level": "full",
+        "report progress": false,
+        "tests": [
+            {
+                "program name": "nist_sts_approximate_entropy_test",
+                "profiles": [
+                    {
+                        "profile id": "e",
+                        "input": "./data/validation/nist-sts/e.bin",
+                        "parameters": "./test/validation/nist-sts/approximate-entropy/parameters_e.json",
+                        "report": "./results/validation/nist-sts/approximate-entropy/test_report_e.json"
+                    },
+                    {
+                        "profile id": "pi",
+                        "input": "./data/validation/nist-sts/pi.bin",
+                        "parameters": "./test/validation/nist-sts/approximate-entropy/parameters_pi.json",
+                        "report": "./results/validation/nist-sts/approximate-entropy/test_report_pi.json"
+                    },
+                    {
+                        "profile id": "sha1",
+                        "input": "./data/validation/nist-sts/sha1.bin",
+                        "parameters": "./test/validation/nist-sts/approximate-entropy/parameters_sha1.json",
+                        "report": "./results/validation/nist-sts/approximate-entropy/test_report_sha1.json"
+                    },
+                    {
+                        "profile id": "sqrt2",
+                        "input": "./data/validation/nist-sts/sqrt2.bin",
+                        "parameters": "./test/validation/nist-sts/approximate-entropy/parameters_sqrt2.json",
+                        "report": "./results/validation/nist-sts/approximate-entropy/test_report_sqrt2.json"
+                    },
+                    {
+                        "profile id": "sqrt3",
+                        "input": "./data/validation/nist-sts/sqrt3.bin",
+                        "parameters": "./test/validation/nist-sts/approximate-entropy/parameters_sqrt3.json",
+                        "report": "./results/validation/nist-sts/approximate-entropy/test_report_sqrt3.json"
+                    }
+                ]
+            },
+            {
+                "program name": "nist_sts_block_frequency_test",
+                "profiles": [
+                    {
+                        "profile id": "e",
+                        "input": "./data/validation/nist-sts/e.bin",
+                        "parameters": "./test/validation/nist-sts/block-frequency/parameters_e.json",
+                        "report": "./results/validation/nist-sts/block-frequency/test_report_e.json"
+                    },
+                    {
+                        "profile id": "pi",
+                        "input": "./data/validation/nist-sts/pi.bin",
+                        "parameters": "./test/validation/nist-sts/block-frequency/parameters_pi.json",
+                        "report": "./results/validation/nist-sts/block-frequency/test_report_pi.json"
+                    },
+                    {
+                        "profile id": "sha1",
+                        "input": "./data/validation/nist-sts/sha1.bin",
+                        "parameters": "./test/validation/nist-sts/block-frequency/parameters_sha1.json",
+                        "report": "./results/validation/nist-sts/block-frequency/test_report_sha1.json"
+                    },
+                    {
+                        "profile id": "sqrt2",
+                        "input": "./data/validation/nist-sts/sqrt2.bin",
+                        "parameters": "./test/validation/nist-sts/block-frequency/parameters_sqrt2.json",
+                        "report": "./results/validation/nist-sts/block-frequency/test_report_sqrt2.json"
+                    },
+                    {
+                        "profile id": "sqrt3",
+                        "input": "./data/validation/nist-sts/sqrt3.bin",
+                        "parameters": "./test/validation/nist-sts/block-frequency/parameters_sqrt3.json",
+                        "report": "./results/validation/nist-sts/block-frequency/test_report_sqrt3.json"
+                    }
+                ]
+            },
+            {
+                "program name": "nist_sts_cumulative_sums_test",
+                "profiles": [
+                    {
+                        "profile id": "e",
+                        "input": "./data/validation/nist-sts/e.bin",
+                        "parameters": "./test/validation/nist-sts/cumulative-sums/parameters_e.json",
+                        "report": "./results/validation/nist-sts/cumulative-sums/test_report_e.json"
+                    },
+                    {
+                        "profile id": "pi",
+                        "input": "./data/validation/nist-sts/pi.bin",
+                        "parameters": "./test/validation/nist-sts/cumulative-sums/parameters_pi.json",
+                        "report": "./results/validation/nist-sts/cumulative-sums/test_report_pi.json"
+                    },
+                    {
+                        "profile id": "sha1",
+                        "input": "./data/validation/nist-sts/sha1.bin",
+                        "parameters": "./test/validation/nist-sts/cumulative-sums/parameters_sha1.json",
+                        "report": "./results/validation/nist-sts/cumulative-sums/test_report_sha1.json"
+                    },
+                    {
+                        "profile id": "sqrt2",
+                        "input": "./data/validation/nist-sts/sqrt2.bin",
+                        "parameters": "./test/validation/nist-sts/cumulative-sums/parameters_sqrt2.json",
+                        "report": "./results/validation/nist-sts/cumulative-sums/test_report_sqrt2.json"
+                    },
+                    {
+                        "profile id": "sqrt3",
+                        "input": "./data/validation/nist-sts/sqrt3.bin",
+                        "parameters": "./test/validation/nist-sts/cumulative-sums/parameters_sqrt3.json",
+                        "report": "./results/validation/nist-sts/cumulative-sums/test_report_sqrt3.json"
+                    }
+                ]
+            },
+            {
+                "program name": "nist_sts_discrete_fourier_transform_test",
+                "profiles": [
+                    {
+                        "profile id": "e",
+                        "input": "./data/validation/nist-sts/e.bin",
+                        "parameters": "./test/validation/nist-sts/discrete-fourier-transform/parameters_e.json",
+                        "report": "./results/validation/nist-sts/discrete-fourier-transform/test_report_e.json"
+                    },
+                    {
+                        "profile id": "pi",
+                        "input": "./data/validation/nist-sts/pi.bin",
+                        "parameters": "./test/validation/nist-sts/discrete-fourier-transform/parameters_pi.json",
+                        "report": "./results/validation/nist-sts/discrete-fourier-transform/test_report_pi.json"
+                    },
+                    {
+                        "profile id": "sha1",
+                        "input": "./data/validation/nist-sts/sha1.bin",
+                        "parameters": "./test/validation/nist-sts/discrete-fourier-transform/parameters_sha1.json",
+                        "report": "./results/validation/nist-sts/discrete-fourier-transform/test_report_sha1.json"
+                    },
+                    {
+                        "profile id": "sqrt2",
+                        "input": "./data/validation/nist-sts/sqrt2.bin",
+                        "parameters": "./test/validation/nist-sts/discrete-fourier-transform/parameters_sqrt2.json",
+                        "report": "./results/validation/nist-sts/discrete-fourier-transform/test_report_sqrt2.json"
+                    },
+                    {
+                        "profile id": "sqrt3",
+                        "input": "./data/validation/nist-sts/sqrt3.bin",
+                        "parameters": "./test/validation/nist-sts/discrete-fourier-transform/parameters_sqrt3.json",
+                        "report": "./results/validation/nist-sts/discrete-fourier-transform/test_report_sqrt3.json"
+                    }
+                ]
+            },
+            {
+                "program name": "nist_sts_frequency_test",
+                "profiles": [
+                    {
+                        "profile id": "e",
+                        "input": "./data/validation/nist-sts/e.bin",
+                        "parameters": "./test/validation/nist-sts/frequency/parameters_e.json",
+                        "report": "./results/validation/nist-sts/frequency/test_report_e.json"
+                    },
+                    {
+                        "profile id": "pi",
+                        "input": "./data/validation/nist-sts/pi.bin",
+                        "parameters": "./test/validation/nist-sts/frequency/parameters_pi.json",
+                        "report": "./results/validation/nist-sts/frequency/test_report_pi.json"
+                    },
+                    {
+                        "profile id": "sha1",
+                        "input": "./data/validation/nist-sts/sha1.bin",
+                        "parameters": "./test/validation/nist-sts/frequency/parameters_sha1.json",
+                        "report": "./results/validation/nist-sts/frequency/test_report_sha1.json"
+                    },
+                    {
+                        "profile id": "sqrt2",
+                        "input": "./data/validation/nist-sts/sqrt2.bin",
+                        "parameters": "./test/validation/nist-sts/frequency/parameters_sqrt2.json",
+                        "report": "./results/validation/nist-sts/frequency/test_report_sqrt2.json"
+                    },
+                    {
+                        "profile id": "sqrt3",
+                        "input": "./data/validation/nist-sts/sqrt3.bin",
+                        "parameters": "./test/validation/nist-sts/frequency/parameters_sqrt3.json",
+                        "report": "./results/validation/nist-sts/frequency/test_report_sqrt3.json"
+                    }
+                ]
+            },
+            {
+                "program name": "nist_sts_linear_complexity_test",
+                "profiles": [
+                    {
+                        "profile id": "e",
+                        "input": "./data/validation/nist-sts/e.bin",
+                        "parameters": "./test/validation/nist-sts/linear-complexity/parameters_e.json",
+                        "report": "./results/validation/nist-sts/linear-complexity/test_report_e.json"
+                    },
+                    {
+                        "profile id": "pi",
+                        "input": "./data/validation/nist-sts/pi.bin",
+                        "parameters": "./test/validation/nist-sts/linear-complexity/parameters_pi.json",
+                        "report": "./results/validation/nist-sts/linear-complexity/test_report_pi.json"
+                    },
+                    {
+                        "profile id": "sha1",
+                        "input": "./data/validation/nist-sts/sha1.bin",
+                        "parameters": "./test/validation/nist-sts/linear-complexity/parameters_sha1.json",
+                        "report": "./results/validation/nist-sts/linear-complexity/test_report_sha1.json"
+                    },
+                    {
+                        "profile id": "sqrt2",
+                        "input": "./data/validation/nist-sts/sqrt2.bin",
+                        "parameters": "./test/validation/nist-sts/linear-complexity/parameters_sqrt2.json",
+                        "report": "./results/validation/nist-sts/linear-complexity/test_report_sqrt2.json"
+                    },
+                    {
+                        "profile id": "sqrt3",
+                        "input": "./data/validation/nist-sts/sqrt3.bin",
+                        "parameters": "./test/validation/nist-sts/linear-complexity/parameters_sqrt3.json",
+                        "report": "./results/validation/nist-sts/linear-complexity/test_report_sqrt3.json"
+                    }
+                ]
+            },
+            {
+                "program name": "nist_sts_longest_run_of_ones_test",
+                "profiles": [
+                    {
+                        "profile id": "e",
+                        "input": "./data/validation/nist-sts/e.bin",
+                        "parameters": "./test/validation/nist-sts/longest-run-of-ones/parameters_e.json",
+                        "report": "./results/validation/nist-sts/longest-run-of-ones/test_report_e.json"
+                    },
+                    {
+                        "profile id": "pi",
+                        "input": "./data/validation/nist-sts/pi.bin",
+                        "parameters": "./test/validation/nist-sts/longest-run-of-ones/parameters_pi.json",
+                        "report": "./results/validation/nist-sts/longest-run-of-ones/test_report_pi.json"
+                    },
+                    {
+                        "profile id": "sha1",
+                        "input": "./data/validation/nist-sts/sha1.bin",
+                        "parameters": "./test/validation/nist-sts/longest-run-of-ones/parameters_sha1.json",
+                        "report": "./results/validation/nist-sts/longest-run-of-ones/test_report_sha1.json"
+                    },
+                    {
+                        "profile id": "sqrt2",
+                        "input": "./data/validation/nist-sts/sqrt2.bin",
+                        "parameters": "./test/validation/nist-sts/longest-run-of-ones/parameters_sqrt2.json",
+                        "report": "./results/validation/nist-sts/longest-run-of-ones/test_report_sqrt2.json"
+                    },
+                    {
+                        "profile id": "sqrt3",
+                        "input": "./data/validation/nist-sts/sqrt3.bin",
+                        "parameters": "./test/validation/nist-sts/longest-run-of-ones/parameters_sqrt3.json",
+                        "report": "./results/validation/nist-sts/longest-run-of-ones/test_report_sqrt3.json"
+                    }
+                ]
+            },
+            {
+                "program name": "nist_sts_non_overlapping_template_matching_test",
+                "profiles": [
+                    {
+                        "profile id": "e",
+                        "input": "./data/validation/nist-sts/e.bin",
+                        "parameters": "./test/validation/nist-sts/non-overlapping-template-matching/parameters_e.json",
+                        "report": "./results/validation/nist-sts/non-overlapping-template-matching/test_report_e.json"
+                    },
+                    {
+                        "profile id": "pi",
+                        "input": "./data/validation/nist-sts/pi.bin",
+                        "parameters": "./test/validation/nist-sts/non-overlapping-template-matching/parameters_pi.json",
+                        "report": "./results/validation/nist-sts/non-overlapping-template-matching/test_report_pi.json"
+                    },
+                    {
+                        "profile id": "sha1",
+                        "input": "./data/validation/nist-sts/sha1.bin",
+                        "parameters": "./test/validation/nist-sts/non-overlapping-template-matching/parameters_sha1.json",
+                        "report": "./results/validation/nist-sts/non-overlapping-template-matching/test_report_sha1.json"
+                    },
+                    {
+                        "profile id": "sqrt2",
+                        "input": "./data/validation/nist-sts/sqrt2.bin",
+                        "parameters": "./test/validation/nist-sts/non-overlapping-template-matching/parameters_sqrt2.json",
+                        "report": "./results/validation/nist-sts/non-overlapping-template-matching/test_report_sqrt2.json"
+                    },
+                    {
+                        "profile id": "sqrt3",
+                        "input": "./data/validation/nist-sts/sqrt3.bin",
+                        "parameters": "./test/validation/nist-sts/non-overlapping-template-matching/parameters_sqrt3.json",
+                        "report": "./results/validation/nist-sts/non-overlapping-template-matching/test_report_sqrt3.json"
+                    }
+                ]
+            },
+            {
+                "program name": "nist_sts_overlapping_template_matching_test",
+                "profiles": [
+                    {
+                        "profile id": "e",
+                        "input": "./data/validation/nist-sts/e.bin",
+                        "parameters": "./test/validation/nist-sts/overlapping-template-matching/parameters_e.json",
+                        "report": "./results/validation/nist-sts/overlapping-template-matching/test_report_e.json"
+                    },
+                    {
+                        "profile id": "pi",
+                        "input": "./data/validation/nist-sts/pi.bin",
+                        "parameters": "./test/validation/nist-sts/overlapping-template-matching/parameters_pi.json",
+                        "report": "./results/validation/nist-sts/overlapping-template-matching/test_report_pi.json"
+                    },
+                    {
+                        "profile id": "sha1",
+                        "input": "./data/validation/nist-sts/sha1.bin",
+                        "parameters": "./test/validation/nist-sts/overlapping-template-matching/parameters_sha1.json",
+                        "report": "./results/validation/nist-sts/overlapping-template-matching/test_report_sha1.json"
+                    },
+                    {
+                        "profile id": "sqrt2",
+                        "input": "./data/validation/nist-sts/sqrt2.bin",
+                        "parameters": "./test/validation/nist-sts/overlapping-template-matching/parameters_sqrt2.json",
+                        "report": "./results/validation/nist-sts/overlapping-template-matching/test_report_sqrt2.json"
+                    },
+                    {
+                        "profile id": "sqrt3",
+                        "input": "./data/validation/nist-sts/sqrt3.bin",
+                        "parameters": "./test/validation/nist-sts/overlapping-template-matching/parameters_sqrt3.json",
+                        "report": "./results/validation/nist-sts/overlapping-template-matching/test_report_sqrt3.json"
+                    }
+                ]
+            },
+            {
+                "program name": "nist_sts_random_excursions_test",
+                "profiles": [
+                    {
+                        "profile id": "e",
+                        "input": "./data/validation/nist-sts/e.bin",
+                        "parameters": "./test/validation/nist-sts/random-excursions/parameters_e.json",
+                        "report": "./results/validation/nist-sts/random-excursions/test_report_e.json"
+                    },
+                    {
+                        "profile id": "pi",
+                        "input": "./data/validation/nist-sts/pi.bin",
+                        "parameters": "./test/validation/nist-sts/random-excursions/parameters_pi.json",
+                        "report": "./results/validation/nist-sts/random-excursions/test_report_pi.json"
+                    },
+                    {
+                        "profile id": "sha1",
+                        "input": "./data/validation/nist-sts/sha1.bin",
+                        "parameters": "./test/validation/nist-sts/random-excursions/parameters_sha1.json",
+                        "report": "./results/validation/nist-sts/random-excursions/test_report_sha1.json"
+                    },
+                    {
+                        "profile id": "sqrt2",
+                        "input": "./data/validation/nist-sts/sqrt2.bin",
+                        "parameters": "./test/validation/nist-sts/random-excursions/parameters_sqrt2.json",
+                        "report": "./results/validation/nist-sts/random-excursions/test_report_sqrt2.json"
+                    },
+                    {
+                        "profile id": "sqrt3",
+                        "input": "./data/validation/nist-sts/sqrt3.bin",
+                        "parameters": "./test/validation/nist-sts/random-excursions/parameters_sqrt3.json",
+                        "report": "./results/validation/nist-sts/random-excursions/test_report_sqrt3.json"
+                    }
+                ]
+            },
+            {
+                "program name": "nist_sts_random_excursions_variant_test",
+                "profiles": [
+                    {
+                        "profile id": "e",
+                        "input": "./data/validation/nist-sts/e.bin",
+                        "parameters": "./test/validation/nist-sts/random-excursions-variant/parameters_e.json",
+                        "report": "./results/validation/nist-sts/random-excursions-variant/test_report_e.json"
+                    },
+                    {
+                        "profile id": "pi",
+                        "input": "./data/validation/nist-sts/pi.bin",
+                        "parameters": "./test/validation/nist-sts/random-excursions-variant/parameters_pi.json",
+                        "report": "./results/validation/nist-sts/random-excursions-variant/test_report_pi.json"
+                    },
+                    {
+                        "profile id": "sha1",
+                        "input": "./data/validation/nist-sts/sha1.bin",
+                        "parameters": "./test/validation/nist-sts/random-excursions-variant/parameters_sha1.json",
+                        "report": "./results/validation/nist-sts/random-excursions-variant/test_report_sha1.json"
+                    },
+                    {
+                        "profile id": "sqrt2",
+                        "input": "./data/validation/nist-sts/sqrt2.bin",
+                        "parameters": "./test/validation/nist-sts/random-excursions-variant/parameters_sqrt2.json",
+                        "report": "./results/validation/nist-sts/random-excursions-variant/test_report_sqrt2.json"
+                    },
+                    {
+                        "profile id": "sqrt3",
+                        "input": "./data/validation/nist-sts/sqrt3.bin",
+                        "parameters": "./test/validation/nist-sts/random-excursions-variant/parameters_sqrt3.json",
+                        "report": "./results/validation/nist-sts/random-excursions-variant/test_report_sqrt3.json"
+                    }
+                ]
+            },
+            {
+                "program name": "nist_sts_rank_test",
+                "profiles": [
+                    {
+                        "profile id": "e",
+                        "input": "./data/validation/nist-sts/e.bin",
+                        "parameters": "./test/validation/nist-sts/rank/parameters_e.json",
+                        "report": "./results/validation/nist-sts/rank/test_report_e.json"
+                    },
+                    {
+                        "profile id": "pi",
+                        "input": "./data/validation/nist-sts/pi.bin",
+                        "parameters": "./test/validation/nist-sts/rank/parameters_pi.json",
+                        "report": "./results/validation/nist-sts/rank/test_report_pi.json"
+                    },
+                    {
+                        "profile id": "sha1",
+                        "input": "./data/validation/nist-sts/sha1.bin",
+                        "parameters": "./test/validation/nist-sts/rank/parameters_sha1.json",
+                        "report": "./results/validation/nist-sts/rank/test_report_sha1.json"
+                    },
+                    {
+                        "profile id": "sqrt2",
+                        "input": "./data/validation/nist-sts/sqrt2.bin",
+                        "parameters": "./test/validation/nist-sts/rank/parameters_sqrt2.json",
+                        "report": "./results/validation/nist-sts/rank/test_report_sqrt2.json"
+                    },
+                    {
+                        "profile id": "sqrt3",
+                        "input": "./data/validation/nist-sts/sqrt3.bin",
+                        "parameters": "./test/validation/nist-sts/rank/parameters_sqrt3.json",
+                        "report": "./results/validation/nist-sts/rank/test_report_sqrt3.json"
+                    }
+                ]
+            },
+            {
+                "program name": "nist_sts_runs_test",
+                "profiles": [
+                    {
+                        "profile id": "e",
+                        "input": "./data/validation/nist-sts/e.bin",
+                        "parameters": "./test/validation/nist-sts/runs/parameters_e.json",
+                        "report": "./results/validation/nist-sts/runs/test_report_e.json"
+                    },
+                    {
+                        "profile id": "pi",
+                        "input": "./data/validation/nist-sts/pi.bin",
+                        "parameters": "./test/validation/nist-sts/runs/parameters_pi.json",
+                        "report": "./results/validation/nist-sts/runs/test_report_pi.json"
+                    },
+                    {
+                        "profile id": "sha1",
+                        "input": "./data/validation/nist-sts/sha1.bin",
+                        "parameters": "./test/validation/nist-sts/runs/parameters_sha1.json",
+                        "report": "./results/validation/nist-sts/runs/test_report_sha1.json"
+                    },
+                    {
+                        "profile id": "sqrt2",
+                        "input": "./data/validation/nist-sts/sqrt2.bin",
+                        "parameters": "./test/validation/nist-sts/runs/parameters_sqrt2.json",
+                        "report": "./results/validation/nist-sts/runs/test_report_sqrt2.json"
+                    },
+                    {
+                        "profile id": "sqrt3",
+                        "input": "./data/validation/nist-sts/sqrt3.bin",
+                        "parameters": "./test/validation/nist-sts/runs/parameters_sqrt3.json",
+                        "report": "./results/validation/nist-sts/runs/test_report_sqrt3.json"
+                    }
+                ]
+            },
+            {
+                "program name": "nist_sts_serial_test",
+                "profiles": [
+                    {
+                        "profile id": "e",
+                        "input": "./data/validation/nist-sts/e.bin",
+                        "parameters": "./test/validation/nist-sts/serial/parameters_e.json",
+                        "report": "./results/validation/nist-sts/serial/test_report_e.json"
+                    },
+                    {
+                        "profile id": "pi",
+                        "input": "./data/validation/nist-sts/pi.bin",
+                        "parameters": "./test/validation/nist-sts/serial/parameters_pi.json",
+                        "report": "./results/validation/nist-sts/serial/test_report_pi.json"
+                    },
+                    {
+                        "profile id": "sha1",
+                        "input": "./data/validation/nist-sts/sha1.bin",
+                        "parameters": "./test/validation/nist-sts/serial/parameters_sha1.json",
+                        "report": "./results/validation/nist-sts/serial/test_report_sha1.json"
+                    },
+                    {
+                        "profile id": "sqrt2",
+                        "input": "./data/validation/nist-sts/sqrt2.bin",
+                        "parameters": "./test/validation/nist-sts/serial/parameters_sqrt2.json",
+                        "report": "./results/validation/nist-sts/serial/test_report_sqrt2.json"
+                    },
+                    {
+                        "profile id": "sqrt3",
+                        "input": "./data/validation/nist-sts/sqrt3.bin",
+                        "parameters": "./test/validation/nist-sts/serial/parameters_sqrt3.json",
+                        "report": "./results/validation/nist-sts/serial/test_report_sqrt3.json"
+                    }
+                ]
+            },
+            {
+                "program name": "nist_sts_universal_statistical_test",
+                "profiles": [
+                    {
+                        "profile id": "e",
+                        "input": "./data/validation/nist-sts/e.bin",
+                        "parameters": "./test/validation/nist-sts/universal-statistical/parameters_e.json",
+                        "report": "./results/validation/nist-sts/universal-statistical/test_report_e.json"
+                    },
+                    {
+                        "profile id": "pi",
+                        "input": "./data/validation/nist-sts/pi.bin",
+                        "parameters": "./test/validation/nist-sts/universal-statistical/parameters_pi.json",
+                        "report": "./results/validation/nist-sts/universal-statistical/test_report_pi.json"
+                    },
+                    {
+                        "profile id": "sha1",
+                        "input": "./data/validation/nist-sts/sha1.bin",
+                        "parameters": "./test/validation/nist-sts/universal-statistical/parameters_sha1.json",
+                        "report": "./results/validation/nist-sts/universal-statistical/test_report_sha1.json"
+                    },
+                    {
+                        "profile id": "sqrt2",
+                        "input": "./data/validation/nist-sts/sqrt2.bin",
+                        "parameters": "./test/validation/nist-sts/universal-statistical/parameters_sqrt2.json",
+                        "report": "./results/validation/nist-sts/universal-statistical/test_report_sqrt2.json"
+                    },
+                    {
+                        "profile id": "sqrt3",
+                        "input": "./data/validation/nist-sts/sqrt3.bin",
+                        "parameters": "./test/validation/nist-sts/universal-statistical/parameters_sqrt3.json",
+                        "report": "./results/validation/nist-sts/universal-statistical/test_report_sqrt3.json"
+                    }
+                ]
+            }
+        ]   
+    }
+}

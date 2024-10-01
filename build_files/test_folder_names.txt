@@ -1,0 +1,16 @@
+ApproximateEntropy
+BlockFrequency
+CumulativeSums
+FFT
+Frequency
+LinearComplexity
+LongestRun
+NonOverlappingTemplate
+OverlappingTemplate
+RandomExcursions
+RandomExcursionsVariant
+Rank
+Runs
+Serial
+Universal
+GrangerCausality

@@ -1,0 +1,134 @@
+### TODO - 2022.09.13
+
+---
+
+##### Before first release (v0.1.0)
+- [x] Determine software license/copyright (MIT and AGPL have been suggested; need to clear with SMU)
+- [x] Update source files with proper copyright/attributions
+- [x] Automate adding tests
+- [x] Global rename STRAT to STEER
+- [x] Fix shared library build on Linux
+- [x] Additional fields for report schema
+  - [x] Test conductor
+  - [x] Test notes
+  - [x] Test stop time
+  - [x] Test duration
+- [x] Complete JSON schemas
+  - [x] test_info_schema.json
+  - [x] parameter_info_schema.json
+  - [x] parameters_schema.json
+  - [x] report_schema.json
+  - [x] schedule_schema.json
+  - [x] expected_results_schema.json
+- [x] Create simple C#/.NET CLI program to perform JSON validation
+- [x] Refactor C JSON utilities
+- [x] Consolidate libniststs into libsteer
+- [x] Add stdout support to all tests
+- [x] Add schedule ID to test scheduler schema and report schema
+- [x] Add report level to scope report output
+- [x] Add configuration count to test info JSON
+- [x] Simplify expected results JSON
+- [x] Update tests to latest schema
+  - [x] Sample test
+  - [x] Approximate entropy
+  - [x] Block frequency
+  - [x] Cumulative sums
+  - [x] Discrete Fourier Transform
+  - [x] Frequency
+  - [x] Linear complexity
+  - [x] Longest run of ones
+  - [x] Non overlapping template matching
+  - [x] Overlapping template matching
+  - [x] Random excursions
+  - [x] Random excursions variant
+  - [x] Rank
+  - [x] Runs
+  - [x] Serial
+  - [x] Universal statistical
+- [x] Use parameter defaults when no parameters are specified for test
+- [x] Add support for tilde (~) character in paths
+- [x] Add support for specifying precision for floating point parameters and calculations
+- [x] Update environment check to indicate which missing installs are required (red text) or optional (yellow text)
+- [x] Add test conductor and test notes to schedule schema
+- [x] Document STS discrete Fourier transform test bug
+- [?] Develop fix for STS discrete Fourier transform test bug
+- [x] Confirm all "expected_results.json" files used in validation match reference STS results
+- [x] Update test scheduler to latest schema
+- [x] Update validation test program to latest schema
+- [x] Add direct support for readable device files (e.g., /dev/urandom) to test scheduler
+- [x] Simplify report format
+- [x] Preallocate memory required for report configurations and tests
+- [x] Remove dependency on external files from non-overlapping template matching test
+- [x] Parameterize degrees of freedom and number of independent blocks for non-overlapping template matching test
+- [x] Parameterize degrees of freedom and substring length for overlapping template matching test
+- [x] Add direct support for up to 21 bit templates for non-overlapping template matching test
+- [x] Require configuration and test IDs to be non-negative integers
+- [x] Implement unit tests for libsteer public interfaces
+  - [x] steer_file_system_utilities
+  - [x] steer_json_utilities
+  - [x] steer_parameters_info_utilities
+  - [x] steer_report_utilities
+  - [x] steer_schedule_utilities
+  - [x] steer_string_utilities
+  - [x] steer_test_info_utilities
+  - [x] steer_test_shell
+  - [x] steer_value_utilities
+  - [x] steer_utilities
+- [x] Add multi-threading support to critical tests
+  - [x] Approximate entropy
+  - [x] Discrete Fourier Transform
+  - [x] Linear complexity
+  - [x] Non overlapping template matching
+  - [x] Serial
+- [x] Don't require test schedules to have parameter files/directories (allow the use of default parameters)
+- [x] Run valgrind/memcheck analysis on sources and address any memory issues
+- [x] Verify builds on macOS (x64 and arm64) and Ubuntu (x64 and arm64)
+- [x] Address any existing bug reports
+- [x] Set up domains for STEER ("steer-framework.dev", "steer-framework.org")
+- [x] Host JSON schema with semantic versioning
+  - [x] Create directories (e.g., "https://www.steer-framework.dev/schemas/test-info/0.1.0/") 
+  - [x] Upload schema files
+- [x] Set up info email address for STEER (e.g., "info@steer-framework.dev")
+- [x] Create STEER binary distribution package
+- [x] Set up public Slack channel for STEER users
+- [x] Determine how to code sign macOS binaries
+- [X] Transition STEER Git repository to SMU GitHub account
+- [-] Automate macOS and Ubuntu nightly (weekly?) clean release and debug builds on cloud infrastructure
+- [x] Complete STEER User Guide
+- [x] Update README.md
+
+##### Before second release (v0.2.0)
+- [ ] Incorporate SP 800-90B tests
+- [ ] Implement unit tests for libsteer private interfaces
+  - [ ] steer_file_system_utilities_private
+  - [ ] steer_json_utilities_private
+  - [ ] steer_parameter_set_utilities_private
+  - [ ] steer_parameters_info_utilities_private
+  - [ ] steer_report_utilities_private
+  - [ ] steer_schedule_utilities_private
+  - [ ] steer_string_utilities_private
+  - [ ] steer_test_shell_private
+  - [ ] steer_utilities_private
+- [ ] Complete (or remove) doxygen documentation
+- [ ] Complete STEER Developer Guide
+- [ ] Add interface for adding test data
+- [ ] Develop canonical test data sets (easy to fail, hard to fail) - or should we just use SP 800-22 RBG's?
+
+##### Candidate tasks for subsequent releases
+- [ ] Add build option to use GSL instead of cephes for math functions
+- [ ] Add stdin support to test scheduler
+- [ ] Add stdout support to test scheduler?
+- [ ] Add option for specifying test-specific log file to avoid race conditions when writing to stderr from multiple test programs
+- [ ] Create Granger causality/clustering test
+- [ ] Integrate Granger causality/clustering test
+- [ ] Host online demo of STEER?
+- [ ] Sample tests in other languages (Python, Go, Rust, etc.)
+- [ ] New tests
+- [ ] Language wrappers for `libsteer` (via SWIG?)
+- [ ] Test support for very large data sets
+- [ ] Test for thread safety
+- [ ] Define governance structure and DRI's
+  - [ ] Define DRI's and process for reviewing and confirming bug reports
+  - [ ] Define DRI's and process for reviewing feature requests
+  - [ ] Define DRI's and process for reviewing pull requests
+- [ ] Define and document process for submitting new tests for inclusion with STEER

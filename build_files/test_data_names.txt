@@ -1,0 +1,7 @@
+e
+pi
+sha1
+sqrt2
+sqrt3
+
+

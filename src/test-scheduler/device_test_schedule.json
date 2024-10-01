@@ -1,0 +1,176 @@
+{
+    "schedule": {
+        "schedule id": "device",
+        "test conductor": "Test scheduler",
+        "test notes": "This is a device test for STEER.",
+        "report level": "full",
+        "report progress": false,
+        "tests": [
+            {
+                "program name": "nist_sts_approximate_entropy_test",
+                "profiles": [
+                    {
+                        "profile id": "1",
+                        "input": "/dev/urandom",
+                        "parameters": "./test/multiple-bitstreams/nist-sts/approximate-entropy/parameters.json",
+                        "report": "./results/approximate_entropy_test_report.json"
+                    }
+                ]
+            },
+            {
+                "program name": "nist_sts_block_frequency_test",
+                "profiles": [
+                    {
+                        "profile id": "1",
+                        "input": "/dev/urandom",
+                        "parameters": "./test/multiple-bitstreams/nist-sts/block-frequency/parameters.json",
+                        "report": "./results/block_frequency_test_report.json"
+                    }
+                ]
+            },
+            {
+                "program name": "nist_sts_cumulative_sums_test",
+                "profiles": [
+                    {
+                        "profile id": "1",
+                        "input": "/dev/urandom",
+                        "parameters": "./test/multiple-bitstreams/nist-sts/cumulative-sums/parameters.json",
+                        "report": "./results/cumulative_sums_test_report.json"
+                    }
+                ]
+            },
+            {
+                "program name": "nist_sts_discrete_fourier_transform_test",
+                "profiles": [
+                    {
+                        "profile id": "1",
+                        "input": "/dev/urandom",
+                        "parameters": "./test/multiple-bitstreams/nist-sts/discrete-fourier-transform/parameters.json",
+                        "report": "./results/discrete_fourier_transform_test_report.json"
+                    }
+                ]
+            },
+            {
+                "program name": "nist_sts_frequency_test",
+                "profiles": [
+                    {
+                        "profile id": "1",
+                        "input": "/dev/urandom",
+                        "parameters": "./test/multiple-bitstreams/nist-sts/frequency/parameters.json",
+                        "report": "./results/frequency_test_report.json"
+                    }
+                ]
+            },
+            {
+                "program name": "nist_sts_linear_complexity_test",
+                "profiles": [
+                    {
+                        "profile id": "1",
+                        "input": "/dev/urandom",
+                        "parameters": "./test/multiple-bitstreams/nist-sts/linear-complexity/parameters.json",
+                        "report": "./results/linear_complexity_test_report.json"
+                    }
+                ]
+            },
+            {
+                "program name": "nist_sts_longest_run_of_ones_test",
+                "profiles": [
+                    {
+                        "profile id": "1",
+                        "input": "/dev/urandom",
+                        "parameters": "./test/multiple-bitstreams/nist-sts/longest-run-of-ones/parameters.json",
+                        "report": "./results/longest_run_of_ones_test_report.json"
+                    }
+                ]
+            },
+            {
+                "program name": "nist_sts_non_overlapping_template_matching_test",
+                "profiles": [
+                    {
+                        "profile id": "1",
+                        "input": "/dev/urandom",
+                        "parameters": "./test/multiple-bitstreams/nist-sts/non-overlapping-template-matching/parameters.json",
+                        "report": "./results/non_overlapping_template_matching_test_report.json"
+                    }
+                ]
+            },
+            {
+                "program name": "nist_sts_overlapping_template_matching_test",
+                "profiles": [
+                    {
+                        "profile id": "1",
+                        "input": "/dev/urandom",
+                        "parameters": "./test/multiple-bitstreams/nist-sts/overlapping-template-matching/parameters.json",
+                        "report": "./results/overlapping_template_matching_test_report.json"
+                    }
+                ]
+            },
+            {
+                "program name": "nist_sts_random_excursions_test",
+                "profiles": [
+                    {
+                        "profile id": "1",
+                        "input": "/dev/urandom",
+                        "parameters": "./test/multiple-bitstreams/nist-sts/random-excursions/parameters.json",
+                        "report": "./results/random_excursions_test_report.json"
+                    }
+                ]
+            },
+            {
+                "program name": "nist_sts_random_excursions_variant_test",
+                "profiles": [
+                    {
+                        "profile id": "1",
+                        "input": "/dev/urandom",
+                        "parameters": "./test/multiple-bitstreams/nist-sts/random-excursions-variant/parameters.json",
+                        "report": "./results/random_excursions_variant_test_report.json"
+                    }
+                ]
+            },
+            {
+                "program name": "nist_sts_rank_test",
+                "profiles": [
+                    {
+                        "profile id": "1",
+                        "input": "/dev/urandom",
+                        "parameters": "./test/multiple-bitstreams/nist-sts/rank/parameters.json",
+                        "report": "./results/rank_test_report.json"
+                    }
+                ]
+            },
+            {
+                "program name": "nist_sts_runs_test",
+                "profiles": [
+                    {
+                        "profile id": "1",
+                        "input": "/dev/urandom",
+                        "parameters": "./test/multiple-bitstreams/nist-sts/runs/parameters.json",
+                        "report": "./results/runs_test_report.json"
+                    }
+                ]
+            },
+            {
+                "program name": "nist_sts_serial_test",
+                "profiles": [
+                    {
+                        "profile id": "1",
+                        "input": "/dev/urandom",
+                        "parameters": "./test/multiple-bitstreams/nist-sts/serial/parameters.json",
+                        "report": "./results/serial_test_report.json"
+                    }
+                ]
+            },
+            {
+                "program name": "nist_sts_universal_statistical_test",
+                "profiles": [
+                    {
+                        "profile id": "1",
+                        "input": "/dev/urandom",
+                        "parameters": "./test/multiple-bitstreams/nist-sts/universal-statistical/parameters.json",
+                        "report": "./results/universal_statistical_test_report.json"
+                    }
+                ]
+            }
+        ]
+    }
+}

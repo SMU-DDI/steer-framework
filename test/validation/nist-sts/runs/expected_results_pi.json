@@ -1,0 +1,22 @@
+{
+    "expected results": {	
+        "configurations": [
+            {
+                "configuration id": "1",
+                "tests": [
+                    {
+                        "test id": "1", 
+                        "calculations": [
+                            {
+                                "name": "probability value",
+                                "data type":	"double precision floating point",
+                                "precision":	"6",
+                                "value":	"0.419268"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}

@@ -1,0 +1,53 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://steer-framework.dev/schemas/test-info/0.1.0/test_info_schema.json",
+    "title": "Test information",
+    "description": "Information for a STEER test",
+    "type": "object",
+    "properties": {
+        "test info": { 
+            "type": "object",
+            "properties": {
+                "name": { "type": "string" },
+                "suite": { "type": "string" },
+                "description": { "type": "string" },
+                "complexity": { "$ref": "#/$defs/complexityType" },
+                "references": { "type": "array", "items": { "type": "string" } },
+                "program name": { "type": "string" },
+                "program version": { "$ref": "#/$defs/semanticVersionType" },
+                "input format": { "$ref": "#/$defs/inputFormatType" },
+                "repository": { "type": "string", "format": "uri" },
+                "authors": { "type": "array", "items": { "type": "string" } },
+                "contributors": { "type": "array", "items": { "type": "string" } },
+                "maintainers": { "type": "array", "items": { "type": "string" } },
+                "contact": { "type": "string", "format": "email" }
+            },
+            "additionalProperties": false,
+            "required": [
+                "name",
+                "description",
+                "complexity",
+                "program name",
+                "program version",
+                "input format",
+                "authors"
+            ]
+        }
+    },
+    "additionalProperties": false,
+    "required": ["test info"],
+    "$defs": {
+        "complexityType": {
+            "type": "string",
+            "enum": [ "simple", "average", "moderate" ]
+        },
+        "inputFormatType": {
+            "type": "string",
+            "enum": [ "ascii bitstream", "bitstream" ]
+        },
+        "semanticVersionType": {
+            "type": "string",
+            "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-((?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\\.(?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\\+([0-9a-zA-Z-]+(?:\\.[0-9a-zA-Z-]+)*))?$"
+        }
+    }
+}

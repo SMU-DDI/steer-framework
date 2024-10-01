@@ -1,0 +1,100 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://steer-framework.dev/schemas/schedule/0.1.0/schedule_schema.json",
+    "title": "Test schedule",
+    "description": "A test schedule for a STEER test",
+    "type": "object",
+    "properties": {
+        "schedule": {
+            "type": "object",
+            "properties": {
+                "schedule id": { "type": "string" },
+                "test conductor": { "type": "string" },
+                "test notes": { "type": "string" },
+                "report level": { "$ref": "#/$defs/reportLevel" },
+                "report progress": { "type": "boolean" },
+                "tests": {
+                    "type": "array",
+                    "items": {
+                        "properties": {
+                            "program name": { "type": "string" },
+                            "profiles": {
+                                "type": "array",
+                                "items": { "$ref": "#/$defs/profileType" }
+                            }
+                        },
+                        "additionalProperties": false,
+                        "required": [ "program name", "profiles" ]
+                    },
+                    "uniqueItems": true
+                }
+            },
+            "additionalProperties": false,
+            "required": [ "schedule id", "tests" ]
+        }
+    },
+    "additionalProperties": false,
+  	"required": [ "schedule" ],
+    "$defs": {
+        "reportLevelType": { 
+            "type": "string", 
+            "enum": [ "summary", "standard", "full" ] 
+        },
+    	"profileType": {
+          	"description": "A profile to run with a STEER test",
+    		"type": "object",
+			"oneOf": [
+				{
+                  	"description": "A set of directories to use with a STEER test",
+					"type": "object",
+					"properties": {
+                      	"profile id": { "type": "string" },
+						"inputs directory": {
+							"description": "A path to a directory containing test inputs",
+							"type": "string"
+						},
+						"parameters directory": {
+							"description": "A path to a directory containing test parameters",
+							"type": "string"
+						},
+						"reports directory": {
+							"description": "A path to a directory where test reports will be written",
+							"type": "string"
+						}
+					},
+					"additionalProperties": false,
+					"required": [
+                      	"profile id",
+						"inputs directory",
+						"reports directory"
+					]
+				},
+				{
+                  	"description": "A set of files to use with a STEER test",
+					"type": "object",
+					"properties": {
+                      	"profile id": { "type": "string" },
+						"input": {
+							"description": "A path to a test input file",
+							"type": "string"
+						},
+						"parameters": {
+							"description": "A path to a test parameters file",
+							"type": "string"
+						},
+						"report": {
+							"description": "A path to a test report file that will be created",
+							"type": "string"
+						}
+					},
+					"additionalProperties": false,
+					"required": [
+                      	"profile id",
+						"input",
+						"report"
+					]
+				}
+			]
+    	}
+    }
+}

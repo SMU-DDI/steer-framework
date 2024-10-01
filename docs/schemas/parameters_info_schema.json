@@ -1,0 +1,64 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://steer-framework.dev/schemas/parameters-info/0.1.0/parameters_info_schema.json",
+    "title": "Parameters information",
+    "description": "Parameter information for a STEER test",
+    "type": "object",
+    "properties": {
+      	"parameters info": {
+         	"type": "object",
+            "properties": {
+                "test name": { "type": "string" },
+                "parameters": {
+                    "type": "array",
+                    "items": { "$ref": "#/$defs/valueInfoType" },
+                    "uniqueItems": true
+                }
+            },
+          	"additionalProperties": false,
+           	"required": [ "test name", "parameters" ]
+        }  
+    },
+    "additionalProperties": false,
+    "required": ["parameters info"],
+    "$defs": {
+        "dataType": {
+            "description": "STEER data types",
+            "type": "string",
+            "enum": [
+                "boolean",
+                "double precision floating point",
+                "extended precision floating point",
+                "signed 8-bit integer",
+                "signed 16-bit integer",
+                "signed 32-bit integer",
+                "signed 64-bit integer",
+                "single precision floating point",
+                "unsigned 8-bit integer",
+                "unsigned 16-bit integer",
+                "unsigned 32-bit integer",
+                "unsigned 64-bit integer",
+                "utf-8 string"
+            ]
+        },
+        "nonNegativeIntegerType": {
+            "type": "string",
+            "pattern": "^\\+?(0|[1-9]\\d*)$"
+        },
+        "valueInfoType": {
+            "description": "STEER value info",
+            "type": "object",
+            "properties": {
+                "name": { "type": "string" },
+                "data type": { "$ref": "#/$defs/dataType" },
+                "precision": { "$ref": "#/$defs/nonNegativeIntegerType" },
+                "units": { "type": "string" },
+                "default value": { "type": "string" },
+                "minimum value": { "type": "string" },
+                "maximum value": { "type": "string" }
+            },
+            "additionalProperties": false,
+            "required": [ "name", "data type", "default value" ]
+		}
+	}
+}

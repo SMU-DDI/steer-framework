@@ -1,0 +1,3178 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [        
+        {
+            "name": "(.NET) Launch steer_schema_validator",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/src/steer-schema-validator/bin/Debug/net6.0/steer_schema_validator.dll",
+            "args": ["-i", "${workspaceFolder}/docs/schemas/sample_test_info.json"],
+            "cwd": "${workspaceFolder}/src/steer-schema-validator",
+            "console": "internalConsole",
+            "stopAtEntry": false
+        },
+        {
+            "name": "(lldb-macos-x64) Launch steer_sample_test",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/darwin/x64/Debug/steer_sample_test",
+            "args": ["-R", "-i", "-t", "-v", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/random.bin", "-r", "${workspaceFolder}/results/sample_test_report.json", "-P", "{ \\\"parameter set\\\": { \\\"test name\\\": \\\"sample test\\\", \\\"parameter set name\\\": \\\"sample parameter set\\\", \\\"parameters\\\": [ { \\\"name\\\": \\\"bitstream count\\\", \\\"data type\\\": \\\"unsigned 64-bit integer\\\", \\\"units\\\": \\\"bitstreams\\\", \\\"value\\\": \\\"2\\\" }, { \\\"name\\\":  \\\"bitstream length\\\", \\\"data type\\\": \\\"unsigned 64-bit integer\\\", \\\"units\\\": \\\"bits\\\", \\\"value\\\": \\\"500000\\\" }, { \\\"name\\\": \\\"sample parameter\\\", \\\"data type\\\": \\\"signed 32-bit integer\\\", \\\"value\\\": \\\"10\\\" } ] } }"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(lldb-macos-x64) Launch steer_simple_test",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/darwin/x64/Debug/steer_simple_test",
+            "args": ["-R", "-i", "-t", "-v", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/random.bin", "-r", "${workspaceFolder}/results/simple_test_report.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(lldb-macos-x64) Launch nist_sts_approximate_entropy_test",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/darwin/x64/Debug/nist_sts_approximate_entropy_test",
+            "args": ["-R", "-i", "-t", "-v", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/validation/nist-sts/e.bin", "-r", "${workspaceFolder}/results/nist_sts_approximate_entropy_test_results.json", "-p", "${workspaceFolder}/test/validation/nist-sts/approximate-entropy/parameters_e.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(lldb-macos-x64) Launch nist_sts_approximate_entropy_test (stdout)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/darwin/x64/Debug/nist_sts_approximate_entropy_test",
+            "args": ["-R", "-i", "-t", "-v", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/validation/nist-sts/e.bin", "-p", "${workspaceFolder}/test/validation/nist-sts/approximate-entropy/parameters_e.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(lldb-macos-x64) Launch nist_sts_approximate_entropy_test (multiple bitstreams)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/darwin/x64/Debug/nist_sts_approximate_entropy_test",
+            "args": ["-R", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/random.bin", "-r", "${workspaceFolder}/results/nist_sts_approximate_entropy_test_results.json", "-p", "${workspaceFolder}/test/multiple-bitstreams/nist-sts/approximate-entropy/parameters.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(lldb-macos-x64) Launch nist_sts_block_frequency_test",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/darwin/x64/Debug/nist_sts_block_frequency_test",
+            "args": ["-R", "-i", "-t", "-v", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/validation/nist-sts/e.bin", "-r", "${workspaceFolder}/results/nist_sts_block_frequency_test_results.json", "-p", "${workspaceFolder}/test/validation/nist-sts/block-frequency/parameters_e.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(lldb-macos-x64) Launch nist_sts_block_frequency_test (multiple bitstreams)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/darwin/x64/Debug/nist_sts_block_frequency_test",
+            "args": ["-R", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/random.bin", "-r", "${workspaceFolder}/results/nist_sts_block_frequency_test_results.json", "-p", "${workspaceFolder}/test/multiple-bitstreams/nist-sts/block-frequency/parameters.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(lldb-macos-x64) Launch nist_sts_cumulative_sums_test",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/darwin/x64/Debug/nist_sts_cumulative_sums_test",
+            "args": ["-R", "-i", "-t", "-v", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/validation/nist-sts/e.bin", "-r", "${workspaceFolder}/results/nist_sts_cumulative_sums_test_results.json", "-p", "${workspaceFolder}/test/validation/nist-sts/cumulative-sums/parameters_e.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(lldb-macos-x64) Launch nist_sts_cumulative_sums_test (multiple bitstreams)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/darwin/x64/Debug/nist_sts_cumulative_sums_test",
+            "args": ["-R", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/random.bin", "-r", "${workspaceFolder}/results/nist_sts_cumulative_sums_test_results.json", "-p", "${workspaceFolder}/test/multiple-bitstreams/nist-sts/cumulative-sums/parameters.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(lldb-macos-x64) Launch nist_sts_discrete_fourier_transform_test",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/darwin/x64/Debug/nist_sts_discrete_fourier_transform_test",
+            "args": ["-R", "-i", "-t", "-v", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/validation/nist-sts/e.bin", "-r", "${workspaceFolder}/results/nist_sts_discrete_fourier_transform_test_results.json", "-p", "${workspaceFolder}/test/validation/nist-sts/discrete-fourier-transform/parameters_e.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(lldb-macos-x64) Launch nist_sts_discrete_fourier_transform_test (multiple bitstreams)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/darwin/x64/Debug/nist_sts_discrete_fourier_transform_test",
+            "args": ["-R", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/random.bin", "-r", "${workspaceFolder}/results/nist_sts_discrete_fourier_transform_test_results.json", "-p", "${workspaceFolder}/test/multiple-bitstreams/nist-sts/discrete-fourier-transform/parameters.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(lldb-macos-x64) Launch nist_sts_frequency_test",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/darwin/x64/Debug/nist_sts_frequency_test",
+            "args": ["-R", "-i", "-t", "-v", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/validation/nist-sts/e.bin", "-r", "${workspaceFolder}/results/nist_sts_frequency_test_results.json", "-p", "${workspaceFolder}/test/validation/nist-sts/frequency/parameters_e.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(lldb-macos-x64) Launch nist_sts_frequency_test (multiple bitstreams)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/darwin/x64/Debug/nist_sts_frequency_test",
+            "args": ["-R", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/random.bin", "-r", "${workspaceFolder}/results/nist_sts_frequency_test_results.json", "-p", "${workspaceFolder}/test/multiple-bitstreams/nist-sts/frequency/parameters.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(lldb-macos-x64) Launch nist_sts_linear_complexity_test",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/darwin/x64/Debug/nist_sts_linear_complexity_test",
+            "args": ["-R", "-i", "-t", "-v", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/validation/nist-sts/e.bin", "-r", "${workspaceFolder}/results/nist_sts_linear_complexity_test_results.json", "-p", "${workspaceFolder}/test/validation/nist-sts/linear-complexity/parameters_e.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(lldb-macos-x64) Launch nist_sts_linear_complexity_test (multiple bitstreams)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/darwin/x64/Debug/nist_sts_linear_complexity_test",
+            "args": ["-R", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/random.bin", "-r", "${workspaceFolder}/results/nist_sts_linear_complexity_test_results.json", "-p", "${workspaceFolder}/test/multiple-bitstreams/nist-sts/linear-complexity/parameters.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(lldb-macos-x64) Launch nist_sts_longest_run_of_ones_test",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/darwin/x64/Debug/nist_sts_longest_run_of_ones_test",
+            "args": ["-R", "-i", "-t", "-v", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/validation/nist-sts/e.bin", "-r", "${workspaceFolder}/results/nist_sts_longest_run_of_ones_test_results.json", "-p", "${workspaceFolder}/test/validation/nist-sts/longest-run-of-ones/parameters_e.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(lldb-macos-x64) Launch nist_sts_longest_run_of_ones_test (multiple bitstreams)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/darwin/x64/Debug/nist_sts_longest_run_of_ones_test",
+            "args": ["-R", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/random.bin", "-r", "${workspaceFolder}/results/nist_sts_longest_run_of_ones_test_results.json", "-p", "${workspaceFolder}/test/multiple-bitstreams/nist-sts/longest-run-of-ones/parameters.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(lldb-macos-x64) Launch nist_sts_non_overlapping_template_matching_test",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/darwin/x64/Debug/nist_sts_non_overlapping_template_matching_test",
+            "args": ["-R", "-i", "-t", "-v", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/validation/nist-sts/e.bin", "-r", "${workspaceFolder}/results/nist_sts_non_overlapping_template_matching_test_results.json", "-p", "${workspaceFolder}/test/validation/nist-sts/non-overlapping-template-matching/parameters_e.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(lldb-macos-x64) Launch nist_sts_non_overlapping_template_matching_test (multiple bitstreams)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/darwin/x64/Debug/nist_sts_non_overlapping_template_matching_test",
+            "args": ["-R", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/random.bin", "-r", "${workspaceFolder}/results/nist_sts_non_overlapping_template_matching_test_results.json", "-p", "${workspaceFolder}/test/multiple-bitstreams/nist-sts/non-overlapping-template-matching/parameters.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(lldb-macos-x64) Launch nist_sts_overlapping_template_matching_test",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/darwin/x64/Debug/nist_sts_overlapping_template_matching_test",
+            "args": ["-R", "-i", "-t", "-v", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/validation/nist-sts/e.bin", "-r", "${workspaceFolder}/results/nist_sts_overlapping_template_matching_test_results.json", "-p", "${workspaceFolder}/test/validation/nist-sts/overlapping-template-matching/parameters_e.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(lldb-macos-x64) Launch nist_sts_overlapping_template_matching_test (multiple bitstreams)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/darwin/x64/Debug/nist_sts_overlapping_template_matching_test",
+            "args": ["-R", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/random.bin", "-r", "${workspaceFolder}/results/nist_sts_overlapping_template_matching_test_results.json", "-p", "${workspaceFolder}/test/multiple-bitstreams/nist-sts/overlapping-template-matching/parameters.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(lldb-macos-x64) Launch nist_sts_random_excursions_test",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/darwin/x64/Debug/nist_sts_random_excursions_test",
+            "args": ["-R", "-i", "-t", "-v", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/validation/nist-sts/sha1.bin", "-r", "${workspaceFolder}/results/nist_sts_random_excursions_test_results.json", "-p", "${workspaceFolder}/test/validation/nist-sts/random-excursions/parameters_e.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(lldb-macos-x64) Launch nist_sts_random_excursions_test (multiple bitstreams)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/darwin/x64/Debug/nist_sts_random_excursions_test",
+            "args": ["-R", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/random.bin", "-r", "${workspaceFolder}/results/nist_sts_random_excursions_test_results.json", "-p", "${workspaceFolder}/test/multiple-bitstreams/nist-sts/random-excursions/parameters.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(lldb-macos-x64) Launch nist_sts_random_excursions_variant_test",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/darwin/x64/Debug/nist_sts_random_excursions_variant_test",
+            "args": ["-R", "-i", "-t", "-v", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/validation/nist-sts/sha1.bin", "-r", "${workspaceFolder}/results/nist_sts_random_excursions_variant_test_results.json", "-p", "${workspaceFolder}/test/validation/nist-sts/random-excursions-variant/parameters_e.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(lldb-macos-x64) Launch nist_sts_random_excursions_variant_test (multiple bitstreams)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/darwin/x64/Debug/nist_sts_random_excursions_variant_test",
+            "args": ["-R", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/random.bin", "-r", "${workspaceFolder}/results/nist_sts_random_excursions_variant_test_results.json", "-p", "${workspaceFolder}/test/multiple-bitstreams/nist-sts/random-excursions-variant/parameters.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(lldb-macos-x64) Launch nist_sts_rank_test",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/darwin/x64/Debug/nist_sts_rank_test",
+            "args": ["-R", "-i", "-t", "-v", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/validation/nist-sts/e.bin", "-r", "${workspaceFolder}/results/nist_sts_rank_test_results.json", "-p", "${workspaceFolder}/test/validation/nist-sts/rank/parameters_e.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(lldb-macos-x64) Launch nist_sts_rank_test (multiple bitstreams)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/darwin/x64/Debug/nist_sts_rank_test",
+            "args": ["-R", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/random.bin", "-r", "${workspaceFolder}/results/nist_sts_rank_test_results.json", "-p", "${workspaceFolder}/test/multiple-bitstreams/nist-sts/rank/parameters.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(lldb-macos-x64) Launch nist_sts_runs_test",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/darwin/x64/Debug/nist_sts_runs_test",
+            "args": ["-R", "-i", "-t", "-v", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/validation/nist-sts/e.bin", "-r", "${workspaceFolder}/results/nist_sts_runs_test_results.json", "-p", "${workspaceFolder}/test/validation/nist-sts/runs/parameters_e.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(lldb-macos-x64) Launch nist_sts_runs_test (multiple bitstreams)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/darwin/x64/Debug/nist_sts_runs_test",
+            "args": ["-R", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/random.bin", "-r", "${workspaceFolder}/results/nist_sts_runs_test_results.json", "-p", "${workspaceFolder}/test/multiple-bitstreams/nist-sts/runs/parameters.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(lldb-macos-x64) Launch nist_sts_serial_test",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/darwin/x64/Debug/nist_sts_serial_test",
+            "args": ["-R", "-i", "-t", "-v", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/validation/nist-sts/e.bin", "-r", "${workspaceFolder}/results/nist_sts_serial_test_results.json", "-p", "${workspaceFolder}/test/validation/nist-sts/serial/parameters_e.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(lldb-macos-x64) Launch nist_sts_serial_test (multiple bitstreams)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/darwin/x64/Debug/nist_sts_serial_test",
+            "args": ["-R", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/random.bin", "-r", "${workspaceFolder}/results/nist_sts_serial_test_results.json", "-p", "${workspaceFolder}/test/multiple-bitstreams/nist-sts/serial/parameters.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(lldb-macos-x64) Launch nist_sts_universal_statistical_test",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/darwin/x64/Debug/nist_sts_universal_statistical_test",
+            "args": ["-R", "-i", "-t", "-v", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/validation/nist-sts/e.bin", "-r", "${workspaceFolder}/results/nist_sts_universal_statistical_test_results.json", "-p", "${workspaceFolder}/test/validation/nist-sts/universal-statistical/parameters_e.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(lldb-macos-x64) Launch nist_sts_universal_statistical_test (multiple bitstreams)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/darwin/x64/Debug/nist_sts_universal_statistical_test",
+            "args": ["-R", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/random.bin", "-r", "${workspaceFolder}/results/nist_sts_universal_statistical_test_results.json", "-p", "${workspaceFolder}/test/multiple-bitstreams/nist-sts/universal-statistical/parameters.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(lldb-macos-x64) Launch steer_test_scheduler",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/darwin/x64/Debug/steer_test_scheduler",
+            "args": ["-s", "${workspaceFolder}/src/test-scheduler/validation_test_schedule.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(lldb-macos-x64) Launch steer_test_scheduler (device test)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/darwin/x64/Debug/steer_test_scheduler",
+            "args": ["-s", "${workspaceFolder}/src/test-scheduler/device_test_schedule.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(lldb-macos-x64) Launch steer_run_validations",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/darwin/x64/Debug/steer_run_validations",
+            "args": ["-c", "${workspaceFolder}/src/run-validations/validation_checks.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(lldb-macos-x64) Launch steer_validate",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/darwin/x64/Debug/steer_validate",
+            "args": ["-r", "${workspaceFolder}/results/nist_sts_approximate_entropy_test_results.json", "-e", "${workspaceFolder}/test/validation/nist-sts/approximate-entropy/expected_results_e.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(lldb-macos-x64) Launch libsteer_unit_test",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/darwin/x64/Debug/libsteer_unit_test",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(lldb-macos-x64) Launch libsteer_private_unit_test",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/darwin/x64/Debug/libsteer_private_unit_test",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(gdb-linux-x64) Launch steer_sample_test",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/linux/x64/Debug/steer_sample_test",
+            "args": ["-R", "-i", "-t", "-v", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/random.bin", "-r", "${workspaceFolder}/results/sample_test_report.json", "-P", "{ \\\"parameter set\\\": { \\\"test name\\\": \\\"sample test\\\", \\\"parameter set name\\\": \\\"sample parameter set\\\", \\\"parameters\\\": [ { \\\"name\\\": \\\"bitstream count\\\", \\\"data type\\\": \\\"unsigned 64-bit integer\\\", \\\"units\\\": \\\"bitstreams\\\", \\\"value\\\": \\\"2\\\" }, { \\\"name\\\":  \\\"bitstream length\\\", \\\"data type\\\": \\\"unsigned 64-bit integer\\\", \\\"units\\\": \\\"bits\\\", \\\"value\\\": \\\"500000\\\" }, { \\\"name\\\": \\\"significance level (alpha)\\\", \\\"data type\\\": \\\"double precision floating point\\\", \\\"precision\\\": \\\"6\\\", \\\"value\\\": \\\"0.01\\\" }, { \\\"name\\\": \\\"sample parameter\\\", \\\"data type\\\": \\\"signed 32-bit integer\\\", \\\"value\\\": \\\"10\\\" } ] } }"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(gdb-linux-x64) Launch steer_simple_test",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/linux/x64/Debug/steer_simple_test",
+            "args": ["-R", "-i", "-t", "-v", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/random.bin", "-r", "${workspaceFolder}/results/simple_test_report.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(gdb-linux-x64) Launch nist_sts_approximate_entropy_test",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/linux/x64/Debug/nist_sts_approximate_entropy_test",
+            "args": ["-R", "-i", "-t", "-v", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/validation/nist-sts/e.bin", "-r", "${workspaceFolder}/results/nist_sts_approximate_entropy_test_results.json", "-p", "${workspaceFolder}/test/validation/nist-sts/approximate-entropy/parameters_e.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(gdb-linux-x64) Launch nist_sts_approximate_entropy_test (stdout)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/linux/x64/Debug/nist_sts_approximate_entropy_test",
+            "args": ["-R", "-i", "-t", "-v", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/validation/nist-sts/e.bin", "-p", "${workspaceFolder}/test/validation/nist-sts/approximate-entropy/parameters_e.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(gdb-linux-x64) Launch nist_sts_approximate_entropy_test (multiple bitstreams)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/linux/x64/Debug/nist_sts_approximate_entropy_test",
+            "args": ["-R", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/random.bin", "-r", "${workspaceFolder}/results/nist_sts_approximate_entropy_test_results.json", "-p", "${workspaceFolder}/test/multiple-bitstreams/nist-sts/approximate-entropy/parameters.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(gdb-linux-x64) Launch nist_sts_block_frequency_test",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/linux/x64/Debug/nist_sts_block_frequency_test",
+            "args": ["-R", "-i", "-t", "-v", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/validation/nist-sts/e.bin", "-r", "${workspaceFolder}/results/nist_sts_block_frequency_test_results.json", "-p", "${workspaceFolder}/test/validation/nist-sts/block-frequency/parameters_e.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(gdb-linux-x64) Launch nist_sts_block_frequency_test (multiple bitstreams)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/linux/x64/Debug/nist_sts_block_frequency_test",
+            "args": ["-R", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/random.bin", "-r", "${workspaceFolder}/results/nist_sts_block_frequency_test_results.json", "-p", "${workspaceFolder}/test/multiple-bitstreams/nist-sts/block-frequency/parameters.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(gdb-linux-x64) Launch nist_sts_cumulative_sums_test",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/linux/x64/Debug/nist_sts_cumulative_sums_test",
+            "args": ["-R", "-i", "-t", "-v", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/validation/nist-sts/e.bin", "-r", "${workspaceFolder}/results/nist_sts_cumulative_sums_test_results.json", "-p", "${workspaceFolder}/test/validation/nist-sts/cumulative-sums/parameters_e.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(gdb-linux-x64) Launch nist_sts_cumulative_sums_test (multiple bitstreams)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/linux/x64/Debug/nist_sts_cumulative_sums_test",
+            "args": ["-R", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/random.bin", "-r", "${workspaceFolder}/results/nist_sts_cumulative_sums_test_results.json", "-p", "${workspaceFolder}/test/multiple-bitstreams/nist-sts/cumulative-sums/parameters.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(gdb-linux-x64) Launch nist_sts_discrete_fourier_transform_test",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/linux/x64/Debug/nist_sts_discrete_fourier_transform_test",
+            "args": ["-R", "-i", "-t", "-v", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/validation/nist-sts/e.bin", "-r", "${workspaceFolder}/results/nist_sts_discrete_fourier_transform_test_results.json", "-p", "${workspaceFolder}/test/validation/nist-sts/discrete-fourier-transform/parameters_e.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(gdb-linux-x64) Launch nist_sts_discrete_fourier_transform_test (multiple bitstreams)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/linux/x64/Debug/nist_sts_discrete_fourier_transform_test",
+            "args": ["-R", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/random.bin", "-r", "${workspaceFolder}/results/nist_sts_discrete_fourier_transform_test_results.json", "-p", "${workspaceFolder}/test/multiple-bitstreams/nist-sts/discrete-fourier-transform/parameters.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(gdb-linux-x64) Launch nist_sts_frequency_test",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/linux/x64/Debug/nist_sts_frequency_test",
+            "args": ["-R", "-i", "-t", "-v", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/validation/nist-sts/e.bin", "-r", "${workspaceFolder}/results/nist_sts_frequency_test_results.json", "-p", "${workspaceFolder}/test/validation/nist-sts/frequency/parameters_e.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(gdb-linux-x64) Launch nist_sts_frequency_test (multiple bitstreams)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/linux/x64/Debug/nist_sts_frequency_test",
+            "args": ["-R", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/random.bin", "-r", "${workspaceFolder}/results/nist_sts_frequency_test_results.json", "-p", "${workspaceFolder}/test/multiple-bitstreams/nist-sts/frequency/parameters.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(gdb-linux-x64) Launch nist_sts_linear_complexity_test",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/linux/x64/Debug/nist_sts_linear_complexity_test",
+            "args": ["-R", "-i", "-t", "-v", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/validation/nist-sts/e.bin", "-r", "${workspaceFolder}/results/nist_sts_linear_complexity_test_results.json", "-p", "${workspaceFolder}/test/validation/nist-sts/linear-complexity/parameters_e.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(gdb-linux-x64) Launch nist_sts_linear_complexity_test (multiple bitstreams)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/linux/x64/Debug/nist_sts_linear_complexity_test",
+            "args": ["-R", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/random.bin", "-r", "${workspaceFolder}/results/nist_sts_linear_complexity_test_results.json", "-p", "${workspaceFolder}/test/multiple-bitstreams/nist-sts/linear-complexity/parameters.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(gdb-linux-x64) Launch nist_sts_longest_run_of_ones_test",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/linux/x64/Debug/nist_sts_longest_run_of_ones_test",
+            "args": ["-R", "-i", "-t", "-v", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/validation/nist-sts/e.bin", "-r", "${workspaceFolder}/results/nist_sts_longest_run_of_ones_test_results.json", "-p", "${workspaceFolder}/test/validation/nist-sts/longest-run-of-ones/parameters_e.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(gdb-linux-x64) Launch nist_sts_longest_run_of_ones_test (multiple bitstreams)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/linux/x64/Debug/nist_sts_longest_run_of_ones_test",
+            "args": ["-R", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/random.bin", "-r", "${workspaceFolder}/results/nist_sts_longest_run_of_ones_test_results.json", "-p", "${workspaceFolder}/test/multiple-bitstreams/nist-sts/longest-run-of-ones/parameters.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(gdb-linux-x64) Launch nist_sts_non_overlapping_template_matching_test",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/linux/x64/Debug/nist_sts_non_overlapping_template_matching_test",
+            "args": ["-R", "-i", "-t", "-v", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/validation/nist-sts/e.bin", "-r", "${workspaceFolder}/results/nist_sts_non_overlapping_template_matching_test_results.json", "-p", "${workspaceFolder}/test/validation/nist-sts/non-overlapping-template-matching/parameters_e.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(gdb-linux-x64) Launch nist_sts_non_overlapping_template_matching_test (multiple bitstreams)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/linux/x64/Debug/nist_sts_non_overlapping_template_matching_test",
+            "args": ["-R", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/random.bin", "-r", "${workspaceFolder}/results/nist_sts_non_overlapping_template_matching_test_results.json", "-p", "${workspaceFolder}/test/multiple-bitstreams/nist-sts/non-overlapping-template-matching/parameters.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(gdb-linux-x64) Launch nist_sts_overlapping_template_matching_test",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/linux/x64/Debug/nist_sts_overlapping_template_matching_test",
+            "args": ["-R", "-i", "-t", "-v", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/validation/nist-sts/e.bin", "-r", "${workspaceFolder}/results/nist_sts_overlapping_template_matching_test_results.json", "-p", "${workspaceFolder}/test/validation/nist-sts/overlapping-template-matching/parameters_e.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(gdb-linux-x64) Launch nist_sts_overlapping_template_matching_test (multiple bitstreams)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/linux/x64/Debug/nist_sts_overlapping_template_matching_test",
+            "args": ["-R", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/random.bin", "-r", "${workspaceFolder}/results/nist_sts_overlapping_template_matching_test_results.json", "-p", "${workspaceFolder}/test/multiple-bitstreams/nist-sts/overlapping-template-matching/parameters.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(gdb-linux-x64) Launch nist_sts_random_excursions_test",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/linux/x64/Debug/nist_sts_random_excursions_test",
+            "args": ["-R", "-i", "-t", "-v", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/validation/nist-sts/sha1.bin", "-r", "${workspaceFolder}/results/nist_sts_random_excursions_test_results.json", "-p", "${workspaceFolder}/test/validation/nist-sts/random-excursions/parameters_e.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(gdb-linux-x64) Launch nist_sts_random_excursions_test (multiple bitstreams)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/linux/x64/Debug/nist_sts_random_excursions_test",
+            "args": ["-R", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/random.bin", "-r", "${workspaceFolder}/results/nist_sts_random_excursions_test_results.json", "-p", "${workspaceFolder}/test/multiple-bitstreams/nist-sts/random-excursions/parameters.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(gdb-linux-x64) Launch nist_sts_random_excursions_variant_test",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/linux/x64/Debug/nist_sts_random_excursions_variant_test",
+            "args": ["-R", "-i", "-t", "-v", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/validation/nist-sts/sha1.bin", "-r", "${workspaceFolder}/results/nist_sts_random_excursions_variant_test_results.json", "-p", "${workspaceFolder}/test/validation/nist-sts/random-excursions-variant/parameters_e.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(gdb-linux-x64) Launch nist_sts_random_excursions_variant_test (multiple bitstreams)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/linux/x64/Debug/nist_sts_random_excursions_variant_test",
+            "args": ["-R", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/random.bin", "-r", "${workspaceFolder}/results/nist_sts_random_excursions_variant_test_results.json", "-p", "${workspaceFolder}/test/multiple-bitstreams/nist-sts/random-excursions-variant/parameters.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(gdb-linux-x64) Launch nist_sts_rank_test",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/linux/x64/Debug/nist_sts_rank_test",
+            "args": ["-R", "-i", "-t", "-v", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/validation/nist-sts/e.bin", "-r", "${workspaceFolder}/results/nist_sts_rank_test_results.json", "-p", "${workspaceFolder}/test/validation/nist-sts/rank/parameters_e.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(gdb-linux-x64) Launch nist_sts_rank_test (multiple bitstreams)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/linux/x64/Debug/nist_sts_rank_test",
+            "args": ["-R", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/random.bin", "-r", "${workspaceFolder}/results/nist_sts_rank_test_results.json", "-p", "${workspaceFolder}/test/multiple-bitstreams/nist-sts/rank/parameters.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(gdb-linux-x64) Launch nist_sts_runs_test",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/linux/x64/Debug/nist_sts_runs_test",
+            "args": ["-R", "-i", "-t", "-v", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/validation/nist-sts/e.bin", "-r", "${workspaceFolder}/results/nist_sts_runs_test_results.json", "-p", "${workspaceFolder}/test/validation/nist-sts/runs/parameters_e.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(gdb-linux-x64) Launch nist_sts_runs_test (multiple bitstreams)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/linux/x64/Debug/nist_sts_runs_test",
+            "args": ["-R", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/random.bin", "-r", "${workspaceFolder}/results/nist_sts_runs_test_results.json", "-p", "${workspaceFolder}/test/multiple-bitstreams/nist-sts/runs/parameters.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(gdb-linux-x64) Launch nist_sts_serial_test",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/linux/x64/Debug/nist_sts_serial_test",
+            "args": ["-R", "-i", "-t", "-v", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/validation/nist-sts/e.bin", "-r", "${workspaceFolder}/results/nist_sts_serial_test_results.json", "-p", "${workspaceFolder}/test/validation/nist-sts/serial/parameters_e.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(gdb-linux-x64) Launch nist_sts_serial_test (multiple bitstreams)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/linux/x64/Debug/nist_sts_serial_test",
+            "args": ["-R", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/random.bin", "-r", "${workspaceFolder}/results/nist_sts_serial_test_results.json", "-p", "${workspaceFolder}/test/multiple-bitstreams/nist-sts/serial/parameters.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(gdb-linux-x64) Launch nist_sts_universal_statistical_test",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/linux/x64/Debug/nist_sts_universal_statistical_test",
+            "args": ["-R", "-i", "-t", "-v", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/validation/nist-sts/e.bin", "-r", "${workspaceFolder}/results/nist_sts_universal_statistical_test_results.json", "-p", "${workspaceFolder}/test/validation/nist-sts/universal-statistical/parameters_e.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(gdb-linux-x64) Launch nist_sts_universal_statistical_test (multiple bitstreams)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/linux/x64/Debug/nist_sts_universal_statistical_test",
+            "args": ["-R", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/random.bin", "-r", "${workspaceFolder}/results/nist_sts_universal_statistical_test_results.json", "-p", "${workspaceFolder}/test/multiple-bitstreams/nist-sts/universal-statistical/parameters.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(gdb-linux-x64) Launch steer_test_scheduler",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/linux/x64/Debug/steer_test_scheduler",
+            "args": ["-s", "${workspaceFolder}/src/test-scheduler/validation_test_schedule.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(gdb-linux-x64) Launch steer_test_scheduler (device test)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/linux/x64/Debug/steer_test_scheduler",
+            "args": ["-s", "${workspaceFolder}/src/test-scheduler/device_test_schedule.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(gdb-linux-x64) Launch steer_run_validations",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/linux/x64/Debug/steer_run_validations",
+            "args": ["-c", "${workspaceFolder}/src/run-validations/validation_checks.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(gdb-linux-x64) Launch steer_validate",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/linux/x64/Debug/steer_validate",
+            "args": ["-r", "${workspaceFolder}/results/nist_sts_approximate_entropy_test_results.json", "-e", "${workspaceFolder}/test/validation/nist-sts/approximate-entropy/expected_results.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(lldb-linux-x64) Launch libsteer_unit_test",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/linux/x64/Debug/libsteer_unit_test",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(lldb-linux-x64) Launch libsteer_private_unit_test",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/linux/x64/Debug/libsteer_private_unit_test",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(lldb-macos-arm64) Launch steer_sample_test",
+            "type": "lldb",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/darwin/arm64/Debug/steer_sample_test",
+            "args": ["-R", "-i", "-t", "-v", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/random.bin", "-r", "${workspaceFolder}/results/sample_test_report.json", "-P", "{ \\\"parameter set\\\": { \\\"test name\\\": \\\"sample test\\\", \\\"parameter set name\\\": \\\"sample parameter set\\\", \\\"parameters\\\": [ { \\\"name\\\": \\\"bitstream count\\\", \\\"data type\\\": \\\"unsigned 64-bit integer\\\", \\\"units\\\": \\\"bitstreams\\\", \\\"value\\\": \\\"2\\\" }, { \\\"name\\\":  \\\"bitstream length\\\", \\\"data type\\\": \\\"unsigned 64-bit integer\\\", \\\"units\\\": \\\"bits\\\", \\\"value\\\": \\\"500000\\\" }, { \\\"name\\\": \\\"significance level (alpha)\\\", \\\"data type\\\": \\\"double precision floating point\\\", \\\"precision\\\": \\\"6\\\", \\\"value\\\": \\\"0.01\\\" }, { \\\"name\\\": \\\"sample parameter\\\", \\\"data type\\\": \\\"signed 32-bit integer\\\", \\\"value\\\": \\\"10\\\" } ] } }"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "name": "(lldb-macos-arm64) Launch steer_simple_test",
+            "type": "lldb",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/darwin/arm64/Debug/steer_simple_test",
+            "args": ["-R", "-i", "-t", "-v", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/random.bin", "-r", "${workspaceFolder}/results/simple_test_report.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "name": "(lldb-macos-arm64) Launch nist_sts_approximate_entropy_test",
+            "type": "lldb",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/darwin/arm64/Debug/nist_sts_approximate_entropy_test",
+            "args": ["-R", "-i", "-t", "-v", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/validation/nist-sts/e.bin", "-r", "${workspaceFolder}/results/nist_sts_approximate_entropy_test_results.json", "-p", "${workspaceFolder}/test/validation/nist-sts/approximate-entropy/parameters_e.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "name": "(lldb-macos-arm64) Launch nist_sts_approximate_entropy_test (stdout)",
+            "type": "lldb",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/darwin/arm64/Debug/nist_sts_approximate_entropy_test",
+            "args": ["-R", "-i", "-t", "-v", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/validation/nist-sts/e.bin", "-p", "${workspaceFolder}/test/validation/nist-sts/approximate-entropy/parameters_e.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "name": "(lldb-macos-arm64) Launch nist_sts_approximate_entropy_test (multiple bitstreams)",
+            "type": "lldb",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/darwin/arm64/Debug/nist_sts_approximate_entropy_test",
+            "args": ["-R", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/random.bin", "-r", "${workspaceFolder}/results/nist_sts_approximate_entropy_test_results.json", "-p", "${workspaceFolder}/test/multiple-bitstreams/nist-sts/approximate-entropy/parameters.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "name": "(lldb-macos-arm64) Launch nist_sts_block_frequency_test",
+            "type": "lldb",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/darwin/arm64/Debug/nist_sts_block_frequency_test",
+            "args": ["-R", "-i", "-t", "-v", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/validation/nist-sts/e.bin", "-r", "${workspaceFolder}/results/nist_sts_block_frequency_test_results.json", "-p", "${workspaceFolder}/test/validation/nist-sts/block-frequency/parameters_e.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "name": "(lldb-macos-arm64) Launch nist_sts_block_frequency_test (multiple bitstreams)",
+            "type": "lldb",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/darwin/arm64/Debug/nist_sts_block_frequency_test",
+            "args": ["-R", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/random.bin", "-r", "${workspaceFolder}/results/nist_sts_block_frequency_test_results.json", "-p", "${workspaceFolder}/test/multiple-bitstreams/nist-sts/block-frequency/parameters.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "name": "(lldb-macos-arm64) Launch nist_sts_cumulative_sums_test",
+            "type": "lldb",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/darwin/arm64/Debug/nist_sts_cumulative_sums_test",
+            "args": ["-R", "-i", "-t", "-v", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/validation/nist-sts/e.bin", "-r", "${workspaceFolder}/results/nist_sts_cumulative_sums_test_results.json", "-p", "${workspaceFolder}/test/validation/nist-sts/cumulative-sums/parameters_e.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "name": "(lldb-macos-arm64) Launch nist_sts_cumulative_sums_test (multiple bitstreams)",
+            "type": "lldb",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/darwin/arm64/Debug/nist_sts_cumulative_sums_test",
+            "args": ["-R", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/random.bin", "-r", "${workspaceFolder}/results/nist_sts_cumulative_sums_test_results.json", "-p", "${workspaceFolder}/test/multiple-bitstreams/nist-sts/cumulative-sums/parameters.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "name": "(lldb-macos-arm64) Launch nist_sts_discrete_fourier_transform_test",
+            "type": "lldb",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/darwin/arm64/Debug/nist_sts_discrete_fourier_transform_test",
+            "args": ["-R", "-i", "-t", "-v", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/validation/nist-sts/e.bin", "-r", "${workspaceFolder}/results/nist_sts_discrete_fourier_transform_test_results.json", "-p", "${workspaceFolder}/test/validation/nist-sts/discrete-fourier-transform/parameters_e.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "name": "(lldb-macos-arm64) Launch nist_sts_discrete_fourier_transform_test (multiple bitstreams)",
+            "type": "lldb",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/darwin/arm64/Debug/nist_sts_discrete_fourier_transform_test",
+            "args": ["-R", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/random.bin", "-r", "${workspaceFolder}/results/nist_sts_discrete_fourier_transform_test_results.json", "-p", "${workspaceFolder}/test/multiple-bitstreams/nist-sts/discrete-fourier-transform/parameters.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "name": "(lldb-macos-arm64) Launch nist_sts_frequency_test",
+            "type": "lldb",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/darwin/arm64/Debug/nist_sts_frequency_test",
+            "args": ["-R", "-i", "-t", "-v", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/validation/nist-sts/e.bin", "-r", "${workspaceFolder}/results/nist_sts_frequency_test_results.json", "-p", "${workspaceFolder}/test/validation/nist-sts/frequency/parameters_e.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "name": "(lldb-macos-arm64) Launch nist_sts_frequency_test (multiple bitstreams)",
+            "type": "lldb",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/darwin/arm64/Debug/nist_sts_frequency_test",
+            "args": ["-R", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/random.bin", "-r", "${workspaceFolder}/results/nist_sts_frequency_test_results.json", "-p", "${workspaceFolder}/test/multiple-bitstreams/nist-sts/frequency/parameters.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "name": "(lldb-macos-arm64) Launch nist_sts_linear_complexity_test",
+            "type": "lldb",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/darwin/arm64/Debug/nist_sts_linear_complexity_test",
+            "args": ["-R", "-i", "-t", "-v", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/validation/nist-sts/e.bin", "-r", "${workspaceFolder}/results/nist_sts_linear_complexity_test_results.json", "-p", "${workspaceFolder}/test/validation/nist-sts/linear-complexity/parameters_e.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "name": "(lldb-macos-arm64) Launch nist_sts_linear_complexity_test (multiple bitstreams)",
+            "type": "lldb",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/darwin/arm64/Debug/nist_sts_linear_complexity_test",
+            "args": ["-R", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/random.bin", "-r", "${workspaceFolder}/results/nist_sts_linear_complexity_test_results.json", "-p", "${workspaceFolder}/test/multiple-bitstreams/nist-sts/linear-complexity/parameters.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "name": "(lldb-macos-arm64) Launch nist_sts_longest_run_of_ones_test",
+            "type": "lldb",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/darwin/arm64/Debug/nist_sts_longest_run_of_ones_test",
+            "args": ["-R", "-i", "-t", "-v", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/validation/nist-sts/e.bin", "-r", "${workspaceFolder}/results/nist_sts_longest_run_of_ones_test_results.json", "-p", "${workspaceFolder}/test/validation/nist-sts/longest-run-of-ones/parameters_e.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "name": "(lldb-macos-arm64) Launch nist_sts_longest_run_of_ones_test (multiple bitstreams)",
+            "type": "lldb",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/darwin/arm64/Debug/nist_sts_longest_run_of_ones_test",
+            "args": ["-R", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/random.bin", "-r", "${workspaceFolder}/results/nist_sts_longest_run_of_ones_test_results.json", "-p", "${workspaceFolder}/test/multiple-bitstreams/nist-sts/longest-run-of-ones/parameters.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "name": "(lldb-macos-arm64) Launch nist_sts_non_overlapping_template_matching_test",
+            "type": "lldb",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/darwin/arm64/Debug/nist_sts_non_overlapping_template_matching_test",
+            "args": ["-R", "-i", "-t", "-v", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/validation/nist-sts/e.bin", "-r", "${workspaceFolder}/results/nist_sts_non_overlapping_template_matching_test_results.json", "-p", "${workspaceFolder}/test/validation/nist-sts/non-overlapping-template-matching/parameters_e.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "name": "(lldb-macos-arm64) Launch nist_sts_non_overlapping_template_matching_test (multiple bitstreams)",
+            "type": "lldb",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/darwin/arm64/Debug/nist_sts_non_overlapping_template_matching_test",
+            "args": ["-R", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/random.bin", "-r", "${workspaceFolder}/results/nist_sts_non_overlapping_template_matching_test_results.json", "-p", "${workspaceFolder}/test/multiple-bitstreams/nist-sts/non-overlapping-template-matching/parameters.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}/bin/darwin/arm64/Debug"
+        },
+        {
+            "name": "(lldb-macos-arm64) Launch nist_sts_overlapping_template_matching_test",
+            "type": "lldb",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/darwin/arm64/Debug/nist_sts_overlapping_template_matching_test",
+            "args": ["-R", "-i", "-t", "-v", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/validation/nist-sts/e.bin", "-r", "${workspaceFolder}/results/nist_sts_overlapping_template_matching_test_results.json", "-p", "${workspaceFolder}/test/validation/nist-sts/overlapping-template-matching/parameters_e.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "name": "(lldb-macos-arm64) Launch nist_sts_overlapping_template_matching_test (multiple bitstreams)",
+            "type": "lldb",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/darwin/arm64/Debug/nist_sts_overlapping_template_matching_test",
+            "args": ["-R", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/random.bin", "-r", "${workspaceFolder}/results/nist_sts_overlapping_template_matching_test_results.json", "-p", "${workspaceFolder}/test/multiple-bitstreams/nist-sts/overlapping-template-matching/parameters.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "name": "(lldb-macos-arm64) Launch nist_sts_random_excursions_test",
+            "type": "lldb",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/darwin/arm64/Debug/nist_sts_random_excursions_test",
+            "args": ["-R", "-i", "-t", "-v", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/validation/nist-sts/sha1.bin", "-r", "${workspaceFolder}/results/nist_sts_random_excursions_test_results.json", "-p", "${workspaceFolder}/test/validation/nist-sts/random-excursions/parameters.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "name": "(lldb-macos-arm64) Launch nist_sts_random_excursions_test (multiple bitstreams)",
+            "type": "lldb",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/darwin/arm64/Debug/nist_sts_random_excursions_test",
+            "args": ["-R", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/random.bin", "-r", "${workspaceFolder}/results/nist_sts_random_excursions_test_results.json", "-p", "${workspaceFolder}/test/multiple-bitstreams/nist-sts/random-excursions/parameters.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "name": "(lldb-macos-arm64) Launch nist_sts_random_excursions_variant_test",
+            "type": "lldb",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/darwin/arm64/Debug/nist_sts_random_excursions_variant_test",
+            "args": ["-R", "-i", "-t", "-v", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/validation/nist-sts/sha1.bin", "-r", "${workspaceFolder}/results/nist_sts_random_excursions_variant_test_results.json", "-p", "${workspaceFolder}/test/validation/nist-sts/random-excursions-variant/parameters.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "name": "(lldb-macos-arm64) Launch nist_sts_random_excursions_variant_test (multiple bitstreams)",
+            "type": "lldb",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/darwin/arm64/Debug/nist_sts_random_excursions_variant_test",
+            "args": ["-R", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/random.bin", "-r", "${workspaceFolder}/results/nist_sts_random_excursions_variant_test_results.json", "-p", "${workspaceFolder}/test/multiple-bitstreams/nist-sts/random-excursions-variant/parameters.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "name": "(lldb-macos-arm64) Launch nist_sts_rank_test",
+            "type": "lldb",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/darwin/arm64/Debug/nist_sts_rank_test",
+            "args": ["-R", "-i", "-t", "-v", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/validation/nist-sts/e.bin", "-r", "${workspaceFolder}/results/nist_sts_rank_test_results.json", "-p", "${workspaceFolder}/test/validation/nist-sts/rank/parameters_e.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "name": "(lldb-macos-arm64) Launch nist_sts_rank_test (multiple bitstreams)",
+            "type": "lldb",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/darwin/arm64/Debug/nist_sts_rank_test",
+            "args": ["-R", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/random.bin", "-r", "${workspaceFolder}/results/nist_sts_rank_test_results.json", "-p", "${workspaceFolder}/test/multiple-bitstreams/nist-sts/rank/parameters.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "name": "(lldb-macos-arm64) Launch nist_sts_runs_test",
+            "type": "lldb",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/darwin/arm64/Debug/nist_sts_runs_test",
+            "args": ["-R", "-i", "-t", "-v", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/validation/nist-sts/e.bin", "-r", "${workspaceFolder}/results/nist_sts_runs_test_results.json", "-p", "${workspaceFolder}/test/validation/nist-sts/runs/parameters_e.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "name": "(lldb-macos-arm64) Launch nist_sts_runs_test (multiple bitstreams)",
+            "type": "lldb",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/darwin/arm64/Debug/nist_sts_runs_test",
+            "args": ["-R", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/random.bin", "-r", "${workspaceFolder}/results/nist_sts_runs_test_results.json", "-p", "${workspaceFolder}/test/multiple-bitstreams/nist-sts/runs/parameters.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "name": "(lldb-macos-arm64) Launch nist_sts_serial_test",
+            "type": "lldb",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/darwin/arm64/Debug/nist_sts_serial_test",
+            "args": ["-R", "-i", "-t", "-v", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/validation/nist-sts/e.bin", "-r", "${workspaceFolder}/results/nist_sts_serial_test_results.json", "-p", "${workspaceFolder}/test/validation/nist-sts/serial/parameters_e.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "name": "(lldb-macos-arm64) Launch nist_sts_serial_test (multiple bitstreams)",
+            "type": "lldb",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/darwin/arm64/Debug/nist_sts_serial_test",
+            "args": ["-R", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/random.bin", "-r", "${workspaceFolder}/results/nist_sts_serial_test_results.json", "-p", "${workspaceFolder}/test/multiple-bitstreams/nist-sts/serial/parameters.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "name": "(lldb-macos-arm64) Launch nist_sts_universal_statistical_test",
+            "type": "lldb",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/darwin/arm64/Debug/nist_sts_universal_statistical_test",
+            "args": ["-R", "-i", "-t", "-v", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/validation/nist-sts/e.bin", "-r", "${workspaceFolder}/results/nist_sts_universal_statistical_test_results.json", "-p", "${workspaceFolder}/test/validation/nist-sts/universal-statistical/parameters_e.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "name": "(lldb-macos-arm64) Launch nist_sts_universal_statistical_test (multiple bitstreams)",
+            "type": "lldb",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/darwin/arm64/Debug/nist_sts_universal_statistical_test",
+            "args": ["-R", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/random.bin", "-r", "${workspaceFolder}/results/nist_sts_universal_statistical_test_results.json", "-p", "${workspaceFolder}/test/multiple-bitstreams/nist-sts/universal-statistical/parameters.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "name": "(lldb-macos-arm64) Launch steer_test_scheduler",
+            "type": "lldb",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/darwin/arm64/Debug/steer_test_scheduler",
+            "args": ["-s", "${workspaceFolder}/src/test-scheduler/validation_test_schedule.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "name": "(lldb-macos-arm64) Launch steer_test_scheduler (device test)",
+            "type": "lldb",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/darwin/arm64/Debug/steer_test_scheduler",
+            "args": ["-s", "${workspaceFolder}/src/test-scheduler/device_test_schedule.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "name": "(lldb-macos-arm64) Launch steer_run_validations",
+            "type": "lldb",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/darwin/arm64/Debug/steer_run_validations",
+            "args": ["-c", "${workspaceFolder}/src/run-validations/validation_checks.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "name": "(lldb-macos-arm64) Launch steer_validate",
+            "type": "lldb",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/darwin/arm64/Debug/steer_validate",
+            "args": ["-r", "${workspaceFolder}/results/nist_sts_approximate_entropy_test_results.json", "-e", "${workspaceFolder}/test/validation/nist-sts/approximate-entropy/expected_results.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "name": "(lldb-macos-arm64) Launch libsteer_unit_test",
+            "type": "lldb",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/darwin/arm64/Debug/libsteer_unit_test",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "name": "(lldb-macos-arm64) Launch libsteer_private_unit_test",
+            "type": "lldb",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/darwin/arm64/Debug/libsteer_private_unit_test",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "name": "(gdb-linux-arm64) Launch steer_sample_test",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/linux/arm64/Debug/steer_sample_test",
+            "args": ["-R", "-i", "-t", "-v", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/random.bin", "-r", "${workspaceFolder}/results/sample_test_report.json", "-P", "{ \\\"parameter set\\\": { \\\"test name\\\": \\\"sample test\\\", \\\"parameter set name\\\": \\\"sample parameter set\\\", \\\"parameters\\\": [ { \\\"name\\\": \\\"bitstream count\\\", \\\"data type\\\": \\\"unsigned 64-bit integer\\\", \\\"units\\\": \\\"bitstreams\\\", \\\"value\\\": \\\"2\\\" }, { \\\"name\\\":  \\\"bitstream length\\\", \\\"data type\\\": \\\"unsigned 64-bit integer\\\", \\\"units\\\": \\\"bits\\\", \\\"value\\\": \\\"500000\\\" }, { \\\"name\\\": \\\"significance level (alpha)\\\", \\\"data type\\\": \\\"double precision floating point\\\", \\\"precision\\\": \\\"6\\\", \\\"value\\\": \\\"0.01\\\" }, { \\\"name\\\": \\\"sample parameter\\\", \\\"data type\\\": \\\"signed 32-bit integer\\\", \\\"value\\\": \\\"10\\\" } ] } }"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(gdb-linux-arm64) Launch steer_simple_test",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/linux/arm64/Debug/steer_simple_test",
+            "args": ["-R", "-i", "-t", "-v", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/random.bin", "-r", "${workspaceFolder}/results/simple_test_report.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(gdb-linux-arm64) Launch nist_sts_approximate_entropy_test",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/linux/arm64/Debug/nist_sts_approximate_entropy_test",
+            "args": ["-R", "-i", "-t", "-v", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/validation/nist-sts/e.bin", "-r", "${workspaceFolder}/results/nist_sts_approximate_entropy_test_results.json", "-p", "${workspaceFolder}/test/validation/nist-sts/approximate-entropy/parameters_e.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(gdb-linux-arm64) Launch nist_sts_approximate_entropy_test (stdout)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/linux/arm64/Debug/nist_sts_approximate_entropy_test",
+            "args": ["-R", "-i", "-t", "-v", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/validation/nist-sts/e.bin", "-p", "${workspaceFolder}/test/validation/nist-sts/approximate-entropy/parameters_e.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(gdb-linux-arm64) Launch nist_sts_approximate_entropy_test (multiple bitstreams)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/linux/arm64/Debug/nist_sts_approximate_entropy_test",
+            "args": ["-R", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/random.bin", "-r", "${workspaceFolder}/results/nist_sts_approximate_entropy_test_results.json", "-p", "${workspaceFolder}/test/multiple-bitstreams/nist-sts/approximate-entropy/parameters.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(gdb-linux-arm64) Launch nist_sts_block_frequency_test",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/linux/arm64/Debug/nist_sts_block_frequency_test",
+            "args": ["-R", "-i", "-t", "-v", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/validation/nist-sts/e.bin", "-r", "${workspaceFolder}/results/nist_sts_block_frequency_test_results.json", "-p", "${workspaceFolder}/test/validation/nist-sts/block-frequency/parameters_e.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(gdb-linux-arm64) Launch nist_sts_block_frequency_test (multiple bitstreams)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/linux/arm64/Debug/nist_sts_block_frequency_test",
+            "args": ["-R", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/random.bin", "-r", "${workspaceFolder}/results/nist_sts_block_frequency_test_results.json", "-p", "${workspaceFolder}/test/multiple-bitstreams/nist-sts/block-frequency/parameters.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(gdb-linux-arm64) Launch nist_sts_cumulative_sums_test",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/linux/arm64/Debug/nist_sts_cumulative_sums_test",
+            "args": ["-R", "-i", "-t", "-v", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/validation/nist-sts/e.bin", "-r", "${workspaceFolder}/results/nist_sts_cumulative_sums_test_results.json", "-p", "${workspaceFolder}/test/validation/nist-sts/cumulative-sums/parameters_e.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(gdb-linux-arm64) Launch nist_sts_cumulative_sums_test (multiple bitstreams)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/linux/arm64/Debug/nist_sts_cumulative_sums_test",
+            "args": ["-R", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/random.bin", "-r", "${workspaceFolder}/results/nist_sts_cumulative_sums_test_results.json", "-p", "${workspaceFolder}/test/multiple-bitstreams/nist-sts/cumulative-sums/parameters.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(gdb-linux-arm64) Launch nist_sts_discrete_fourier_transform_test",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/linux/arm64/Debug/nist_sts_discrete_fourier_transform_test",
+            "args": ["-R", "-i", "-t", "-v", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/validation/nist-sts/e.bin", "-r", "${workspaceFolder}/results/nist_sts_discrete_fourier_transform_test_results.json", "-p", "${workspaceFolder}/test/validation/nist-sts/discrete-fourier-transform/parameters_e.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(gdb-linux-arm64) Launch nist_sts_discrete_fourier_transform_test (multiple bitstreams)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/linux/arm64/Debug/nist_sts_discrete_fourier_transform_test",
+            "args": ["-R", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/random.bin", "-r", "${workspaceFolder}/results/nist_sts_discrete_fourier_transform_test_results.json", "-p", "${workspaceFolder}/test/multiple-bitstreams/nist-sts/discrete-fourier-transform/parameters.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(gdb-linux-arm64) Launch nist_sts_frequency_test",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/linux/arm64/Debug/nist_sts_frequency_test",
+            "args": ["-R", "-i", "-t", "-v", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/validation/nist-sts/e.bin", "-r", "${workspaceFolder}/results/nist_sts_frequency_test_results.json", "-p", "${workspaceFolder}/test/validation/nist-sts/frequency/parameters_e.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(gdb-linux-arm64) Launch nist_sts_frequency_test (multiple bitstreams)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/linux/arm64/Debug/nist_sts_frequency_test",
+            "args": ["-R", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/random.bin", "-r", "${workspaceFolder}/results/nist_sts_frequency_test_results.json", "-p", "${workspaceFolder}/test/multiple-bitstreams/nist-sts/frequency/parameters.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(gdb-linux-arm64) Launch nist_sts_linear_complexity_test",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/linux/arm64/Debug/nist_sts_linear_complexity_test",
+            "args": ["-R", "-i", "-t", "-v", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/validation/nist-sts/e.bin", "-r", "${workspaceFolder}/results/nist_sts_linear_complexity_test_results.json", "-p", "${workspaceFolder}/test/validation/nist-sts/linear-complexity/parameters_e.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(gdb-linux-arm64) Launch nist_sts_linear_complexity_test (multiple bitstreams)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/linux/arm64/Debug/nist_sts_linear_complexity_test",
+            "args": ["-R", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/random.bin", "-r", "${workspaceFolder}/results/nist_sts_linear_complexity_test_results.json", "-p", "${workspaceFolder}/test/multiple-bitstreams/nist-sts/linear-complexity/parameters.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(gdb-linux-arm64) Launch nist_sts_longest_run_of_ones_test",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/linux/arm64/Debug/nist_sts_longest_run_of_ones_test",
+            "args": ["-R", "-i", "-t", "-v", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/validation/nist-sts/e.bin", "-r", "${workspaceFolder}/results/nist_sts_longest_run_of_ones_test_results.json", "-p", "${workspaceFolder}/test/validation/nist-sts/longest-run-of-ones/parameters_e.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(gdb-linux-arm64) Launch nist_sts_longest_run_of_ones_test (multiple bitstreams)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/linux/arm64/Debug/nist_sts_longest_run_of_ones_test",
+            "args": ["-R", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/random.bin", "-r", "${workspaceFolder}/results/nist_sts_longest_run_of_ones_test_results.json", "-p", "${workspaceFolder}/test/multiple-bitstreams/nist-sts/longest-run-of-ones/parameters.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(gdb-linux-arm64) Launch nist_sts_non_overlapping_template_matching_test",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/linux/arm64/Debug/nist_sts_non_overlapping_template_matching_test",
+            "args": ["-R", "-i", "-t", "-v", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/validation/nist-sts/e.bin", "-r", "${workspaceFolder}/results/nist_sts_non_overlapping_template_matching_test_results.json", "-p", "${workspaceFolder}/test/validation/nist-sts/non-overlapping-template-matching/parameters_e.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(gdb-linux-arm64) Launch nist_sts_non_overlapping_template_matching_test (multiple bitstreams)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/linux/arm64/Debug/nist_sts_non_overlapping_template_matching_test",
+            "args": ["-R", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/random.bin", "-r", "${workspaceFolder}/results/nist_sts_non_overlapping_template_matching_test_results.json", "-p", "${workspaceFolder}/test/multiple-bitstreams/nist-sts/non-overlapping-template-matching/parameters.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(gdb-linux-arm64) Launch nist_sts_overlapping_template_matching_test",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/linux/arm64/Debug/nist_sts_overlapping_template_matching_test",
+            "args": ["-R", "-i", "-t", "-v", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/validation/nist-sts/e.bin", "-r", "${workspaceFolder}/results/nist_sts_overlapping_template_matching_test_results.json", "-p", "${workspaceFolder}/test/validation/nist-sts/overlapping-template-matching/parameters_e.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(gdb-linux-arm64) Launch nist_sts_overlapping_template_matching_test (multiple bitstreams)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/linux/arm64/Debug/nist_sts_overlapping_template_matching_test",
+            "args": ["-R", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/random.bin", "-r", "${workspaceFolder}/results/nist_sts_overlapping_template_matching_test_results.json", "-p", "${workspaceFolder}/test/multiple-bitstreams/nist-sts/overlapping-template-matching/parameters.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(gdb-linux-arm64) Launch nist_sts_random_excursions_test",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/linux/arm64/Debug/nist_sts_random_excursions_test",
+            "args": ["-R", "-i", "-t", "-v", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/validation/nist-sts/sha1.bin", "-r", "${workspaceFolder}/results/nist_sts_random_excursions_test_results.json", "-p", "${workspaceFolder}/test/validation/nist-sts/random-excursions/parameters_e.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(gdb-linux-arm64) Launch nist_sts_random_excursions_test (multiple bitstreams)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/linux/arm64/Debug/nist_sts_random_excursions_test",
+            "args": ["-R", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/random.bin", "-r", "${workspaceFolder}/results/nist_sts_random_excursions_test_results.json", "-p", "${workspaceFolder}/test/multiple-bitstreams/nist-sts/random-excursions/parameters_e.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(gdb-linux-arm64) Launch nist_sts_random_excursions_variant_test",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/linux/arm64/Debug/nist_sts_random_excursions_variant_test",
+            "args": ["-R", "-i", "-t", "-v", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/validation/nist-sts/sha1.bin", "-r", "${workspaceFolder}/results/nist_sts_random_excursions_variant_test_results.json", "-p", "${workspaceFolder}/test/validation/nist-sts/random-excursions-variant/parameters_e.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(gdb-linux-arm64) Launch nist_sts_random_excursions_variant_test (multiple bitstreams)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/linux/arm64/Debug/nist_sts_random_excursions_variant_test",
+            "args": ["-R", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/random.bin", "-r", "${workspaceFolder}/results/nist_sts_random_excursions_variant_test_results.json", "-p", "${workspaceFolder}/test/multiple-bitstreams/nist-sts/random-excursions-variant/parameters.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(gdb-linux-arm64) Launch nist_sts_rank_test",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/linux/arm64/Debug/nist_sts_rank_test",
+            "args": ["-R", "-i", "-t", "-v", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/validation/nist-sts/e.bin", "-r", "${workspaceFolder}/results/nist_sts_rank_test_results.json", "-p", "${workspaceFolder}/test/validation/nist-sts/rank/parameters_e.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(gdb-linux-arm64) Launch nist_sts_rank_test (multiple bitstreams)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/linux/arm64/Debug/nist_sts_rank_test",
+            "args": ["-R", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/random.bin", "-r", "${workspaceFolder}/results/nist_sts_rank_test_results.json", "-p", "${workspaceFolder}/test/multiple-bitstreams/nist-sts/rank/parameters.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(gdb-linux-arm64) Launch nist_sts_runs_test",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/linux/arm64/Debug/nist_sts_runs_test",
+            "args": ["-R", "-i", "-t", "-v", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/validation/nist-sts/e.bin", "-r", "${workspaceFolder}/results/nist_sts_runs_test_results.json", "-p", "${workspaceFolder}/test/validation/nist-sts/runs/parameters_e.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(gdb-linux-arm64) Launch nist_sts_runs_test (multiple bitstreams)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/linux/arm64/Debug/nist_sts_runs_test",
+            "args": ["-R", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/random.bin", "-r", "${workspaceFolder}/results/nist_sts_runs_test_results.json", "-p", "${workspaceFolder}/test/multiple-bitstreams/nist-sts/runs/parameters.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(gdb-linux-arm64) Launch nist_sts_serial_test",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/linux/arm64/Debug/nist_sts_serial_test",
+            "args": ["-R", "-i", "-t", "-v", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/validation/nist-sts/e.bin", "-r", "${workspaceFolder}/results/nist_sts_serial_test_results.json", "-p", "${workspaceFolder}/test/validation/nist-sts/serial/parameters_e.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(gdb-linux-arm64) Launch nist_sts_serial_test (multiple bitstreams)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/linux/arm64/Debug/nist_sts_serial_test",
+            "args": ["-R", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/random.bin", "-r", "${workspaceFolder}/results/nist_sts_serial_test_results.json", "-p", "${workspaceFolder}/test/multiple-bitstreams/nist-sts/serial/parameters.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(gdb-linux-arm64) Launch nist_sts_universal_statistical_test",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/linux/arm64/Debug/nist_sts_universal_statistical_test",
+            "args": ["-R", "-i", "-t", "-v", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/validation/nist-sts/e.bin", "-r", "${workspaceFolder}/results/nist_sts_universal_statistical_test_results.json", "-p", "${workspaceFolder}/test/validation/nist-sts/universal-statistical/parameters_e.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(gdb-linux-arm64) Launch nist_sts_universal_statistical_test (multiple bitstreams)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/linux/arm64/Debug/nist_sts_universal_statistical_test",
+            "args": ["-R", "-l", "full", "-c", "STEER developer", "-n", "This is a debug test.", "-e", "${workspaceFolder}/data/random.bin", "-r", "${workspaceFolder}/results/nist_sts_universal_statistical_test_results.json", "-p", "${workspaceFolder}/test/multiple-bitstreams/nist-sts/universal-statistical/parameters.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(gdb-linux-arm64) Launch steer_test_scheduler",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/linux/arm64/Debug/steer_test_scheduler",
+            "args": ["-s", "${workspaceFolder}/src/test-scheduler/validation_test_schedule.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(gdb-linux-arm64) Launch steer_test_scheduler (device test)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/linux/arm64/Debug/steer_test_scheduler",
+            "args": ["-s", "${workspaceFolder}/src/test-scheduler/device_test_schedule.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(gdb-linux-arm64) Launch steer_run_validations",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/linux/arm64/Debug/steer_run_validations",
+            "args": ["-c", "${workspaceFolder}/src/run-validations/validation_checks.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(gdb-linux-arm64) Launch steer_validate",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/linux/arm64/Debug/steer_validate",
+            "args": ["-r", "${workspaceFolder}/results/nist_sts_approximate_entropy_test_results.json", "-e", "${workspaceFolder}/test/validation/nist-sts/approximate-entropy/expected_results.json"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(gdb-linux-arm64) Launch libsteer_unit_test",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/linux/arm64/Debug/libsteer_unit_test",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        },
+        {
+            "name": "(gdb-linux-arm64) Launch libsteer_private_unit_test",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/linux/arm64/Debug/libsteer_private_unit_test",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "linux": {
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            }
+        }
+    ]
+}

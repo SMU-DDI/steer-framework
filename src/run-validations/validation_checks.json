@@ -1,0 +1,304 @@
+{
+    "validations": [
+        {
+            "measured": "./results/validation/nist-sts/approximate-entropy/test_report_e.json",
+            "expected": "./test/validation/nist-sts/approximate-entropy/expected_results_e.json"
+        },
+        {
+            "measured": "./results/validation/nist-sts/approximate-entropy/test_report_pi.json",
+            "expected": "./test/validation/nist-sts/approximate-entropy/expected_results_pi.json"
+        },
+        {
+            "measured": "./results/validation/nist-sts/approximate-entropy/test_report_sha1.json",
+            "expected": "./test/validation/nist-sts/approximate-entropy/expected_results_sha1.json"
+        },
+        {
+            "measured": "./results/validation/nist-sts/approximate-entropy/test_report_sqrt2.json",
+            "expected": "./test/validation/nist-sts/approximate-entropy/expected_results_sqrt2.json"
+        },
+        {
+            "measured": "./results/validation/nist-sts/approximate-entropy/test_report_sqrt3.json",
+            "expected": "./test/validation/nist-sts/approximate-entropy/expected_results_sqrt3.json"
+        },
+        {
+            "measured": "./results/validation/nist-sts/block-frequency/test_report_e.json",
+            "expected": "./test/validation/nist-sts/block-frequency/expected_results_e.json"
+        },
+        {
+            "measured": "./results/validation/nist-sts/block-frequency/test_report_pi.json",
+            "expected": "./test/validation/nist-sts/block-frequency/expected_results_pi.json"
+        },
+        {
+            "measured": "./results/validation/nist-sts/block-frequency/test_report_sha1.json",
+            "expected": "./test/validation/nist-sts/block-frequency/expected_results_sha1.json"
+        },
+        {
+            "measured": "./results/validation/nist-sts/block-frequency/test_report_sqrt2.json",
+            "expected": "./test/validation/nist-sts/block-frequency/expected_results_sqrt2.json"
+        },
+        {
+            "measured": "./results/validation/nist-sts/block-frequency/test_report_sqrt3.json",
+            "expected": "./test/validation/nist-sts/block-frequency/expected_results_sqrt3.json"
+        },
+        {
+            "measured": "./results/validation/nist-sts/cumulative-sums/test_report_e.json",
+            "expected": "./test/validation/nist-sts/cumulative-sums/expected_results_e.json"
+        },
+        {
+            "measured": "./results/validation/nist-sts/cumulative-sums/test_report_pi.json",
+            "expected": "./test/validation/nist-sts/cumulative-sums/expected_results_pi.json"
+        },
+        {
+            "measured": "./results/validation/nist-sts/cumulative-sums/test_report_sha1.json",
+            "expected": "./test/validation/nist-sts/cumulative-sums/expected_results_sha1.json"
+        },
+        {
+            "measured": "./results/validation/nist-sts/cumulative-sums/test_report_sqrt2.json",
+            "expected": "./test/validation/nist-sts/cumulative-sums/expected_results_sqrt2.json"
+        },
+        {
+            "measured": "./results/validation/nist-sts/cumulative-sums/test_report_sqrt3.json",
+            "expected": "./test/validation/nist-sts/cumulative-sums/expected_results_sqrt3.json"
+        },
+        {
+            "measured": "./results/validation/nist-sts/discrete-fourier-transform/test_report_e.json",
+            "expected": "./test/validation/nist-sts/discrete-fourier-transform/expected_results_e.json"
+        },
+        {
+            "measured": "./results/validation/nist-sts/discrete-fourier-transform/test_report_pi.json",
+            "expected": "./test/validation/nist-sts/discrete-fourier-transform/expected_results_pi.json"
+        },
+        {
+            "measured": "./results/validation/nist-sts/discrete-fourier-transform/test_report_sha1.json",
+            "expected": "./test/validation/nist-sts/discrete-fourier-transform/expected_results_sha1.json"
+        },
+        {
+            "measured": "./results/validation/nist-sts/discrete-fourier-transform/test_report_sqrt2.json",
+            "expected": "./test/validation/nist-sts/discrete-fourier-transform/expected_results_sqrt2.json"
+        },
+        {
+            "measured": "./results/validation/nist-sts/discrete-fourier-transform/test_report_sqrt3.json",
+            "expected": "./test/validation/nist-sts/discrete-fourier-transform/expected_results_sqrt3.json"
+        },
+        {
+            "measured": "./results/validation/nist-sts/frequency/test_report_e.json",
+            "expected": "./test/validation/nist-sts/frequency/expected_results_e.json"
+        },
+        {
+            "measured": "./results/validation/nist-sts/frequency/test_report_pi.json",
+            "expected": "./test/validation/nist-sts/frequency/expected_results_pi.json"
+        },
+        {
+            "measured": "./results/validation/nist-sts/frequency/test_report_sha1.json",
+            "expected": "./test/validation/nist-sts/frequency/expected_results_sha1.json"
+        },
+        {
+            "measured": "./results/validation/nist-sts/frequency/test_report_sqrt2.json",
+            "expected": "./test/validation/nist-sts/frequency/expected_results_sqrt2.json"
+        },
+        {
+            "measured": "./results/validation/nist-sts/frequency/test_report_sqrt3.json",
+            "expected": "./test/validation/nist-sts/frequency/expected_results_sqrt3.json"
+        },
+        {
+            "measured": "./results/validation/nist-sts/linear-complexity/test_report_e.json",
+            "expected": "./test/validation/nist-sts/linear-complexity/expected_results_e.json"
+        },
+        {
+            "measured": "./results/validation/nist-sts/linear-complexity/test_report_pi.json",
+            "expected": "./test/validation/nist-sts/linear-complexity/expected_results_pi.json"
+        },
+        {
+            "measured": "./results/validation/nist-sts/linear-complexity/test_report_sha1.json",
+            "expected": "./test/validation/nist-sts/linear-complexity/expected_results_sha1.json"
+        },
+        {
+            "measured": "./results/validation/nist-sts/linear-complexity/test_report_sqrt2.json",
+            "expected": "./test/validation/nist-sts/linear-complexity/expected_results_sqrt2.json"
+        },
+        {
+            "measured": "./results/validation/nist-sts/linear-complexity/test_report_sqrt3.json",
+            "expected": "./test/validation/nist-sts/linear-complexity/expected_results_sqrt3.json"
+        },
+        {
+            "measured": "./results/validation/nist-sts/longest-run-of-ones/test_report_e.json",
+            "expected": "./test/validation/nist-sts/longest-run-of-ones/expected_results_e.json"
+        },
+        {
+            "measured": "./results/validation/nist-sts/longest-run-of-ones/test_report_pi.json",
+            "expected": "./test/validation/nist-sts/longest-run-of-ones/expected_results_pi.json"
+        },
+        {
+            "measured": "./results/validation/nist-sts/longest-run-of-ones/test_report_sha1.json",
+            "expected": "./test/validation/nist-sts/longest-run-of-ones/expected_results_sha1.json"
+        },
+        {
+            "measured": "./results/validation/nist-sts/longest-run-of-ones/test_report_sqrt2.json",
+            "expected": "./test/validation/nist-sts/longest-run-of-ones/expected_results_sqrt2.json"
+        },
+        {
+            "measured": "./results/validation/nist-sts/longest-run-of-ones/test_report_sqrt3.json",
+            "expected": "./test/validation/nist-sts/longest-run-of-ones/expected_results_sqrt3.json"
+        },
+        {
+            "measured": "./results/validation/nist-sts/non-overlapping-template-matching/test_report_e.json",
+            "expected": "./test/validation/nist-sts/non-overlapping-template-matching/expected_results_e.json"
+        },
+        {
+            "measured": "./results/validation/nist-sts/non-overlapping-template-matching/test_report_pi.json",
+            "expected": "./test/validation/nist-sts/non-overlapping-template-matching/expected_results_pi.json"
+        },
+        {
+            "measured": "./results/validation/nist-sts/non-overlapping-template-matching/test_report_sha1.json",
+            "expected": "./test/validation/nist-sts/non-overlapping-template-matching/expected_results_sha1.json"
+        },
+        {
+            "measured": "./results/validation/nist-sts/non-overlapping-template-matching/test_report_sqrt2.json",
+            "expected": "./test/validation/nist-sts/non-overlapping-template-matching/expected_results_sqrt2.json"
+        },
+        {
+            "measured": "./results/validation/nist-sts/non-overlapping-template-matching/test_report_sqrt3.json",
+            "expected": "./test/validation/nist-sts/non-overlapping-template-matching/expected_results_sqrt3.json"
+        },
+        {
+            "measured": "./results/validation/nist-sts/overlapping-template-matching/test_report_e.json",
+            "expected": "./test/validation/nist-sts/overlapping-template-matching/expected_results_e.json"
+        },
+        {
+            "measured": "./results/validation/nist-sts/overlapping-template-matching/test_report_pi.json",
+            "expected": "./test/validation/nist-sts/overlapping-template-matching/expected_results_pi.json"
+        },
+        {
+            "measured": "./results/validation/nist-sts/overlapping-template-matching/test_report_sha1.json",
+            "expected": "./test/validation/nist-sts/overlapping-template-matching/expected_results_sha1.json"
+        },
+        {
+            "measured": "./results/validation/nist-sts/overlapping-template-matching/test_report_sqrt2.json",
+            "expected": "./test/validation/nist-sts/overlapping-template-matching/expected_results_sqrt2.json"
+        },
+        {
+            "measured": "./results/validation/nist-sts/overlapping-template-matching/test_report_sqrt3.json",
+            "expected": "./test/validation/nist-sts/overlapping-template-matching/expected_results_sqrt3.json"
+        },
+        {
+            "measured": "./results/validation/nist-sts/random-excursions/test_report_e.json",
+            "expected": "./test/validation/nist-sts/random-excursions/expected_results_e.json"
+        },
+        {
+            "measured": "./results/validation/nist-sts/random-excursions/test_report_pi.json",
+            "expected": "./test/validation/nist-sts/random-excursions/expected_results_pi.json"
+        },
+        {
+            "measured": "./results/validation/nist-sts/random-excursions/test_report_sha1.json",
+            "expected": "./test/validation/nist-sts/random-excursions/expected_results_sha1.json"
+        },
+        {
+            "measured": "./results/validation/nist-sts/random-excursions/test_report_sqrt2.json",
+            "expected": "./test/validation/nist-sts/random-excursions/expected_results_sqrt2.json"
+        },
+        {
+            "measured": "./results/validation/nist-sts/random-excursions/test_report_sqrt3.json",
+            "expected": "./test/validation/nist-sts/random-excursions/expected_results_sqrt3.json"
+        },
+        {
+            "measured": "./results/validation/nist-sts/random-excursions-variant/test_report_e.json",
+            "expected": "./test/validation/nist-sts/random-excursions-variant/expected_results_e.json"
+        },
+        {
+            "measured": "./results/validation/nist-sts/random-excursions-variant/test_report_pi.json",
+            "expected": "./test/validation/nist-sts/random-excursions-variant/expected_results_pi.json"
+        },
+        {
+            "measured": "./results/validation/nist-sts/random-excursions-variant/test_report_sha1.json",
+            "expected": "./test/validation/nist-sts/random-excursions-variant/expected_results_sha1.json"
+        },
+        {
+            "measured": "./results/validation/nist-sts/random-excursions-variant/test_report_sqrt2.json",
+            "expected": "./test/validation/nist-sts/random-excursions-variant/expected_results_sqrt2.json"
+        },
+        {
+            "measured": "./results/validation/nist-sts/random-excursions-variant/test_report_sqrt3.json",
+            "expected": "./test/validation/nist-sts/random-excursions-variant/expected_results_sqrt3.json"
+        },
+        {
+            "measured": "./results/validation/nist-sts/rank/test_report_e.json",
+            "expected": "./test/validation/nist-sts/rank/expected_results_e.json"
+        },
+        {
+            "measured": "./results/validation/nist-sts/rank/test_report_pi.json",
+            "expected": "./test/validation/nist-sts/rank/expected_results_pi.json"
+        },
+        {
+            "measured": "./results/validation/nist-sts/rank/test_report_sha1.json",
+            "expected": "./test/validation/nist-sts/rank/expected_results_sha1.json"
+        },
+        {
+            "measured": "./results/validation/nist-sts/rank/test_report_sqrt2.json",
+            "expected": "./test/validation/nist-sts/rank/expected_results_sqrt2.json"
+        },
+        {
+            "measured": "./results/validation/nist-sts/rank/test_report_sqrt3.json",
+            "expected": "./test/validation/nist-sts/rank/expected_results_sqrt3.json"
+        },
+        {
+            "measured": "./results/validation/nist-sts/runs/test_report_e.json",
+            "expected": "./test/validation/nist-sts/runs/expected_results_e.json"
+        },
+        {
+            "measured": "./results/validation/nist-sts/runs/test_report_pi.json",
+            "expected": "./test/validation/nist-sts/runs/expected_results_pi.json"
+        },
+        {
+            "measured": "./results/validation/nist-sts/runs/test_report_sha1.json",
+            "expected": "./test/validation/nist-sts/runs/expected_results_sha1.json"
+        },
+        {
+            "measured": "./results/validation/nist-sts/runs/test_report_sqrt2.json",
+            "expected": "./test/validation/nist-sts/runs/expected_results_sqrt2.json"
+        },
+        {
+            "measured": "./results/validation/nist-sts/runs/test_report_sqrt3.json",
+            "expected": "./test/validation/nist-sts/runs/expected_results_sqrt3.json"
+        },
+        {
+            "measured": "./results/validation/nist-sts/serial/test_report_e.json",
+            "expected": "./test/validation/nist-sts/serial/expected_results_e.json"
+        },
+        {
+            "measured": "./results/validation/nist-sts/serial/test_report_pi.json",
+            "expected": "./test/validation/nist-sts/serial/expected_results_pi.json"
+        },
+        {
+            "measured": "./results/validation/nist-sts/serial/test_report_sha1.json",
+            "expected": "./test/validation/nist-sts/serial/expected_results_sha1.json"
+        },
+        {
+            "measured": "./results/validation/nist-sts/serial/test_report_sqrt2.json",
+            "expected": "./test/validation/nist-sts/serial/expected_results_sqrt2.json"
+        },
+        {
+            "measured": "./results/validation/nist-sts/serial/test_report_sqrt3.json",
+            "expected": "./test/validation/nist-sts/serial/expected_results_sqrt3.json"
+        },
+        {
+            "measured": "./results/validation/nist-sts/universal-statistical/test_report_e.json",
+            "expected": "./test/validation/nist-sts/universal-statistical/expected_results_e.json"
+        },
+        {
+            "measured": "./results/validation/nist-sts/universal-statistical/test_report_pi.json",
+            "expected": "./test/validation/nist-sts/universal-statistical/expected_results_pi.json"
+        },
+        {
+            "measured": "./results/validation/nist-sts/universal-statistical/test_report_sha1.json",
+            "expected": "./test/validation/nist-sts/universal-statistical/expected_results_sha1.json"
+        },
+        {
+            "measured": "./results/validation/nist-sts/universal-statistical/test_report_sqrt2.json",
+            "expected": "./test/validation/nist-sts/universal-statistical/expected_results_sqrt2.json"
+        },
+        {
+            "measured": "./results/validation/nist-sts/universal-statistical/test_report_sqrt3.json",
+            "expected": "./test/validation/nist-sts/universal-statistical/expected_results_sqrt3.json"
+        }
+    ]
+}

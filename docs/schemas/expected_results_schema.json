@@ -1,0 +1,114 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://steer-framework.dev/schemas/expected-results/0.1.0/expected_results_schema.json",
+    "title": "Expected results",
+    "description": "The expected results of a STEER test",
+    "type": "object",
+    "properties": {
+        "expected results": {
+            "type": "object",
+            "properties": {
+                "configurations": {
+                    "type": "array",
+                    "items": { 
+                        "type": "object",
+                        "properties": {
+                            "configuration id": { "type": "string" },
+                            "tests": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "test id": { "type": "string" },
+                                        "calculations": {
+                                            "type": "array",
+                                            "items": { "$ref": "#/$defs/calculationType" },
+                                            "uniqueItems": true
+                                        }
+                                    },
+                                    "additionalProperties": false,
+                                    "required": [ "test id", "calculations" ]
+                                },
+                                "uniqueItems": true
+                            }
+                        },
+                        "additionalProperties": false,
+                        "required": [ "tests" ]
+                    },
+                    "uniqueItems": true
+                }
+            },
+            "additionalProperties": false,
+            "required": [ "configurations" ]      
+        }
+    },
+    "additionalProperties": false,
+    "required": [ "expected results" ],
+    "$defs": {
+        "nonNegativeIntegerType": {
+            "type": "string",
+            "pattern": "^\\+?(0|[1-9]\\d*)$"
+        },
+        "dataType": {
+            "type": "string",
+            "enum": [
+                "boolean",
+                "double precision floating point",
+                "extended precision floating point",
+                "signed 8-bit integer",
+                "signed 16-bit integer",
+                "signed 32-bit integer",
+                "signed 64-bit integer",
+                "single precision floating point",
+                "unsigned 8-bit integer",
+                "unsigned 16-bit integer",
+                "unsigned 32-bit integer",
+                "unsigned 64-bit integer",
+                "utf-8 string"
+            ]
+        },
+        "valueType": {
+            "type": "object",
+            "properties": {
+                "name": { "type": "string" },
+                "data type": { "$ref": "#/$defs/dataType" },
+                "precision": { "$ref": "#/$defs/nonNegativeIntegerType" },
+                "units": { "type": "string" },
+                "value": { "type": "string" }
+            },
+            "additionalProperties": false,
+            "required": [ "name", "data type", "value" ]
+        },
+        "valueSetType": {
+            "type": "object",
+            "properties": {
+                "name": { "type": "string" },
+                "data type": { "$ref": "#/$defs/dataType" },
+                "precision": { "$ref": "#/$defs/nonNegativeIntegerType" },
+                "units": { "type": "string" },
+                "values": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "label": { "type": "string" },
+                            "value": { "type": "string" }
+                        },
+                        "additionalProperties": false,
+                        "required": [ "label", "value" ]
+                    },
+                    "uniqueItems": true
+                }
+            },
+            "additionalProperties": false,
+            "required": [ "name", "data type", "values" ]
+        },
+        "calculationType": {
+            "type": "object",
+            "oneOf": [
+                { "$ref": "#/$defs/valueType" },
+                { "$ref": "#/$defs/valueSetType" }
+            ]
+        }
+    }
+}

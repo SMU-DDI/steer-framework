@@ -1,0 +1,90 @@
+# =================================================================================================
+#
+#   makefile
+#
+#   Copyright (c) 2024 Anametric, Inc. All rights reserved.
+#
+#   Supported host operating systems:
+#       Any *nix
+#
+#   Description:
+#      	This makefile builds the STEER sample test.
+#
+#   Notes:
+#  		1)  This makefile assumes the use of ANSI C99 compliant compilers.
+#
+# =================================================================================================
+
+# Command aliases
+MAKE=MAKE
+MKDIR=mkdir
+CC=gcc
+AR=ar
+RM=rm
+
+# If no configuration is specified, "Release" will be used
+ifndef BUILD_CFG
+BUILD_CFG=Release
+endif
+
+# Define build and obj directories
+BINDIR="../bin"
+OBJDIR="../obj"
+
+# Define output executable path/name
+OUTFILE=$(BINDIR)/steer_sample_test
+
+# Create bin and obj directories
+$(shell $(MKDIR) -p $(BINDIR))
+$(shell $(MKDIR) -p $(OBJDIR))
+
+# Define include directory paths
+CFG_INC=-I. \
+	-I../include \
+	-I../third-party/cJSON
+
+# Define library dependencies and directory paths
+CFG_LIB=-lm
+CFG_LIB_INC=-L.
+
+# Define object files
+CFG_OBJ=
+COMMON_OBJ=$(OBJDIR)/steer_sample_test.o 
+OBJ=$(COMMON_OBJ) $(CFG_OBJ)
+
+#
+# Configuration: Debug
+#
+ifeq ($(BUILD_CFG),Debug)
+COMPILE=$(CC) -Wall -c -g -o "$(OBJDIR)/$(*F).o" $(CFG_INC) "$<"
+LINK=$(CC) -Wall "$(CFG_LIB_INC)" -g -o "$(OUTFILE)" $(OBJ) ../lib/libsteer.a $(CFG_LIB)
+endif
+
+#
+# Configuration: Release
+#
+ifeq ($(BUILD_CFG),Release)
+COMPILE=$(CC) -Wall -c -Os -DNDEBUG -o "$(OBJDIR)/$(*F).o" $(CFG_INC) "$<"
+LINK=$(CC) -Wall "$(CFG_LIB_INC)" -o "$(OUTFILE)" $(OBJ) ../lib/libsteer.a $(CFG_LIB) 
+endif
+
+# Pattern rules
+$(OBJDIR)/%.o : %.c
+	$(COMPILE)
+
+# Build rules
+all: $(OUTFILE)
+
+$(OUTFILE): $(OUTDIR)  $(OBJ)
+	$(LINK)
+
+# Rebuild this project
+rebuild: cleanall all
+
+# Clean this project
+clean:
+	$(RM) -f $(OUTFILE)
+	$(RM) -f $(OBJ)
+
+# Clean this project and all dependencies
+cleanall: clean
