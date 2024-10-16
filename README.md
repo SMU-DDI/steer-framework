@@ -94,8 +94,8 @@ If you choose to install and use Visual Studio Code, the following extensions ar
 The STEER Framework repository is hosted at GitHub. You can clone it by opening a terminal window and executing these commands:
 
     cd ~
-    git clone git@github.com:unthinkable/steer-framework.git
-
+    git clone https://github.com/SMU-DDI/steer-framework.git
+    
 Alternatively, you can download a copy of the current sources as a zip archive and unarchive it in your home directory.
 
 
