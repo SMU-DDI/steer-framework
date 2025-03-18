@@ -524,6 +524,7 @@ int32_t STEER_RunPython (const char* filePath, const char **arguments, int numAr
         char* pythonStr = (pythonType == STEER_PYTHON) ? "python " : "python3 ";
         int totalLength, curLength;
         
+        
         totalLength = strlen(pythonStr);
         for (int i = 0; i < numArgs; i ++)
             totalLength += strlen(arguments[i]);
