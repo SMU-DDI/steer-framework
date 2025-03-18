@@ -20,6 +20,14 @@
 #include "steer.h"
 
 // =================================================================================================
+//  Constants
+// =================================================================================================
+
+#define STEER_NO_PYTHON                                                 0
+#define STEER_PYTHON                                                    1
+#define STEER_PYTHON3                                                   2
+
+// =================================================================================================
 //  Prototypes
 // =================================================================================================
 
@@ -61,6 +69,14 @@ extern "C"
     //! @brief Call this function to free a memory buffer.
     //! @param[in] buffer A pointer to a dynamically allocated memory buffer.
     void STEER_FreeMemory (void** buffer);
+
+    //! @fn int32_t STEER_CheckPython (int* pythonType)
+    //! @brief Call this function to determine which version of python is installed
+    //! @param[out] pythonType A pointer to an integer indicating the version of python on the OS.
+    //! @return A status code indicating whether the function call succeeded. 
+    //! @note
+    //! A return value of __STEER_RESULT_FAILURE__ indicates python is not found on the system.\n
+    int32_t STEER_CheckPython (int * pythonType);
 
     //! @fn int32_t STEER_WaitForProcessesToComplete (tSTEER_ProcessList* processList, 
     //! uint32_t* processSuccessCount, uint32_t* processFailureCount)

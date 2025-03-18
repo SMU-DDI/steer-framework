@@ -2934,6 +2934,25 @@ void STEER_FreeMemory_Test (void)
 }
 
 // =================================================================================================
+//  STEER_CheckPython_Test
+// =================================================================================================
+void STEER_CheckPython_Test (void)
+{
+    int32_t result = STEER_RESULT_SUCCESS;
+    
+    // Test with NULL buffer pointer
+    int pythonType = 0;
+
+    // Test with NULL buffer pointer
+    result = STEER_CheckPython(NULL);
+    CU_ASSERT_EQUAL(result, EFAULT);
+
+    // Test with valid argument
+    result = STEER_CheckPython(&pythonType);
+    CU_ASSERT_EQUAL(result, STEER_RESULT_SUCCESS);
+}
+
+// =================================================================================================
 //  STEER_WaitForProcessesToComplete_Test
 // =================================================================================================
 void STEER_WaitForProcessesToComplete_Test (void)
@@ -3789,6 +3808,7 @@ int main (int argc, const char * argv[])
             CU_ADD_TEST(utilitiesTestSuite, STEER_AllocateMemory_Test);
             CU_ADD_TEST(utilitiesTestSuite, STEER_ReallocateMemory_Test);
             CU_ADD_TEST(utilitiesTestSuite, STEER_FreeMemory_Test);
+            CU_ADD_TEST(utilitiesTestSuite, STEER_CheckPython_Test);
             CU_ADD_TEST(utilitiesTestSuite, STEER_WaitForProcessesToComplete_Test);
         }
         else    // CU_add_suite failed

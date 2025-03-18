@@ -471,6 +471,36 @@ int32_t STEER_ReallocateMemory (size_t currentBufferSizeInBytes,
     return result;
 }
                                 
+
+// =================================================================================================
+//  STEER_CheckPython
+// =================================================================================================
+int32_t STEER_CheckPython (int * pythonType)
+{
+    int32_t result = STEER_RESULT_SUCCESS;
+    int status;
+
+    // Check argument
+    result = STEER_CHECK_POINTER(pythonType);
+    if (result == STEER_RESULT_SUCCESS)
+    {
+        pythonType = STEER_NO_PYTHON;
+        status = system("python3 --version > /dev/null 2>&1");
+
+        if (status == 0) {
+            pythonType = STEER_PYTHON3;
+        } else {
+            status = system("python --version > /dev/null 2>&1");
+    
+            if (status == 0) {
+                pythonType = STEER_PYTHON;
+            } else result = STEER_RESULT_FAILURE;
+        } 
+    }
+    
+    return result;
+}
+
 // =================================================================================================
 //  STEER_FreeMemory
 // =================================================================================================
