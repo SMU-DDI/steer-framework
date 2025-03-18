@@ -484,20 +484,66 @@ int32_t STEER_CheckPython (int * pythonType)
     result = STEER_CHECK_POINTER(pythonType);
     if (result == STEER_RESULT_SUCCESS)
     {
-        pythonType = STEER_NO_PYTHON;
+        *pythonType = STEER_NO_PYTHON;
         status = system("python3 --version > /dev/null 2>&1");
 
         if (status == 0) {
-            pythonType = STEER_PYTHON3;
+            *pythonType = STEER_PYTHON3;
         } else {
             status = system("python --version > /dev/null 2>&1");
     
             if (status == 0) {
-                pythonType = STEER_PYTHON;
+                *pythonType = STEER_PYTHON;
             } else result = STEER_RESULT_FAILURE;
         } 
     }
     
+    return result;
+}
+
+
+// =================================================================================================
+//  STEER_RunPython
+// =================================================================================================
+int32_t STEER_RunPython (const char* filePath, const char **arguments, int numArgs, char ** output)
+{
+    int32_t result = STEER_RESULT_SUCCESS;
+    int pythonType;
+
+    result = STEER_CheckPython(&pythonType);
+    if (result == STEER_RESULT_SUCCESS)
+        result = STEER_CHECK_STRING(filePath);
+    if (result == STEER_RESULT_SUCCESS)
+        result = STEER_CHECK_POINTER(arguments);
+    if (result == STEER_RESULT_SUCCESS)
+        STEER_CHECK_CONDITION((numArgs >= 0) ,STEER_RESULT_OUT_OF_RANGE);
+    if (result == STEER_RESULT_SUCCESS)
+        result = STEER_CHECK_POINTER(output);
+    if (result == STEER_RESULT_SUCCESS)
+    {
+        char* pythonStr = (pythonType == STEER_PYTHON) ? "python " : "python3 ";
+        int totalLength, curLength;
+        
+        totalLength = strlen(pythonStr);
+        for (int i = 0; i < numArgs; i ++)
+            totalLength += strlen(arguments[i]);
+        
+        char * executable = (char*)malloc(totalLength + numArgs + 1);
+        if (executable == NULL)
+            return STEER_RESULT_FAILURE;
+
+        strcpy(executable, pythonStr);
+        curLength = strlen(executable);
+        for (int i = 0; i < numArgs; i ++)
+        {
+            strcat(executable, arguments[i]);
+            if (i != numArgs - 1)
+                strcat(executable, " ");
+            curLength += strlen(arguments[i]) + 1;
+        }
+        printf("Extecutable >%s\n", executable);
+    }
+
     return result;
 }
 

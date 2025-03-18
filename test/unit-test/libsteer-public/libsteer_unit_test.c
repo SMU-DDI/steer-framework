@@ -2953,6 +2953,48 @@ void STEER_CheckPython_Test (void)
 }
 
 // =================================================================================================
+//  STEER_RunPython_Test
+// =================================================================================================
+void STEER_RunPython_Test (void)
+{
+    int32_t result = STEER_RESULT_SUCCESS;
+    const char * filepath = "/pythonTestFile.py";
+    const char * args[] = {
+        "Arg 0",
+        "Arg 1"
+    };
+    char * outputBuf;
+    const char *emptyStr[] = {""};
+
+    // Test with NULL filePath
+    result = STEER_RunPython (NULL, args, 2, &outputBuf);
+    CU_ASSERT_EQUAL(result, EFAULT);
+    // Test with empty filePath
+    result = STEER_RunPython (emptyStr, args, 2, &outputBuf);
+    CU_ASSERT_EQUAL(result, STEER_RESULT_EMPTY_STRING);
+
+    // Test with NULL args
+    result = STEER_RunPython (filepath, NULL, 0, &outputBuf);
+    CU_ASSERT_EQUAL(result, EFAULT);
+
+    // Test with negative args
+    result = STEER_RunPython (filepath, args, -1, &outputBuf);
+    CU_ASSERT_EQUAL(result, STEER_RESULT_SUCCESS);
+
+    // Test with null output
+    result = STEER_RunPython (filepath, args, -1, NULL);
+    CU_ASSERT_EQUAL(result, STEER_RESULT_OUT_OF_RANGE);
+
+    // Test with empty args
+    result = STEER_RunPython (filepath, emptyStr, 0, &outputBuf);
+    CU_ASSERT_EQUAL(result, STEER_RESULT_SUCCESS);
+
+    // Test with valid argument
+    result = STEER_CheckPython(filepath, args, 2, &outputBuf);
+    CU_ASSERT_EQUAL(result, STEER_RESULT_SUCCESS);
+}
+
+// =================================================================================================
 //  STEER_WaitForProcessesToComplete_Test
 // =================================================================================================
 void STEER_WaitForProcessesToComplete_Test (void)
@@ -3809,6 +3851,8 @@ int main (int argc, const char * argv[])
             CU_ADD_TEST(utilitiesTestSuite, STEER_ReallocateMemory_Test);
             CU_ADD_TEST(utilitiesTestSuite, STEER_FreeMemory_Test);
             CU_ADD_TEST(utilitiesTestSuite, STEER_CheckPython_Test);
+            CU_ADD_TEST(utilitiesTestSuite, STEER_RunPython_Test);
+            
             CU_ADD_TEST(utilitiesTestSuite, STEER_WaitForProcessesToComplete_Test);
         }
         else    // CU_add_suite failed
