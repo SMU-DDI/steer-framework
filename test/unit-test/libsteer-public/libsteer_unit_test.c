@@ -239,6 +239,19 @@ static const char* kDummyReportJson = "{ \
 } \
     }";
 
+static const char* kPythonTest = "\
+try: \n\
+\timport argparse \n\
+\timport sys \n\
+except ImportError as e: \n\
+\tprint(\"Error: Missing library: \" + str(e)) \n\
+\tsys.exit(1) \n\
+if __name__ == '__main__': \n\
+\tparser = argparse.ArgumentParser(description=\"DummyTest\") \n\
+\tparser.add_argument(\"-t\", \"--test_arg\", type=str, help=\"A dummy test\") \n\
+\targs = parser.parse_args() \n\
+\tprint(f\"Success: {args.test_arg}\")";
+
 static tSTEER_InfoList gAuthor = {
     1, { "Unit tester" }
 };
@@ -2958,17 +2971,25 @@ void STEER_CheckPython_Test (void)
 void STEER_RunPython_Test (void)
 {
     int32_t result = STEER_RESULT_SUCCESS;
-    const char * filepath = "/pythonTestFile.py";
+
+    const char * filepath = "/tmp/pythonTestFile.py";
     const char * args[] = {
-        "Arg 0",
-        "Arg 1"
+        "-t",
+        "\"test string successful!\""
     };
+    
     char * outputBuf;
-    const char *emptyStr[] = {""};
+    const char * emptyStr = "";
+    const char * emptyStrArr[] = {emptyStr};
+
+    result = CreateTestFile(filepath, kPythonTest);
+    CU_ASSERT_EQUAL(result, STEER_RESULT_SUCCESS);
+
 
     // Test with NULL filePath
     result = STEER_RunPython (NULL, args, 2, &outputBuf);
     CU_ASSERT_EQUAL(result, EFAULT);
+
     // Test with empty filePath
     result = STEER_RunPython (emptyStr, args, 2, &outputBuf);
     CU_ASSERT_EQUAL(result, STEER_RESULT_EMPTY_STRING);
@@ -2979,19 +3000,25 @@ void STEER_RunPython_Test (void)
 
     // Test with negative args
     result = STEER_RunPython (filepath, args, -1, &outputBuf);
-    CU_ASSERT_EQUAL(result, STEER_RESULT_SUCCESS);
-
-    // Test with null output
-    result = STEER_RunPython (filepath, args, -1, NULL);
     CU_ASSERT_EQUAL(result, STEER_RESULT_OUT_OF_RANGE);
 
+    // Test with null output
+    result = STEER_RunPython (filepath, args, 0, NULL);
+    CU_ASSERT_EQUAL(result, EFAULT);
+
     // Test with empty args
-    result = STEER_RunPython (filepath, emptyStr, 0, &outputBuf);
+    result = STEER_RunPython (filepath, emptyStrArr, 0, &outputBuf);
     CU_ASSERT_EQUAL(result, STEER_RESULT_SUCCESS);
+    CU_ASSERT_EQUAL(strcmp(outputBuf, "Success: None\n"), 0);
+    STEER_FreeMemory((void**)&outputBuf);
 
     // Test with valid argument
-    result = STEER_CheckPython(filepath, args, 2, &outputBuf);
+    result = STEER_RunPython(filepath, args, 2, &outputBuf);
+    CU_ASSERT_EQUAL(strcmp(outputBuf, "Success: test string successful!\n"), 0);
     CU_ASSERT_EQUAL(result, STEER_RESULT_SUCCESS);
+
+    STEER_FreeMemory((void**)&outputBuf);
+    CU_ASSERT_PTR_NULL(outputBuf);
 }
 
 // =================================================================================================

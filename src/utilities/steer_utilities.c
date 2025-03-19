@@ -13,6 +13,7 @@
 #include "steer_utilities.h"
 #include "steer_utilities_private.h"
 #include "steer_string_utilities.h"
+#include "steer_file_system_utilities.h"
 #include "steer_string_utilities_private.h"
 #include <math.h>
 #include <sys/time.h>
@@ -514,18 +515,22 @@ int32_t STEER_RunPython (const char* filePath, const char **arguments, int numAr
     if (result == STEER_RESULT_SUCCESS)
         result = STEER_CHECK_STRING(filePath);
     if (result == STEER_RESULT_SUCCESS)
+        result = STEER_FileExists(filePath);
+    if (result == true)
+        result = STEER_RESULT_SUCCESS;
+    if (result == STEER_RESULT_SUCCESS)
         result = STEER_CHECK_POINTER(arguments);
     if (result == STEER_RESULT_SUCCESS)
-        STEER_CHECK_CONDITION((numArgs >= 0) ,STEER_RESULT_OUT_OF_RANGE);
+        result = STEER_CHECK_CONDITION((numArgs >= 0) ,STEER_RESULT_OUT_OF_RANGE);
     if (result == STEER_RESULT_SUCCESS)
         result = STEER_CHECK_POINTER(output);
     if (result == STEER_RESULT_SUCCESS)
     {
         char* pythonStr = (pythonType == STEER_PYTHON) ? "python " : "python3 ";
-        int totalLength, curLength;
+        int totalLength;
         
-        
-        totalLength = strlen(pythonStr);
+
+        totalLength = strlen(pythonStr) + strlen(filePath) + 1;
         for (int i = 0; i < numArgs; i ++)
             totalLength += strlen(arguments[i]);
         
@@ -533,18 +538,60 @@ int32_t STEER_RunPython (const char* filePath, const char **arguments, int numAr
         if (executable == NULL)
             return STEER_RESULT_FAILURE;
 
-        strcpy(executable, pythonStr);
-        curLength = strlen(executable);
+        if (result == STEER_RESULT_SUCCESS)
+            result = STEER_DuplicateString(pythonStr, &executable);
+        if (result == STEER_RESULT_SUCCESS)
+            result = STEER_ConcatenateString(&executable, filePath);
+        if (result == STEER_RESULT_SUCCESS)
+            result = STEER_ConcatenateString(&executable, " ");
+
         for (int i = 0; i < numArgs; i ++)
         {
-            strcat(executable, arguments[i]);
-            if (i != numArgs - 1)
-                strcat(executable, " ");
-            curLength += strlen(arguments[i]) + 1;
+            if (result == STEER_RESULT_SUCCESS)
+                result = STEER_ConcatenateString(&executable, arguments[i]);
+            if ((result == STEER_RESULT_SUCCESS) && (i < numArgs - 1))
+                result = STEER_ConcatenateString(&executable, " ");
         }
-        printf("Extecutable >%s\n", executable);
-    }
 
+
+        if (result == STEER_RESULT_SUCCESS)
+        {
+            FILE *fp = popen(executable, "r");
+            if (fp == NULL)
+                result = STEER_RESULT_FAILURE;
+            else
+            {
+                size_t cursor = 0;
+                size_t pipeLength = 0;
+                int delta = 128;
+                unsigned char * buf;
+                result = STEER_AllocateMemory(delta, (void **)&buf);
+
+                if (result == STEER_RESULT_SUCCESS)
+                {
+                    while ((result == STEER_RESULT_SUCCESS) && 
+                            ((cursor = fread(&buf[pipeLength], 1, delta, fp)) == delta))
+                    {
+                        pipeLength += cursor;
+                        result = STEER_ReallocateMemory(pipeLength, pipeLength + delta, (void **) &buf);
+                    }
+                    int finalLength = pipeLength + cursor + 1;
+                    if (result == STEER_RESULT_SUCCESS)
+                        result = STEER_ReallocateMemory(pipeLength + delta, finalLength, (void **) &buf);
+                    if (result == STEER_RESULT_SUCCESS)
+                        buf[finalLength-1] = '\0';
+                    if (result == STEER_RESULT_SUCCESS)
+                        result = STEER_AllocateMemory(finalLength, (void **) output);
+                    if (result == STEER_RESULT_SUCCESS)
+                        result = STEER_DuplicateString((const char *) buf, output);
+                }
+                STEER_FreeMemory((void **) &buf);
+            }
+            pclose(fp);
+        }
+        
+        STEER_FreeMemory((void**)&executable);
+    }
     return result;
 }
 
