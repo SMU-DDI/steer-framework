@@ -22,11 +22,17 @@
                 "value": "0.01" 
             }, 
             { 
-                "name": "block length", 
-                "data type": "signed 32-bit integer", 
+                "name": "bits per window", 
+                "data type": "unsigned 32-bit integer", 
                 "units": "bits",
-                "value": "10" 
-            } 
+                "value": "31" 
+            }, 
+            { 
+                "name": "window offset", 
+                "data type": "unsigned 32-bit integer", 
+                "units": "bits",
+                "value": "186" 
+            }
         ] 
     } 
 }

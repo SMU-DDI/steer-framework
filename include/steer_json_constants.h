@@ -37,6 +37,7 @@
 #define STEER_JSON_TAG_BITSTREAM_TESTS_PASSED                               "bitstream tests passed"
 #define STEER_JSON_TAG_BITSTREAMS_TESTED                                    "bitstreams tested"
 #define STEER_JSON_TAG_BITS_DISCARDED                                       "bits discarded"
+#define STEER_JSON_TAG_BITS_PER_WINDOW                                      "bits per window"
 #define STEER_JSON_TAG_BLOCK                                                "block"
 #define STEER_JSON_TAG_BLOCK_LENGTH                                         "block length"
 #define STEER_JSON_TAG_SUBSEQUENCE_LENGTH                                   "subsequence length"
@@ -228,6 +229,7 @@
 #define STEER_JSON_TAG_VALUE                                                "value"
 #define STEER_JSON_TAG_VALUES                                               "values"
 #define STEER_JSON_TAG_VARIANCE                                             "variance"
+#define STEER_JSON_TAG_WINDOW_OFFSET                                        "window offset"
 #define STEER_JSON_TAG_ZEROS                                                "zeros"
 
 // JSON values

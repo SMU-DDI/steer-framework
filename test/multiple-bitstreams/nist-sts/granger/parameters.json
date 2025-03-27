@@ -1,16 +1,16 @@
 { 
     "parameter set": { 
         "test name": "granger", 
-        "parameter set name": "sha1", 
+        "parameter set name": "multiple bitstreams", 
         "parameters": [ 
             {
-                "name": "bitstream count",
+                "name": "bitstream count", 
                 "data type": "unsigned 64-bit integer", 
                 "units": "bitstreams", 
                 "value": "1" 
             }, 
             {
-                "name": "bitstream length",
+                "name": "bitstream length", 
                 "data type": "unsigned 64-bit integer", 
                 "units": "bits", 
                 "value": "1000000" 
@@ -33,6 +33,6 @@
                 "units": "bits",
                 "value": "186" 
             }
-        ] 
+        ]
     } 
 }

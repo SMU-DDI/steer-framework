@@ -72,12 +72,15 @@ ifndef BUILD_MULTI_THREADED
 BUILD_MULTI_THREADED=0
 endif
 
+
 # Define build and obj directories
 BINDIR="$(BUILD_ROOT)/$(BUILD_PRODUCTS_DIR_NAME)/$(BUILD_PRODUCTS_BIN_DIR)/$(BUILD_OPERATING_ENV)/$(BUILD_ARCH)/$(BUILD_CFG)"
 OBJDIR="$(BUILD_ROOT)/$(BUILD_PRODUCTS_DIR_NAME)/$(BUILD_PRODUCTS_OBJ_DIR)/$(BUILD_OPERATING_ENV)/$(BUILD_ARCH)/$(BUILD_CFG)"
 
 # Define output executable path/name
 OUTFILE=$(BINDIR)/nist_sts_granger
+
+GRANGEROUTFILE=$(OBJDIR)/granger.py
 
 # Create bin and obj directories
 $(shell $(MKDIR) -p $(BINDIR))
@@ -89,6 +92,9 @@ CFG_INC=-I. \
 	-I../../../third-party/cJSON \
 	-I../common \
 	-I../../utilities
+
+# Define granger python location
+INCLUDE_GRANGER="-DGRANGER_PY_LOCATION=\"/"$(GRANGEROUTFILE)"\""
 
 # Define library dependencies and directory paths
 ifeq ($(BUILD_MULTI_THREADED),0)
@@ -108,9 +114,9 @@ OBJ=$(COMMON_OBJ) $(CFG_OBJ)
 #
 ifeq ($(BUILD_CFG),Debug)
 ifeq ($(BUILD_PROFILE),0)
-COMPILE=$(CC) -Wall -c -g -o "$(OBJDIR)/$(*F).o" $(CFG_INC) "$<"
+COMPILE=$(CC) -Wall -c -g -o "$(OBJDIR)/$(*F).o" $(CFG_INC) $(INCLUDE_GRANGER) "$<"
 else
-COMPILE=$(CC) -Wall -pg -c -g -o "$(OBJDIR)/$(*F).o" $(CFG_INC) "$<"
+COMPILE=$(CC) -Wall -pg -c -g -o "$(OBJDIR)/$(*F).o" $(CFG_INC) $(INCLUDE_GRANGER) "$<"
 endif
 ifeq ($(BUILD_SHARED_LIB),0)
 ifeq ($(BUILD_PROFILE),0)
@@ -132,9 +138,9 @@ endif
 #
 ifeq ($(BUILD_CFG),Release)
 ifeq ($(BUILD_PROFILE),0)
-COMPILE=$(CC) -Wall -c -Os -DNDEBUG -o "$(OBJDIR)/$(*F).o" $(CFG_INC) "$<"
+COMPILE=$(CC) -Wall -c -Os -DNDEBUG -o "$(OBJDIR)/$(*F).o" $(CFG_INC) $(INCLUDE_GRANGER) "$<"
 else
-COMPILE=$(CC) -Wall -pg -c -Os -DNDEBUG -o "$(OBJDIR)/$(*F).o" $(CFG_INC) "$<"
+COMPILE=$(CC) -Wall -pg -c -Os -DNDEBUG -o "$(OBJDIR)/$(*F).o" $(CFG_INC) $(INCLUDE_GRANGER) "$<"
 endif
 ifeq ($(BUILD_SHARED_LIB),0)
 ifeq ($(BUILD_PROFILE),0)
@@ -156,10 +162,11 @@ $(OBJDIR)/%.o : %.c
 	$(COMPILE)
 
 # Build rules
-all: $(OUTFILE)
+all: $(OUTFILE) 
 
 $(OUTFILE): $(OUTDIR)  $(OBJ)
-	$(LINK)
+	$(LINK) $(GRANGER)
+	cp ./granger.py $(GRANGEROUTFILE)
 
 # Rebuild this project
 rebuild: cleanall all

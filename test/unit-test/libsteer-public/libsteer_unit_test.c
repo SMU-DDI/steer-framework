@@ -2293,6 +2293,51 @@ void STEER_DuplicateString_Test (void)
 }
 
 // =================================================================================================
+//  STEER_ExplodeString_Test
+// =================================================================================================
+void STEER_ExplodeString_Test (void)
+{
+    int32_t result = STEER_RESULT_SUCCESS;
+
+    char* sourceStr = "This is a string.";
+    char* token = " ";
+    int numSlices = 0;
+    int * badPtr = NULL;
+    // Test with NULL source string
+    char ** dummyStr0 = STEER_ExplodeString(NULL, token, &numSlices, &result);
+    CU_ASSERT_EQUAL(result, EFAULT);
+
+    // Test with empty source string
+    char ** dummyStr1 = STEER_ExplodeString("", token, &numSlices, &result);
+    CU_ASSERT_EQUAL(result, STEER_RESULT_EMPTY_STRING);
+
+    // Test with NULL token string
+    char ** dummyStr2 = STEER_ExplodeString(sourceStr, NULL, &numSlices, &result);
+    CU_ASSERT_EQUAL(result, EFAULT);
+
+    // Test with empty token string
+    char ** dummyStr3 = STEER_ExplodeString(sourceStr, "", &numSlices, &result);
+    CU_ASSERT_EQUAL(result, STEER_RESULT_EMPTY_STRING);
+
+    // Test with NULL numSlices string
+    char ** dummyStr4 = STEER_ExplodeString(sourceStr, token, badPtr, &result);
+    CU_ASSERT_EQUAL(result, EFAULT);
+
+    // Test with valid values
+    char ** subStrings = STEER_ExplodeString(sourceStr, token, &numSlices, &result);
+    CU_ASSERT_EQUAL(result, STEER_RESULT_SUCCESS);
+    CU_ASSERT_EQUAL(numSlices, 4);
+    CU_ASSERT_EQUAL(strcmp(subStrings[0], "This"), 0);
+    CU_ASSERT_EQUAL(strcmp(subStrings[1], "is"), 0);
+    CU_ASSERT_EQUAL(strcmp(subStrings[2], "a"), 0);
+    CU_ASSERT_EQUAL(strcmp(subStrings[3], "string."), 0);
+
+    for (int i = 0; i < numSlices; i ++)
+        STEER_FreeMemory((void **) &subStrings[i]);
+    STEER_FreeMemory((void **) &subStrings);
+}
+
+// =================================================================================================
 //  STEER_ConcatenateString_Test
 // =================================================================================================
 void STEER_ConcatenateString_Test (void)
@@ -3829,6 +3874,7 @@ int main (int argc, const char * argv[])
             CU_ADD_TEST(stringUtilitiesTestSuite, STEER_ReplaceSubstring_Test);
             CU_ADD_TEST(stringUtilitiesTestSuite, STEER_SwapCharacters_Test);
             CU_ADD_TEST(stringUtilitiesTestSuite, STEER_DuplicateString_Test);
+            CU_ADD_TEST(stringUtilitiesTestSuite, STEER_ExplodeString_Test);
             CU_ADD_TEST(stringUtilitiesTestSuite, STEER_ConcatenateString_Test);
             CU_ADD_TEST(stringUtilitiesTestSuite, STEER_GetTimestampString_Test);
             CU_ADD_TEST(stringUtilitiesTestSuite, STEER_ConvertStringToCamelCase_Test);

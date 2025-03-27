@@ -534,9 +534,8 @@ int32_t STEER_RunPython (const char* filePath, const char **arguments, int numAr
         for (int i = 0; i < numArgs; i ++)
             totalLength += strlen(arguments[i]);
         
-        char * executable = (char*)malloc(totalLength + numArgs + 1);
-        if (executable == NULL)
-            return STEER_RESULT_FAILURE;
+        char * executable = NULL;
+        // char * executable = (char*)malloc(totalLength + numArgs + 1);
 
         if (result == STEER_RESULT_SUCCESS)
             result = STEER_DuplicateString(pythonStr, &executable);
@@ -549,10 +548,10 @@ int32_t STEER_RunPython (const char* filePath, const char **arguments, int numAr
         {
             if (result == STEER_RESULT_SUCCESS)
                 result = STEER_ConcatenateString(&executable, arguments[i]);
-            if ((result == STEER_RESULT_SUCCESS) && (i < numArgs - 1))
+                
+            if (result == STEER_RESULT_SUCCESS)
                 result = STEER_ConcatenateString(&executable, " ");
         }
-
 
         if (result == STEER_RESULT_SUCCESS)
         {
