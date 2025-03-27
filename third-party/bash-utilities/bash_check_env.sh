@@ -609,4 +609,47 @@ function zshCheck () {
     fi
 }
 
+# Function to check for python3
+function pythonCheck () {
+    printWithRightJustification "Python: " "${1}"
+    if hasPython3
+    then
+       PY_VERSION=$(python3Version)
+        printColor $CONSOLE_GREEN "Installed (v$PY_VERSION)"
+    elif hasPython
+    then
+       PY_VERSION=$(pythonVersion)
+        printColor $CONSOLE_GREEN "Installed (v$PY_VERSION)"
+    else
+        if [ "${2}" == "required" ]
+        then
+            printColor $CONSOLE_RED "Not installed"
+        elif [ "${2}" == "optional" ]
+        then
+            printColor $CONSOLE_YELLOW "Not installed"
+        else
+            printColor $CONSOLE_RED "Not installed"
+        fi
+    fi
+}
+
+function pythonPackageCheck () {
+    
+    printWithRightJustification "Python.scipy: " "${1}"
+    if hasPythonPackage "scipy"
+    then
+        printColor $CONSOLE_GREEN "Installed"
+    else
+        printColor $CONSOLE_YELLOW "Not installed"
+    fi
+
+    printWithRightJustification "Python.numpy: " "${1}"
+    if hasPythonPackage "numpy"
+    then
+        printColor $CONSOLE_GREEN "Installed"
+    else
+        printColor $CONSOLE_YELLOW "Not installed"
+    fi
+}
+
 # =================================================================================================

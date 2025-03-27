@@ -100,4 +100,76 @@ function zshVersion () {
     fi
 }
 
+# Function to check for python3
+function hasPython3 () {
+    if cmdInstalled "python3"; then
+        true
+    else
+        false
+    fi
+}
+
+# Function to get python3 version
+function python3Version () {
+    if hasPython3
+    then
+        PYTHON3_VER="$(python3 --version)"
+        if stringBeginsWithSubstring "$PYTHON3_VER" "Python"
+        then
+            PYTHON3_VER=${PYTHON3_VER% (*}
+            PYTHON3_VER=${PYTHON3_VER#*Python }
+            echo $PYTHON3_VER
+        else
+            echo "Unknown"
+        fi
+    else
+        echo "N/A"
+    fi
+}
+
+# Function to check for python
+function hasPython () {
+    if cmdInstalled "python"; then
+        true
+    else
+        false
+    fi
+}
+
+function pythonVersion () {
+    if hasPython
+    then
+        PYTHON_VER="$(python --version)"
+        if stringBeginsWithSubstring "$PYTHON_VER" "Python"
+        then
+            PYTHON_VER=${PYTHON_VER% (*}
+            PYTHON_VER=${PYTHON_VER#*Python }
+            echo $PYTHON_VER
+        else
+            echo "Unknown"
+        fi
+    else
+        echo "N/A"
+    fi
+}
+
+function hasPythonPackage () {
+    if hasPython3
+    then
+        if python3 -c "import $1" &> /dev/null; then
+            true
+        else
+            false
+        fi
+    elif hasPython
+    then
+        if python -c "import $1" &> /dev/null; then
+            true
+        else
+            false
+        fi
+    else
+        false
+    fi
+}
 # =================================================================================================

@@ -367,6 +367,10 @@ function checkHostEnvironment () {
 
     doxygenCheck $LABEL_WIDTH "optional"
 
+    pythonCheck $LABEL_WIDTH "optional"
+
+    pythonPackageCheck $LABEL_WIDTH
+
     printIt " "
 	exit 1
 }

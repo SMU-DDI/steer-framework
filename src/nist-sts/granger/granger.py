@@ -1,7 +1,6 @@
 import sys
 try:
     import statsmodels.api as sm
-    import multiprocessing as mp
     from typing import Tuple
     from scipy import stats
     import numpy as np
@@ -61,7 +60,6 @@ def granger_test(restricted_set: np.array, unrestricted_set: np.array,
     :param restricted_set: Region Y in the traditional Granger test, or "recent" bits
     :param unrestricted_set: Region X in the traditional Granger test, or "past" bits
     :param target:
-    :param multiprocess: Use multiprocessing
     :return: Tuple of the test log-likelihood ratio and the survival function
     """
 
