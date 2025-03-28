@@ -530,7 +530,42 @@
                         "report": "./results/validation/nist-sts/universal-statistical/test_report_sqrt3.json"
                     }
                 ]
-            }
+            },
+			{
+				"program name": "nist_sts_granger",
+				"profiles": [
+					{
+						"profile id": "e",
+						"input": "./data/validation/nist-sts/e.bin",
+						"parameters": "./test/validation/nist-sts/granger/parameters_e.json",
+						"report": "./results/validation/nist-sts/granger/test_report_e.json"
+					},
+					{
+						"profile id": "pi",
+						"input": "./data/validation/nist-sts/pi.bin",
+						"parameters": "./test/validation/nist-sts/granger/parameters_pi.json",
+						"report": "./results/validation/nist-sts/granger/test_report_pi.json"
+					},
+					{
+						"profile id": "sha1",
+						"input": "./data/validation/nist-sts/sha1.bin",
+						"parameters": "./test/validation/nist-sts/granger/parameters_sha1.json",
+						"report": "./results/validation/nist-sts/granger/test_report_sha1.json"
+					},
+					{
+						"profile id": "sqrt2",
+						"input": "./data/validation/nist-sts/sqrt2.bin",
+						"parameters": "./test/validation/nist-sts/granger/parameters_sqrt2.json",
+						"report": "./results/validation/nist-sts/granger/test_report_sqrt2.json"
+					},
+					{
+						"profile id": "sqrt3",
+						"input": "./data/validation/nist-sts/sqrt3.bin",
+						"parameters": "./test/validation/nist-sts/granger/parameters_sqrt3.json",
+						"report": "./results/validation/nist-sts/granger/test_report_sqrt3.json"
+					}
+				]
+			}
         ]   
     }
 }

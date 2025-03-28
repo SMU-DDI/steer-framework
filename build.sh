@@ -45,7 +45,7 @@ setForegroundColor $NORMAL_FORECOLOR
 #	Constants
 # =================================================================================================
 
-STEER_VERSION="0.1.0"
+STEER_VERSION="0.1.1"
 
 # Commands
 ANALYZE_CMD="--analyze"
@@ -64,6 +64,7 @@ WITH_PROFILING_CMD="--with-profiling"
 WITH_SHARED_LIBS_CMD="--with-shared-libs"
 WITH_UNIT_TEST_CMD="--with-unit-test"
 WITH_VALIDATION_CMD="--with-validation"
+WITH_GRANGER_VALIDATION_CMD="--with-granger-validation"
 
 # Analyze options
 ANALYZE_OPTION_CPPCHECK="cppcheck"
@@ -228,6 +229,13 @@ function printSummary () {
         printWithIndent "Without validation testing\n" $INDENT_LEN
     fi
 
+    if [ $BUILD_VALIDATE_GRANGER -eq 1 ]
+    then
+        printWithIndent "With Granger validation\n" $INDENT_LEN
+    else
+        printWithIndent "Without Granger validation\n" $INDENT_LEN
+    fi
+    
 	if [ $BUILD_DOCS -eq 1 ]
 	then
 		printWithIndent "With documenation\n" $INDENT_LEN
@@ -427,6 +435,8 @@ function printUsage {
     printIt "\t\t\t\t\t\t\tstatic libraries."
     printIt "\t$WITH_VALIDATION_CMD\t\t\t\tValidates test programs against the NIST STS test"
     printIt "\t\t\t\t\t\t\tvectors."
+    printIt "\t$WITH_GRANGER_VALIDATION_CMD\t\t\t\tValidates the Granger test program against"
+    printIt "\t\t\t\t\t\t\ttest vectors."
     printIt "\t$WITH_UNIT_TEST_CMD\t\t\t\tExecutes the libsteer unit tests."
 	printIt " "
 	printIt "\tPrerequisites for running this script include:"
@@ -513,6 +523,9 @@ function parseCommandLineArgument {
     elif [ "$CMD_LINE_ARG" == $WITH_VALIDATION_CMD ]
     then
         BUILD_VALIDATE=1
+    elif [ "$CMD_LINE_ARG" == $WITH_GRANGER_VALIDATION_CMD ]
+    then 
+        BUILD_VALIDATE_GRANGER=1
 	elif [ "$CMD_LINE_ARG" == $VERBOSE_CMD ]
 	then
 		BUILD_VERBOSE=1
@@ -585,6 +598,7 @@ BUILD_PROFILE=0
 BUILD_RELEASE=0
 BUILD_UNIT_TEST=0
 BUILD_VALIDATE=0
+BUILD_VALIDATE_GRANGER=0
 BUILD_VERBOSE=0
 BUILD_PRODUCTS_BIN_DIR="bin"
 BUILD_PRODUCTS_PACKAGE_ROOT="$HOME"
@@ -1122,7 +1136,7 @@ fi
 #	Validation
 # =================================================================================================
 
-if [ $BUILD_VALIDATE -eq 1 ]
+if [ $BUILD_VALIDATE -eq 1 ] || [ $BUILD_VALIDATE_GRANGER -eq 1 ]
 then
 	printBanner "VALIDATION"
 
@@ -1133,6 +1147,8 @@ then
         createDirectory "$NIST_STS_VALIDATION_RESULTS_DIR"
     fi
 
+    if [ $BUILD_VALIDATE_GRANGER -eq 0 ]
+    then
     printIt "Running validation tests..."
     pushPath "$BUILD_ROOT/$BUILD_PRODUCTS_DIR_NAME" $BUILD_VERBOSE
     "$PROG_DIR"/steer_test_scheduler -s "$BUILD_ROOT/$BUILD_PRODUCTS_DIR_NAME/src/test-scheduler/validation_test_schedule.json"
@@ -1142,6 +1158,17 @@ then
     pushPath "$BUILD_ROOT/$BUILD_PRODUCTS_DIR_NAME" $BUILD_VERBOSE
     "$PROG_DIR"/steer_run_validations -c "$BUILD_ROOT/$BUILD_PRODUCTS_DIR_NAME/src/run-validations/validation_checks.json"
     popPath $BUILD_VERBOSE
+    else
+        printIt "Running validation tests with Granger..."
+        pushPath "$BUILD_ROOT/$BUILD_PRODUCTS_DIR_NAME" $BUILD_VERBOSE
+        "$PROG_DIR"/steer_test_scheduler -s "$BUILD_ROOT/$BUILD_PRODUCTS_DIR_NAME/src/test-scheduler/granger_validation_test_schedule.json"
+        popPath $BUILD_VERBOSE
+
+        printIt "Checking validation test results..."
+        pushPath "$BUILD_ROOT/$BUILD_PRODUCTS_DIR_NAME" $BUILD_VERBOSE
+        "$PROG_DIR"/steer_run_validations -c "$BUILD_ROOT/$BUILD_PRODUCTS_DIR_NAME/src/run-validations/granger_validation_checks.json"
+        popPath $BUILD_VERBOSE
+    fi
     
 fi
 
