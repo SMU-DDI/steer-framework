@@ -6,14 +6,32 @@
                 "tests": [
                     {
                         "test id": "1", 
-                        "calculations": [
-                            {
-                                "name": "probability value",
-                                "data type":	"double precision floating point",
-                                "precision":	"6",
-                                "value":	"0.884740"
-                            }
-                        ]
+						"calculations":	[{
+                            "name":	"ones",
+                            "data type":	"unsigned 64-bit integer",
+                            "units":	"bits",
+                            "value":	"499881"
+                        }, {
+                            "name":	"zeros",
+                            "data type":	"unsigned 64-bit integer",
+                            "units":	"bits",
+                            "value":	"500119"
+                        }, {
+                            "name":	"probability value",
+                            "data type":	"double precision floating point",
+                            "precision":	"6",
+                            "value":	"0.834446"
+                        }, {
+                            "name":	"approximate entropy",
+                            "data type":	"double precision floating point",
+                            "precision":	"6",
+                            "value":	"-11.697340"
+                        }, {
+                            "name":	"chi squared",
+                            "data type":	"double precision floating point",
+                            "precision":	"6",
+                            "value":	"23.394680"
+                        }]
                     }
                 ]
             }
