@@ -33,11 +33,11 @@
 //  Private constants
 // =================================================================================================
 
-#define PROGRAM_NAME "nist_sts_granger_test"
+#define PROGRAM_NAME "granger_test"
 #define PROGRAM_VERSION "0.1.0"
-#define TEST_NAME "granger"
+#define TEST_NAME "Granger Causality"
 #define TEST_DESCRIPTION \
-    "A default test description that has yet to completed"
+    "A statistical hypothesis test for determining where one time series is useful in predicting another."
 #define CONFIGURATION_COUNT 1
 
 #define MINIMUM_BITSTREAM_COUNT 1
@@ -86,21 +86,17 @@ typedef struct tnist_grangerprivatedata
 // =================================================================================================
 
 static tSTEER_InfoList gReferences = {
-    5,
-    {"NIST Special Publication 800-22 Rev. 1a, Section 1.1.5",
-     "NIST Special Publication 800-22 Rev. 1a, Section 2.12",
-     "NIST Special Publication 800-22 Rev. 1a, Section 3.12",
-     "NIST Special Publication 800-22 Rev. 1a, Section 4.3(f)",
-     "NIST Special Publication 800-22 Rev. 1a, Appendix B"}};
+    1,
+    {"Investigating Causal Relations by Econometric Models and Cross-spectral Methods"}};
 
 static tSTEER_InfoList gAuthors = {
-    2,
-    {NIST_STS_AUTHOR_JUAN_SOTO,
-     NIST_STS_AUTHOR_LARRY_BASSHAM}};
+    1,
+    {GRANGER_AUTHOR_GRANGER}};
 
 static tSTEER_InfoList gContributors = {
-    1,
-    {STEER_CONTRIBUTOR_ALEX_MAGYARI}};
+    2,
+    {STEER_CONTRIBUTOR_JOSHUA_SYLVESTER,
+     STEER_CONTRIBUTOR_ALEX_MAGYARI}};
 
 static tSTEER_InfoList gMaintainers = {
     2,
