@@ -17,9 +17,12 @@ def import_bitstream(file_loc: str) -> np.array:
     :return: A numpy array of "1s" and "0s"
     """
 
-    return np.int64(np.fromfile(file_loc, dtype=np.uint8))
+    data_bits = np.fromfile(file_loc, dtype=np.uint8)
+    data_bits = np.unpackbits(data_bits).astype(np.int64)
 
-def format_bitstream(bitstream: list, n: int, offset: int) -> Tuple[np.array, np.array, np.array]:
+    return data_bits
+
+def format_bitstream(bitstream: list, n: int, winoffset: int) -> Tuple[np.array, np.array, np.array]:
     """
     Formats the bitstream into two sequences, restricted and unrestricted. In the terms of
     the traditional Granger test, sequence[0] represents region "X" and sequence[1] represents region "Y".
@@ -35,6 +38,7 @@ def format_bitstream(bitstream: list, n: int, offset: int) -> Tuple[np.array, np
     :return: Tuple of numpy arrays, containing the restricted, unrestricted, and target bit lists
     """
 
+    offset = winoffset * n
     sequences = [[], []]
     target_bits = []
 
@@ -63,7 +67,10 @@ def granger_test(restricted_set: np.array, unrestricted_set: np.array,
     :return: Tuple of the test log-likelihood ratio and the survival function
     """
 
+    restricted_set = sm.add_constant(restricted_set)
     restricted_result = sm.Logit(target, restricted_set).fit(disp=False)
+
+    unrestricted_set = sm.add_constant(unrestricted_set)
     unrestricted_result = sm.Logit(target, unrestricted_set).fit(disp=False)
 
     diff = restricted_result.llf - unrestricted_result.llf
@@ -77,7 +84,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="Granger")
     parser.add_argument("-l", "--data_location", type=str, help="The location of the random number data stream")
     parser.add_argument("-n", "--window_size", type=int, help="The number of bits per window", default=31)
-    parser.add_argument("-o", "--offset", type=int, help="Offset bits between the current and future windows", default=6*31)
+    parser.add_argument("-o", "--offset", type=int, help="Number of offset windows between the current and future windows", default=6)
     args = parser.parse_args()
 
     nist_data_bits = import_bitstream(args.data_location)
