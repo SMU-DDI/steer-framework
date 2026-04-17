@@ -150,6 +150,8 @@ Checking validation test results...
 
 To customize the tests, modified the files in ./src/nist-sts/test-name.
 
+Make sure to run `./build.sh` after modifying any of the test files to see the changes actually implemented in STEER.
+
 If you are only coding in C, you can stop here.
 
 5. If you are coding in C++. 
