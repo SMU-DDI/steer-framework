@@ -17,10 +17,7 @@ def import_bitstream(file_loc: str) -> np.array:
     :return: A numpy array of "1s" and "0s"
     """
 
-    data_bits = np.fromfile(file_loc, dtype=np.uint8)
-    data_bits = np.unpackbits(data_bits).astype(np.int64)
-
-    return data_bits
+    return np.int64(np.fromfile(file_loc, dtype=np.uint8))
 
 def format_bitstream(bitstream: list, n: int, winoffset: int) -> Tuple[np.array, np.array, np.array]:
     """
