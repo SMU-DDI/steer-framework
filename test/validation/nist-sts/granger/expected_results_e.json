@@ -20,17 +20,17 @@
                             "name":	"probability value",
                             "data type":	"double precision floating point",
                             "precision":	"6",
-                            "value":	"0.898171"
+                            "value":	"0.229553"
                         }, {
                             "name":	"approximate entropy",
                             "data type":	"double precision floating point",
                             "precision":	"6",
-                            "value":	"-10.748612"
+                            "value":	"-5.266785"
                         }, {
                             "name":	"chi squared",
                             "data type":	"double precision floating point",
                             "precision":	"6",
-                            "value":	"21.497224"
+                            "value":	"10.533569"
                         }]
                     }
                 ]
