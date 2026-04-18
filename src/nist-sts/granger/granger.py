@@ -80,7 +80,7 @@ def granger_test(restricted_set: np.array, unrestricted_set: np.array,
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="Granger")
     parser.add_argument("-l", "--data_location", type=str, help="The location of the random number data stream")
-    parser.add_argument("-n", "--window_size", type=int, help="The number of bits per window", default=31)
+    parser.add_argument("-n", "--window_size", type=int, help="The number of bits per window", default=8)
     parser.add_argument("-o", "--offset", type=int, help="Number of offset windows between the current and future windows", default=6)
     args = parser.parse_args()
 
