@@ -23,13 +23,13 @@
             { 
                 "name": "bits per window", 
                 "data type": "unsigned 32-bit integer", 
-                "units": "windows",
+                "units": "bits",
                 "value": "8" 
             }, 
             { 
                 "name": "window offset", 
                 "data type": "unsigned 32-bit integer", 
-                "units": "bits",
+                "units": "windows",
                 "value": "6" 
             }
         ]
