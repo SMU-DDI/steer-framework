@@ -25,13 +25,13 @@
                 "name": "bits per window", 
                 "data type": "unsigned 32-bit integer", 
                 "units": "bits",
-                "value": "31" 
+                "value": "8" 
             }, 
             { 
                 "name": "window offset", 
                 "data type": "unsigned 32-bit integer", 
-                "units": "bits",
-                "value": "186" 
+                "units": "windows",
+                "value": "6" 
             }
         ] 
     } 
