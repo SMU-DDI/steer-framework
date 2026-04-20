@@ -19,7 +19,7 @@ def import_bitstream(file_loc: str) -> np.array:
 
     return np.int64(np.fromfile(file_loc, dtype=np.uint8))
 
-def format_bitstream(bitstream: list, n: int, winoffset: int) -> Tuple[np.array, np.array, np.array]:
+def format_bitstream(bitstream: list, n: int, num_offset_windows: int) -> Tuple[np.array, np.array, np.array]:
     """
     Formats the bitstream into two sequences, restricted and unrestricted. In the terms of
     the traditional Granger test, sequence[0] represents region "X" and sequence[1] represents region "Y".
@@ -35,7 +35,7 @@ def format_bitstream(bitstream: list, n: int, winoffset: int) -> Tuple[np.array,
     :return: Tuple of numpy arrays, containing the restricted, unrestricted, and target bit lists
     """
 
-    offset = winoffset * n
+    offset = num_offset_windows * n
     sequences = [[], []]
     target_bits = []
 
@@ -81,7 +81,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="Granger")
     parser.add_argument("-l", "--data_location", type=str, help="The location of the random number data stream")
     parser.add_argument("-n", "--window_size", type=int, help="The number of bits per window", default=8)
-    parser.add_argument("-o", "--offset", type=int, help="Number of offset windows between the current and future windows", default=6)
+    parser.add_argument("-o", "--offset", type=int, help="Number of offset windows between the restricted window and target bit", default=6)
     args = parser.parse_args()
 
     nist_data_bits = import_bitstream(args.data_location)
