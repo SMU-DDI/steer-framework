@@ -14,7 +14,7 @@
                         "inputs directory": "./data/",
                         "parameters directory": "./test/multiple-bitstreams/nist-sts/approximate-entropy/",
                         "reports directory": "./results/"
-                    },
+                    }
                 ]
             }
         ]
