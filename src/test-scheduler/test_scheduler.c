@@ -221,7 +221,7 @@ int32_t SpawnTest (const char* scheduleId,
         if ((testNotes != NULL) && (strlen(testNotes) > 0))
             hasNotes = true;
     }
-
+    
     if (result == STEER_RESULT_SUCCESS)
     {
         // Is this a device?

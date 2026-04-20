@@ -33,6 +33,23 @@ extern "C"
     //! @return A string that describes the error code.
     const char* STEER_ErrorString(int32_t errorCode);
 
+    //! @fn int32_t STEER_ExplodeString (const char * sourceString, const char * tok, int * numSlices, char * substrings[])
+    //! @brief Call this function to break a string into substrings with set delimeters.
+    //! @param[in] sourceString A pointer to a UTF-8 source string.
+    //! @param[in] tok A pointer to a substring used to partition the sourceString
+    //! @param[out] numSlices A pointer to a newly allocated integer for describing the number of found substrings
+    //! @param[out] result The result
+    //! @return A string array of substrings
+    //! @note
+    //! A result value of __STEER_RESULT_SUCCESS__ indicates success.\n
+    //! A result value of __EINVAL__ indicates an invalid argument was provided by the caller.\n
+    //! A result value of __EFAULT__ indicates a __NULL__ pointer was used as an argument by the caller.
+    //! @warning The caller of this function is responsible for freeing the allocated buffer
+    //! with [STEER_FreeMemory](@ref STEER_FreeMemory).
+    char **  STEER_ExplodeString(const char * sourceString, 
+                                const char * tok, int * numSlices,
+                                int * result);
+
     //! @fn int32_t STEER_DuplicateString (const char* sourceString, char** duplicatedString)
     //! @brief Call this function to duplicate a string.
     //! @param[in] sourceString A pointer to a UTF-8 source string.

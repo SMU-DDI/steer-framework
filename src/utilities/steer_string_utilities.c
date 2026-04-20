@@ -794,6 +794,66 @@ const char* STEER_ErrorString(int32_t errorCode)
 }
 
 // =================================================================================================
+//  STEER_ExplodeString
+// =================================================================================================
+char ** STEER_ExplodeString(const char * sourceString, 
+                            const char * tok, int * numSlices, int * result)
+{
+    *result = STEER_RESULT_SUCCESS;
+
+    *result = STEER_CHECK_STRING(sourceString);
+    if (*result == STEER_RESULT_SUCCESS)
+        *result = STEER_CHECK_STRING(tok);
+    if (*result == STEER_RESULT_SUCCESS)
+        *result = STEER_CHECK_POINTER(numSlices);
+
+    if (*result == STEER_RESULT_SUCCESS)
+    {   
+        char * strBuf = NULL;
+        *result = STEER_DuplicateString(sourceString, &strBuf);
+        
+        if (*result == STEER_RESULT_SUCCESS)
+        {   
+            const char * rdPtr = strBuf;
+            char * pos;
+            *numSlices = 1;
+
+            size_t strLen = strlen(sourceString);
+            size_t tokLen = strlen(tok);
+            while ((pos = strstr(rdPtr, tok)))
+            {
+                (*numSlices) ++;
+                strBuf[(int)(pos-strBuf)] = '\0';
+                rdPtr = pos + tokLen;
+            }
+
+            char **substrings = malloc((*numSlices) * sizeof(char *));
+
+            if (*result == STEER_RESULT_SUCCESS)
+            {
+                rdPtr = strBuf;
+                char * pos;
+                int subStrIdx = 0;
+                int idx = 0;
+                while (idx <= strLen)
+                {
+                    if (strBuf[idx] == '\0')
+                    {
+                        substrings[subStrIdx++] = strdup(rdPtr);
+                        idx += tokLen;
+                        rdPtr = strBuf + idx;
+                    } else { 
+                        idx++; 
+                    }
+                }
+            }
+            STEER_FreeMemory((void **) &strBuf);
+            return substrings;
+        }
+    }
+}
+
+// =================================================================================================
 //  STEER_DuplicateString
 // =================================================================================================
 int32_t STEER_DuplicateString (const char* sourceString,

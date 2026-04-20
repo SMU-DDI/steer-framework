@@ -34,6 +34,7 @@
 #define NIST_STS_NAME                       "NIST Statistical Test Suite (STS)"
 #define NIST_STS_AUTHOR_JUAN_SOTO           "Juan Soto (NIST)"
 #define NIST_STS_AUTHOR_LARRY_BASSHAM       "Larry Bassham (NIST)"
+#define GRANGER_AUTHOR_GRANGER              "C.W.J. Granger"
 #define STEER_AUTHOR_GARY_WOODCOCK          "Gary Woodcock (Anametric)"
 #define STEER_MAINTAINER_ANAMETRIC          "Anametric, Inc."
 #define STEER_MAINTAINER_SMU_DARWIN_DEASON  "SMU Darwin Deason Institute for Cyber Security"

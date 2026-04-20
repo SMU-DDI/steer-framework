@@ -39,6 +39,12 @@ The required installs are listed below:
 * `scan-build`
 * `valgrind`
 
+To run Granger, you also must have the following installed:
+
+* `Python` or `Python3`
+* `Python.scipy`
+* `Python.numpy`
+
 #### Installing Prerequisites for Linux (Ubuntu)
 
 [Ubuntu Linux 20.04.3 LTS](https://ubuntu.com/download/desktop) or later is recommended as the preferred Debian Linux distribution. Open a terminal window and execute the following commands:
@@ -125,6 +131,10 @@ This will display a summary of prerequisite status, similar to this (taken from 
            scan-build: Not installed
              valgrind: Not installed
               Doxygen: Installed (v1.9.3)
+               Python: Installed (v3.10.12)
+         Python.scipy: Installed
+         Python.numpy: Installed
+
 
 #### Confirming Installation
 
@@ -162,6 +172,29 @@ If everything is working properly, you should see this output when the script co
                              Total execution time: 10 seconds
 
 Note that the "Total test programs with errors" and the "Total validation programs with errors" both have values of 0. If this summary doesn't appear, or if the numbers are not both 0, then the build did not complete as expected, and you should examine the rest of the terminal output for error messages.
+
+If you would also like to validate the Granger Causality Test, run:
+    ./build.sh --clean --debug --with-granger-validation
+
+This test will run the same as before, but include Granger causality. Note that Granger requires at least 8GB of free memory and will take a few minutes to run. Upon completion, you should see the following:
+
+    ******************
+    *** VALIDATION ***
+    ******************
+
+    Running validation tests with Granger...
+
+                Total test programs spawned: 80
+              Total test programs completed: 80
+            Total test programs with errors: 0
+                       Total execution time: 97 seconds
+
+    Checking validation test results...
+
+                Total validation programs spawned: 80
+              Total validation programs completed: 80
+            Total validation programs with errors: 0
+                             Total execution time: 1 seconds
 
 ## Usage <a name = "usage"></a>
 

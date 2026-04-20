@@ -239,6 +239,19 @@ static const char* kDummyReportJson = "{ \
 } \
     }";
 
+static const char* kPythonTest = "\
+try: \n\
+\timport argparse \n\
+\timport sys \n\
+except ImportError as e: \n\
+\tprint(\"Error: Missing library: \" + str(e)) \n\
+\tsys.exit(1) \n\
+if __name__ == '__main__': \n\
+\tparser = argparse.ArgumentParser(description=\"DummyTest\") \n\
+\tparser.add_argument(\"-t\", \"--test_arg\", type=str, help=\"A dummy test\") \n\
+\targs = parser.parse_args() \n\
+\tprint(f\"Success: {args.test_arg}\")";
+
 static tSTEER_InfoList gAuthor = {
     1, { "Unit tester" }
 };
@@ -2280,6 +2293,51 @@ void STEER_DuplicateString_Test (void)
 }
 
 // =================================================================================================
+//  STEER_ExplodeString_Test
+// =================================================================================================
+void STEER_ExplodeString_Test (void)
+{
+    int32_t result = STEER_RESULT_SUCCESS;
+
+    char* sourceStr = "This is a string.";
+    char* token = " ";
+    int numSlices = 0;
+    int * badPtr = NULL;
+    // Test with NULL source string
+    char ** dummyStr0 = STEER_ExplodeString(NULL, token, &numSlices, &result);
+    CU_ASSERT_EQUAL(result, EFAULT);
+
+    // Test with empty source string
+    char ** dummyStr1 = STEER_ExplodeString("", token, &numSlices, &result);
+    CU_ASSERT_EQUAL(result, STEER_RESULT_EMPTY_STRING);
+
+    // Test with NULL token string
+    char ** dummyStr2 = STEER_ExplodeString(sourceStr, NULL, &numSlices, &result);
+    CU_ASSERT_EQUAL(result, EFAULT);
+
+    // Test with empty token string
+    char ** dummyStr3 = STEER_ExplodeString(sourceStr, "", &numSlices, &result);
+    CU_ASSERT_EQUAL(result, STEER_RESULT_EMPTY_STRING);
+
+    // Test with NULL numSlices string
+    char ** dummyStr4 = STEER_ExplodeString(sourceStr, token, badPtr, &result);
+    CU_ASSERT_EQUAL(result, EFAULT);
+
+    // Test with valid values
+    char ** subStrings = STEER_ExplodeString(sourceStr, token, &numSlices, &result);
+    CU_ASSERT_EQUAL(result, STEER_RESULT_SUCCESS);
+    CU_ASSERT_EQUAL(numSlices, 4);
+    CU_ASSERT_EQUAL(strcmp(subStrings[0], "This"), 0);
+    CU_ASSERT_EQUAL(strcmp(subStrings[1], "is"), 0);
+    CU_ASSERT_EQUAL(strcmp(subStrings[2], "a"), 0);
+    CU_ASSERT_EQUAL(strcmp(subStrings[3], "string."), 0);
+
+    for (int i = 0; i < numSlices; i ++)
+        STEER_FreeMemory((void **) &subStrings[i]);
+    STEER_FreeMemory((void **) &subStrings);
+}
+
+// =================================================================================================
 //  STEER_ConcatenateString_Test
 // =================================================================================================
 void STEER_ConcatenateString_Test (void)
@@ -2931,6 +2989,81 @@ void STEER_FreeMemory_Test (void)
     CU_ASSERT_PTR_NOT_NULL(buffer);
     STEER_FreeMemory(&buffer);
     CU_ASSERT_PTR_NULL(buffer);
+}
+
+// =================================================================================================
+//  STEER_CheckPython_Test
+// =================================================================================================
+void STEER_CheckPython_Test (void)
+{
+    int32_t result = STEER_RESULT_SUCCESS;
+    
+    // Test with NULL buffer pointer
+    int pythonType = 0;
+
+    // Test with NULL buffer pointer
+    result = STEER_CheckPython(NULL);
+    CU_ASSERT_EQUAL(result, EFAULT);
+
+    // Test with valid argument
+    result = STEER_CheckPython(&pythonType);
+    CU_ASSERT_EQUAL(result, STEER_RESULT_SUCCESS);
+}
+
+// =================================================================================================
+//  STEER_RunPython_Test
+// =================================================================================================
+void STEER_RunPython_Test (void)
+{
+    int32_t result = STEER_RESULT_SUCCESS;
+
+    const char * filepath = "/tmp/pythonTestFile.py";
+    const char * args[] = {
+        "-t",
+        "\"test string successful!\""
+    };
+    
+    char * outputBuf;
+    const char * emptyStr = "";
+    const char * emptyStrArr[] = {emptyStr};
+
+    result = CreateTestFile(filepath, kPythonTest);
+    CU_ASSERT_EQUAL(result, STEER_RESULT_SUCCESS);
+
+
+    // Test with NULL filePath
+    result = STEER_RunPython (NULL, args, 2, &outputBuf);
+    CU_ASSERT_EQUAL(result, EFAULT);
+
+    // Test with empty filePath
+    result = STEER_RunPython (emptyStr, args, 2, &outputBuf);
+    CU_ASSERT_EQUAL(result, STEER_RESULT_EMPTY_STRING);
+
+    // Test with NULL args
+    result = STEER_RunPython (filepath, NULL, 0, &outputBuf);
+    CU_ASSERT_EQUAL(result, EFAULT);
+
+    // Test with negative args
+    result = STEER_RunPython (filepath, args, -1, &outputBuf);
+    CU_ASSERT_EQUAL(result, STEER_RESULT_OUT_OF_RANGE);
+
+    // Test with null output
+    result = STEER_RunPython (filepath, args, 0, NULL);
+    CU_ASSERT_EQUAL(result, EFAULT);
+
+    // Test with empty args
+    result = STEER_RunPython (filepath, emptyStrArr, 0, &outputBuf);
+    CU_ASSERT_EQUAL(result, STEER_RESULT_SUCCESS);
+    CU_ASSERT_EQUAL(strcmp(outputBuf, "Success: None\n"), 0);
+    STEER_FreeMemory((void**)&outputBuf);
+
+    // Test with valid argument
+    result = STEER_RunPython(filepath, args, 2, &outputBuf);
+    CU_ASSERT_EQUAL(strcmp(outputBuf, "Success: test string successful!\n"), 0);
+    CU_ASSERT_EQUAL(result, STEER_RESULT_SUCCESS);
+
+    STEER_FreeMemory((void**)&outputBuf);
+    CU_ASSERT_PTR_NULL(outputBuf);
 }
 
 // =================================================================================================
@@ -3741,6 +3874,7 @@ int main (int argc, const char * argv[])
             CU_ADD_TEST(stringUtilitiesTestSuite, STEER_ReplaceSubstring_Test);
             CU_ADD_TEST(stringUtilitiesTestSuite, STEER_SwapCharacters_Test);
             CU_ADD_TEST(stringUtilitiesTestSuite, STEER_DuplicateString_Test);
+            CU_ADD_TEST(stringUtilitiesTestSuite, STEER_ExplodeString_Test);
             CU_ADD_TEST(stringUtilitiesTestSuite, STEER_ConcatenateString_Test);
             CU_ADD_TEST(stringUtilitiesTestSuite, STEER_GetTimestampString_Test);
             CU_ADD_TEST(stringUtilitiesTestSuite, STEER_ConvertStringToCamelCase_Test);
@@ -3789,6 +3923,9 @@ int main (int argc, const char * argv[])
             CU_ADD_TEST(utilitiesTestSuite, STEER_AllocateMemory_Test);
             CU_ADD_TEST(utilitiesTestSuite, STEER_ReallocateMemory_Test);
             CU_ADD_TEST(utilitiesTestSuite, STEER_FreeMemory_Test);
+            CU_ADD_TEST(utilitiesTestSuite, STEER_CheckPython_Test);
+            CU_ADD_TEST(utilitiesTestSuite, STEER_RunPython_Test);
+            
             CU_ADD_TEST(utilitiesTestSuite, STEER_WaitForProcessesToComplete_Test);
         }
         else    // CU_add_suite failed
