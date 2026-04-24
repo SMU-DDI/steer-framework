@@ -95,6 +95,6 @@ if __name__ == '__main__':
     diff, lr, pval, pst_pval, pst_lr = granger_test(rs, us, t)
     ones = (nist_data_bits == 0).sum()
     zeroes = (nist_data_bits == 1).sum()
-    print("success", diff, lr, pval, pst_pval, pst_lr ones, zeroes, end="")
+    print("success", diff, lr, pval, pst_pval, pst_lr, ones, zeroes, end="")
 
 
