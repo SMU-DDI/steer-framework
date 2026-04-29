@@ -183,7 +183,7 @@ static tSTEER_ParametersInfo gParametersInfo = {
 // =================================================================================================
 int32_t RunTest(tNIST_GrangerPrivateData *privateData,
                 uint8_t *bitstreamBuffer,
-                bool *passed)
+                bool *passed, bool *PSTpassed)
 {
     int32_t result = STEER_RESULT_SUCCESS;
     int_fast32_t i = 0;
@@ -199,6 +199,7 @@ int32_t RunTest(tNIST_GrangerPrivateData *privateData,
     privateData->ones = 0;
     privateData->zeros = 0;
     *passed = false;
+    *PSTpassed = false;
     seqLength = gCommonData.bitstreamLength;
 
     FILE *fp;
@@ -293,6 +294,8 @@ int32_t RunTest(tNIST_GrangerPrivateData *privateData,
                 result = STEER_ConvertStringToUnsigned64BitInteger(subStrings[7], &(privateData->zeros));
             if (result == STEER_RESULT_SUCCESS)
                 *passed = (privateData->probabilityValue >= gCommonData.significanceLevel);
+            if (result == STEER_RESULT_SUCCESS)
+                *PSTpassed = (privateData->PSTprobabilityValue >= gCommonData.significanceLevel);
         }
         for (int i = 0; i < numResults; i++)
             STEER_FreeMemory((void **)&subStrings[i]);
@@ -512,6 +515,7 @@ int32_t ExecuteTest(void *testPrivateData,
     int32_t result = STEER_RESULT_SUCCESS;
     tNIST_GrangerPrivateData *privData = (tNIST_GrangerPrivateData *)testPrivateData;
     bool passed = false;
+    bool PSTpassed = false;
     char calculationStr[STEER_STRING_MAX_LENGTH] = {0};
     char criterionStr[STEER_STRING_MAX_LENGTH] = {0};
     uint64_t testId = 0;
@@ -528,7 +532,7 @@ int32_t ExecuteTest(void *testPrivateData,
     privData->PSTprobabilityValue = 0;
 
     // Run the test
-    result = RunTest(privData, buffer, &passed);
+    result = RunTest(privData, buffer, &passed, &PSTpassed);
 
     // Add calculations to current test
     if (result == STEER_RESULT_SUCCESS)
@@ -676,6 +680,30 @@ int32_t ExecuteTest(void *testPrivateData,
 
     if (result == STEER_RESULT_SUCCESS)
     {
+        // PST Probability value in range
+        memset((void *)criterionStr, 0, STEER_STRING_MAX_LENGTH);
+        sprintf(criterionStr, "%s of %.*f > %.*f",
+                STEER_JSON_TAG_PST_PROBABILITY_VALUE,
+                STEER_DEFAULT_FLOATING_POINT_PRECISION,
+                privData->PSTprobabilityValue,
+                STEER_DEFAULT_FLOATING_POINT_PRECISION, 0.0);
+        result = STEER_AddCriterionToTest(privData->report, 0, testId, criterionStr,
+                                          (privData->PSTprobabilityValue > 0.0) ? true : false);
+        if (result == STEER_RESULT_SUCCESS)
+        {
+            memset((void *)criterionStr, 0, STEER_STRING_MAX_LENGTH);
+            sprintf(criterionStr, "%s of %.*f <= %.*f",
+                    STEER_JSON_TAG_PST_PROBABILITY_VALUE,
+                    STEER_DEFAULT_FLOATING_POINT_PRECISION,
+                    privData->PSTprobabilityValue,
+                    STEER_DEFAULT_FLOATING_POINT_PRECISION, 1.0);
+            result = STEER_AddCriterionToTest(privData->report, 0, testId, criterionStr,
+                                              (privData->PSTprobabilityValue <= 1.0) ? true : false);
+        }
+    }
+    
+    if (result == STEER_RESULT_SUCCESS)
+    {
         // Probability value
         memset((void *)criterionStr, 0, STEER_STRING_MAX_LENGTH);
         sprintf(criterionStr, "%s of %.*f >= %s of %.*f",
@@ -689,6 +717,21 @@ int32_t ExecuteTest(void *testPrivateData,
                                           (privData->probabilityValue >= gCommonData.significanceLevel) ? true : false);
     }
 
+    if (result == STEER_RESULT_SUCCESS)
+    {
+        // PST Probability value
+        memset((void *)criterionStr, 0, STEER_STRING_MAX_LENGTH);
+        sprintf(criterionStr, "%s of %.*f >= %s of %.*f",
+                STEER_JSON_TAG_PST_PROBABILITY_VALUE,
+                STEER_DEFAULT_FLOATING_POINT_PRECISION,
+                privData->PSTprobabilityValue,
+                STEER_JSON_TAG_SIGNIFICANCE_LEVEL,
+                gCommonData.significanceLevelPrecision,
+                gCommonData.significanceLevel);
+        result = STEER_AddCriterionToTest(privData->report, 0, testId, criterionStr,
+                                          (privData->PSTprobabilityValue >= gCommonData.significanceLevel) ? true : false);
+    }
+    
     // Add evaluation to current test
     if (result == STEER_RESULT_SUCCESS)
     {
@@ -704,6 +747,21 @@ int32_t ExecuteTest(void *testPrivateData,
         }
     }
 
+    // Add evaluation to current test (PST)
+    if (result == STEER_RESULT_SUCCESS)
+    {
+        bool PSTpassed = false;
+        result = STEER_AddEvaluationToTest(privData->report, 0, testId, &PSTpassed);
+        if (result == STEER_RESULT_SUCCESS)
+        {
+            privData->configurationState[0].testsRun++;
+            if (passed)
+                privData->configurationState[0].testsPassed++;
+            else
+                privData->configurationState[0].testsFailed++;
+        }
+    }
+    
     // Clean up
     STEER_FreeMemory((void **)&buffer);
 
