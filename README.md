@@ -196,6 +196,16 @@ This test will run the same as before, but include Granger causality. Note that 
             Total validation programs with errors: 0
                              Total execution time: 1 seconds
 
+For standalone python versions or GPU-accelerated versions of Granger causality, please see this repository: `https://github.com/sillyvester/Granger-Causality-Tests-For-Randomness#`
+
+Citing: Please cite our publications on the GTR and PST.
+
+* Sylvester, Joshua H., Thornton, Micah A., Henderson, Jessie M., Thornton, Mitchell A. and Larson, Eric C.. "GTR: Granger-inspired test for randomness in bitstreams" it - Information Technology. https://doi.org/10.1515/itit-2025-0027
+
+* J. H. Sylvester, Micah A. Thornton, E.C. Larson, Mitch A. Thornton (2026). Granger-inspired Predictive Structure Test for RBG/RNG Evaluation. Dallas Circuit and Systems (DCAS) (Apr 10-12, 2026), DOI Pending
+
+* J. H. Sylvester (2026). Beyond Time Series: Extending Granger Causality for Clustering, Representation Learning, and Randomness Testing. Ph.D. Dissertation, Southern Methodist University (unpublished).
+
 ## Usage <a name = "usage"></a>
 
 The STEER Framework source code is organized into the following directories:

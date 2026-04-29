@@ -153,6 +153,8 @@
 #define STEER_JSON_TAG_PROFILES                                             "profiles"
 #define STEER_JSON_TAG_PROGRAM_NAME                                         "program name"
 #define STEER_JSON_TAG_PROGRAM_VERSION                                      "program version"
+#define STEER_JSON_TAG_PST_CHI_SQUARED                                      "pst granger chi squared"
+#define STEER_JSON_TAG_PST_PROBABILITY_VALUE                                "pst granger probability value"
 #define STEER_JSON_TAG_RANDOM_EXCURSION_STATE                               "random excursion state"
 #define STEER_JSON_TAG_RANDOM_NUMBER_SOURCE                                 "random number source"
 #define STEER_JSON_TAG_RANK_30                                              "rank 30"

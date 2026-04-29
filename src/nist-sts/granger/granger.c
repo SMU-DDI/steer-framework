@@ -74,6 +74,8 @@ typedef struct tnist_grangerprivatedata
     double granger;
     double chiSquared;
     double probabilityValue;
+    double PSTprobabilityValue;
+    double PSTchiSquared;
     uint32_t recommendedWindowSize;
     uint32_t recommendedWindowOffset;
     uint64_t ones;
@@ -181,7 +183,7 @@ static tSTEER_ParametersInfo gParametersInfo = {
 // =================================================================================================
 int32_t RunTest(tNIST_GrangerPrivateData *privateData,
                 uint8_t *bitstreamBuffer,
-                bool *passed)
+                bool *passed, bool *PSTpassed)
 {
     int32_t result = STEER_RESULT_SUCCESS;
     int_fast32_t i = 0;
@@ -190,11 +192,14 @@ int32_t RunTest(tNIST_GrangerPrivateData *privateData,
     privateData->chiSquared = 0.0;
     privateData->granger = 0.0;
     privateData->probabilityValue = 0.0;
+    privateData->PSTprobabilityValue = 0.0;
+    privateData->PSTchiSquared = 0.0;
     privateData->recommendedWindowSize = 20;
     privateData->recommendedWindowOffset = 10;
     privateData->ones = 0;
     privateData->zeros = 0;
     *passed = false;
+    *PSTpassed = false;
     seqLength = gCommonData.bitstreamLength;
 
     FILE *fp;
@@ -265,7 +270,7 @@ int32_t RunTest(tNIST_GrangerPrivateData *privateData,
     {
         int numResults = 0;
         char **subStrings = STEER_ExplodeString(pythonBuf, " ", &numResults, &result);
-        result = STEER_CHECK_CONDITION((numResults == 6), STEER_RESULT_OUT_OF_RANGE);
+        result = STEER_CHECK_CONDITION((numResults == 8), STEER_RESULT_OUT_OF_RANGE);
         if (result == STEER_RESULT_SUCCESS)
             result = STEER_CHECK_CONDITION((strcmp(subStrings[0], "success") == 0), STEER_RESULT_FAILURE);
         STEER_FreeMemory((void **)&pythonBuf);
@@ -280,11 +285,17 @@ int32_t RunTest(tNIST_GrangerPrivateData *privateData,
             if (result == STEER_RESULT_SUCCESS)
                 result = STEER_ConvertStringToDoublePrecisionFloatingPoint(subStrings[3], &(privateData->probabilityValue));
             if (result == STEER_RESULT_SUCCESS)
-                result = STEER_ConvertStringToUnsigned64BitInteger(subStrings[4], &(privateData->ones));
+                result = STEER_ConvertStringToDoublePrecisionFloatingPoint(subStrings[4], &(privateData->PSTprobabilityValue));
             if (result == STEER_RESULT_SUCCESS)
-                result = STEER_ConvertStringToUnsigned64BitInteger(subStrings[5], &(privateData->zeros));
+                result = STEER_ConvertStringToDoublePrecisionFloatingPoint(subStrings[5], &(privateData->PSTchiSquared));
+            if (result == STEER_RESULT_SUCCESS)
+                result = STEER_ConvertStringToUnsigned64BitInteger(subStrings[6], &(privateData->ones));
+            if (result == STEER_RESULT_SUCCESS)
+                result = STEER_ConvertStringToUnsigned64BitInteger(subStrings[7], &(privateData->zeros));
             if (result == STEER_RESULT_SUCCESS)
                 *passed = (privateData->probabilityValue >= gCommonData.significanceLevel);
+            if (result == STEER_RESULT_SUCCESS)
+                *PSTpassed = (privateData->PSTprobabilityValue >= gCommonData.significanceLevel);
         }
         for (int i = 0; i < numResults; i++)
             STEER_FreeMemory((void **)&subStrings[i]);
@@ -504,6 +515,7 @@ int32_t ExecuteTest(void *testPrivateData,
     int32_t result = STEER_RESULT_SUCCESS;
     tNIST_GrangerPrivateData *privData = (tNIST_GrangerPrivateData *)testPrivateData;
     bool passed = false;
+    bool PSTpassed = false;
     char calculationStr[STEER_STRING_MAX_LENGTH] = {0};
     char criterionStr[STEER_STRING_MAX_LENGTH] = {0};
     uint64_t testId = 0;
@@ -516,9 +528,11 @@ int32_t ExecuteTest(void *testPrivateData,
     privData->id = bitstreamId;
     privData->chiSquared = 0;
     privData->probabilityValue = 0;
+    privData->PSTchiSquared = 0;
+    privData->PSTprobabilityValue = 0;
 
     // Run the test
-    result = RunTest(privData, buffer, &passed);
+    result = RunTest(privData, buffer, &passed, &PSTpassed);
 
     // Add calculations to current test
     if (result == STEER_RESULT_SUCCESS)
@@ -547,7 +561,7 @@ int32_t ExecuteTest(void *testPrivateData,
 
     if (result == STEER_RESULT_SUCCESS)
     {
-        // Add probability value
+        // Add GTR probability value
         memset((void *)calculationStr, 0, STEER_STRING_MAX_LENGTH);
         sprintf(calculationStr, STEER_DEFAULT_FLOATING_POINT_STRING_FORMAT,
                 STEER_DEFAULT_FLOATING_POINT_PRECISION, privData->probabilityValue);
@@ -573,7 +587,7 @@ int32_t ExecuteTest(void *testPrivateData,
 
     if (result == STEER_RESULT_SUCCESS)
     {
-        // Add chi squared
+        // Add GTR chi squared
         memset((void *)calculationStr, 0, STEER_STRING_MAX_LENGTH);
         sprintf(calculationStr, STEER_DEFAULT_FLOATING_POINT_STRING_FORMAT,
                 STEER_DEFAULT_FLOATING_POINT_PRECISION, privData->chiSquared);
@@ -584,6 +598,32 @@ int32_t ExecuteTest(void *testPrivateData,
                                             NULL, calculationStr);
     }
 
+    if (result == STEER_RESULT_SUCCESS)
+    {
+        // Add PST probability value
+        memset((void *)calculationStr, 0, STEER_STRING_MAX_LENGTH);
+        sprintf(calculationStr, STEER_DEFAULT_FLOATING_POINT_STRING_FORMAT,
+                STEER_DEFAULT_FLOATING_POINT_PRECISION, privData->PSTprobabilityValue);
+        result = STEER_AddCalculationToTest(privData->report, 0, testId,
+                                            STEER_JSON_TAG_PST_PROBABILITY_VALUE,
+                                            STEER_JSON_VALUE_DOUBLE_PRECISION_FLOATING_POINT,
+                                            STEER_JSON_VALUE_DEFAULT_FLOATING_POINT_PRECISION,
+                                            NULL, calculationStr);
+    }
+
+    if (result == STEER_RESULT_SUCCESS)
+    {
+        // Add PST chi squared
+        memset((void *)calculationStr, 0, STEER_STRING_MAX_LENGTH);
+        sprintf(calculationStr, STEER_DEFAULT_FLOATING_POINT_STRING_FORMAT,
+                STEER_DEFAULT_FLOATING_POINT_PRECISION, privData->PSTchiSquared);
+        result = STEER_AddCalculationToTest(privData->report, 0, testId,
+                                            STEER_JSON_TAG_PST_CHI_SQUARED,
+                                            STEER_JSON_VALUE_DOUBLE_PRECISION_FLOATING_POINT,
+                                            STEER_JSON_VALUE_DEFAULT_FLOATING_POINT_PRECISION,
+                                            NULL, calculationStr);
+    }
+    
     if (result == STEER_RESULT_SUCCESS)
     {
         // Recommended window
@@ -640,6 +680,30 @@ int32_t ExecuteTest(void *testPrivateData,
 
     if (result == STEER_RESULT_SUCCESS)
     {
+        // PST Probability value in range
+        memset((void *)criterionStr, 0, STEER_STRING_MAX_LENGTH);
+        sprintf(criterionStr, "%s of %.*f > %.*f",
+                STEER_JSON_TAG_PST_PROBABILITY_VALUE,
+                STEER_DEFAULT_FLOATING_POINT_PRECISION,
+                privData->PSTprobabilityValue,
+                STEER_DEFAULT_FLOATING_POINT_PRECISION, 0.0);
+        result = STEER_AddCriterionToTest(privData->report, 0, testId, criterionStr,
+                                          (privData->PSTprobabilityValue > 0.0) ? true : false);
+        if (result == STEER_RESULT_SUCCESS)
+        {
+            memset((void *)criterionStr, 0, STEER_STRING_MAX_LENGTH);
+            sprintf(criterionStr, "%s of %.*f <= %.*f",
+                    STEER_JSON_TAG_PST_PROBABILITY_VALUE,
+                    STEER_DEFAULT_FLOATING_POINT_PRECISION,
+                    privData->PSTprobabilityValue,
+                    STEER_DEFAULT_FLOATING_POINT_PRECISION, 1.0);
+            result = STEER_AddCriterionToTest(privData->report, 0, testId, criterionStr,
+                                              (privData->PSTprobabilityValue <= 1.0) ? true : false);
+        }
+    }
+    
+    if (result == STEER_RESULT_SUCCESS)
+    {
         // Probability value
         memset((void *)criterionStr, 0, STEER_STRING_MAX_LENGTH);
         sprintf(criterionStr, "%s of %.*f >= %s of %.*f",
@@ -653,6 +717,21 @@ int32_t ExecuteTest(void *testPrivateData,
                                           (privData->probabilityValue >= gCommonData.significanceLevel) ? true : false);
     }
 
+    if (result == STEER_RESULT_SUCCESS)
+    {
+        // PST Probability value
+        memset((void *)criterionStr, 0, STEER_STRING_MAX_LENGTH);
+        sprintf(criterionStr, "%s of %.*f >= %s of %.*f",
+                STEER_JSON_TAG_PST_PROBABILITY_VALUE,
+                STEER_DEFAULT_FLOATING_POINT_PRECISION,
+                privData->PSTprobabilityValue,
+                STEER_JSON_TAG_SIGNIFICANCE_LEVEL,
+                gCommonData.significanceLevelPrecision,
+                gCommonData.significanceLevel);
+        result = STEER_AddCriterionToTest(privData->report, 0, testId, criterionStr,
+                                          (privData->PSTprobabilityValue >= gCommonData.significanceLevel) ? true : false);
+    }
+    
     // Add evaluation to current test
     if (result == STEER_RESULT_SUCCESS)
     {
@@ -668,6 +747,21 @@ int32_t ExecuteTest(void *testPrivateData,
         }
     }
 
+    // Add evaluation to current test (PST)
+    if (result == STEER_RESULT_SUCCESS)
+    {
+        bool PSTpassed = false;
+        result = STEER_AddEvaluationToTest(privData->report, 0, testId, &PSTpassed);
+        if (result == STEER_RESULT_SUCCESS)
+        {
+            privData->configurationState[0].testsRun++;
+            if (passed)
+                privData->configurationState[0].testsPassed++;
+            else
+                privData->configurationState[0].testsFailed++;
+        }
+    }
+    
     // Clean up
     STEER_FreeMemory((void **)&buffer);
 

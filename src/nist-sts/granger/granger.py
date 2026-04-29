@@ -70,11 +70,16 @@ def granger_test(restricted_set: np.array, unrestricted_set: np.array,
     unrestricted_set = sm.add_constant(unrestricted_set)
     unrestricted_result = sm.Logit(target, unrestricted_set).fit(disp=False)
 
+    " GTR Results "
     diff = restricted_result.llf - unrestricted_result.llf
     lr = -2 * (diff)
     sf = stats.chi2.sf(lr, unrestricted_set.shape[1] - restricted_set.shape[1])
 
-    return diff, lr, sf
+    " PST Results "
+    pst_pval = unrestricted_result.llr_pvalue
+    pst_lr = unrestricted_result.llr
+    
+    return diff, lr, sf, pst_pval, pst_lr
 
 
 if __name__ == '__main__':
@@ -87,9 +92,9 @@ if __name__ == '__main__':
     nist_data_bits = import_bitstream(args.data_location)
     
     rs, us, t = format_bitstream(nist_data_bits, args.window_size, args.offset)
-    diff, lr, pval = granger_test(rs, us, t)
+    diff, lr, pval, pst_pval, pst_lr = granger_test(rs, us, t)
     ones = (nist_data_bits == 0).sum()
     zeroes = (nist_data_bits == 1).sum()
-    print("success", diff, lr, pval, ones, zeroes, end="")
+    print("success", diff, lr, pval, pst_pval, pst_lr, ones, zeroes, end="")
 
 
