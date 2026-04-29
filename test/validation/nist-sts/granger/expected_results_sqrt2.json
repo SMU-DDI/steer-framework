@@ -31,7 +31,17 @@
                             "data type":	"double precision floating point",
                             "precision":	"6",
                             "value":	"7.857896"
-                        }]
+                        }, {
+							"name":	"pst granger probability value",
+							"data type":	"double precision floating point",
+							"precision":	"6",
+							"value":	"0.461235"
+						}, {
+							"name":	"pst granger chi squared",
+							"data type":	"double precision floating point",
+							"precision":	"6",
+							"value":	"15.881875"
+						}]
                     }
                 ]
             }
